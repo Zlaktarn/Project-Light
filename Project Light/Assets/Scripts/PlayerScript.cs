@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
 
     private CharacterController charController;
 
+    public int health = 100;
+
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
@@ -18,6 +20,11 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         Controls();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
     }
 
     void Controls()

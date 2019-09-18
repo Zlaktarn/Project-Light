@@ -5,34 +5,43 @@ using UnityEngine;
 public class LootScript : MonoBehaviour
 {
     bool Triggered = false;
-    private Color oldColor = Color.white;
+    bool pickedUp = false;
+    private Color oldColor = Color.red;
+    Renderer render;
+
+    [SerializeField] public int itemID;
+
+    private void Start()
+    {
+        render = GetComponent<Renderer>();
+        render.material.color = oldColor;
+    }
 
     void Update()
     {
         if(Triggered)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
-                Destroy(gameObject);
+                render.material.color = Color.green;
+                //Destroy(gameObject);
             }
+            else
+                render.material.color = Color.yellow;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Renderer render = GetComponent<Renderer>();
-
         oldColor = render.material.color;
-        render.material.color = Color.green;
+        render.material.color = Color.yellow;
 
         Triggered = true;
-
         print(Triggered);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Renderer render = GetComponent<Renderer>();
         render.material.color = oldColor;
 
         Triggered = false;
