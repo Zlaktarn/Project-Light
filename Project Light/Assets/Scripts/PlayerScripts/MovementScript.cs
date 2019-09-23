@@ -22,7 +22,7 @@ public class MovementScript : MonoBehaviour
     [SerializeField] KeyCode jumpKey;
     bool isJumping;
 
-    public int health = 100;
+    public float health = 100;
 
     private void Awake()
     {
