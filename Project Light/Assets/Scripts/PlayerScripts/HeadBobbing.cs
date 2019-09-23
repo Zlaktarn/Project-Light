@@ -1,0 +1,48 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HeadBobbing : MonoBehaviour
+{
+    float timer = 0.0f;
+    public float bobbingSpeed = 0.18f;
+    public float bobbingAmount = 0.2f;
+    public float midPoint = 2.0f;
+
+    void Update()
+    {
+        float waveSlice = 0.0f;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical)== 0)
+        {
+            timer = 0.0f;
+        }
+        else
+        {
+            waveSlice = Mathf.Sin(timer);
+            timer = timer + bobbingSpeed;
+            if(timer > Mathf.PI * 2)
+            {
+                timer = timer - (Mathf.PI * 2);
+            }
+        }
+
+        Vector3 v3T = transform.localPosition;
+        if(waveSlice != 0)
+        {
+            float translateChange = waveSlice * bobbingAmount;
+            float totalAxes = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
+            totalAxes = Mathf.Clamp(totalAxes, 0.0f, 1.0f);
+            translateChange = totalAxes * translateChange;
+            v3T.y = midPoint + translateChange;
+        }
+        else
+        {
+            v3T.y = midPoint;
+        }
+
+        transform.localPosition = v3T;
+    }
+}
