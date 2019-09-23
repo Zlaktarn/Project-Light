@@ -19,6 +19,7 @@ public class InventoryUI : MonoBehaviour
     {
 
     }
+
     public void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)

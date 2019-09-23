@@ -23,31 +23,28 @@ public class PlantHealthAdjuster : MonoBehaviour
     void HealthAdjuster()
     {
         if (isInside)
-        {
             if(playerScript.health < 100)
             {
                 playerScript.health += Time.deltaTime;
                 Debug.Log("Hp: " + playerScript.health);
             }
-        }
         else
-        {
             if(playerScript.health > 0)
             {
                 playerScript.health -= Time.deltaTime;
                 Debug.Log("Hp: " + playerScript.health);
             }
-        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        isInside = true;
+        if (other.gameObject.tag == "Player")
+            isInside = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        isInside = false;
+        if (other.gameObject.tag == "Player")
+            isInside = false;
     }
-
 }

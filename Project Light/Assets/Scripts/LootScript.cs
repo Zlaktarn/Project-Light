@@ -6,7 +6,7 @@ public class LootScript : MonoBehaviour
 {
     bool Triggered = false;
     bool pickedUp = false;
-    private Color oldColor = Color.red;
+    Color oldColor = Color.red;
     Renderer render;
 
     [SerializeField] public int itemID;
@@ -22,10 +22,7 @@ public class LootScript : MonoBehaviour
         if(Triggered)
         {
             if (Input.GetKey(KeyCode.E))
-            {
                 render.material.color = Color.green;
-                //Destroy(gameObject);
-            }
             else
                 render.material.color = Color.yellow;
         }
@@ -33,11 +30,13 @@ public class LootScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        oldColor = render.material.color;
-        render.material.color = Color.yellow;
 
-        Triggered = true;
-        print(Triggered);
+        if(other.gameObject.tag == "Player")
+        {
+            oldColor = render.material.color;
+            render.material.color = Color.yellow;
+            Triggered = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -45,6 +44,5 @@ public class LootScript : MonoBehaviour
         render.material.color = oldColor;
 
         Triggered = false;
-        print(Triggered);
     }
 }
