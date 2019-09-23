@@ -12,7 +12,7 @@ public class MovementScript : MonoBehaviour
     [SerializeField] float runSpeed;
     [SerializeField] float runBuildUpSpeed;
     [SerializeField] KeyCode runKey;
-    float movementSpeed;
+    float movementSpeed = 4;
 
     [SerializeField] float slopeForce;
     [SerializeField] float slopeForceRayLength;
@@ -36,19 +36,21 @@ public class MovementScript : MonoBehaviour
 
     void PlayerControls()
     {
-        float hInput = Input.GetAxis(horizontalInputName) * movementSpeed;
-        float vInput = Input.GetAxis(verticalInputName) * movementSpeed;
+        float hInput = Input.GetAxis(horizontalInputName);
+        float vInput = Input.GetAxis(verticalInputName);
 
         Vector3 forwardMovement = transform.forward * vInput;
         Vector3 rightMovement = transform.right * hInput;
 
-        charController.SimpleMove(forwardMovement + rightMovement);
+        charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * movementSpeed);
 
-        if (vInput != 0 || hInput != 0 && OnSlope())
+        if ((vInput != 0 || hInput != 0) && OnSlope())
+        {
             charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
+        }
 
-        SetMovementSpeed();
         JumpInput();
+        SetMovementSpeed();
     }
 
     private void SetMovementSpeed()
@@ -67,7 +69,7 @@ public class MovementScript : MonoBehaviour
         RaycastHit hit;
 
         if(Physics.Raycast(transform.position, Vector3.down, out hit, charController.height / 2 * slopeForceRayLength))
-            if(hit.normal !=  Vector3.up)
+            if(hit.normal != Vector3.up)
                 return true;
         return false;
     }
@@ -86,13 +88,14 @@ public class MovementScript : MonoBehaviour
         charController.slopeLimit = 90.0f;
         float airTime = 0.0f;
 
-        while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above)
+        do
         {
             float jumpForce = jumpFallOff.Evaluate(airTime);
             charController.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
             airTime += Time.deltaTime;
             yield return null;
-        }
+        } while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
+
 
         charController.slopeLimit = 45.0f;
         isJumping = false;
