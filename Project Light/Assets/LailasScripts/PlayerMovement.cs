@@ -28,17 +28,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("escape"))
             Cursor.lockState = CursorLockMode.None;
 
-        if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.LeftShift))
-            anim.SetInteger("Condition", 1);
+        //if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.LeftShift))
+        //    anim.SetInteger("Condition", 1);
 
-        else if (Input.GetKey(KeyCode.LeftShift))
-        {
-            anim.SetInteger("Condition", 2);
+        //else if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    anim.SetInteger("Condition", 2);
             
-        }
+        //}
            
-        else
-            anim.SetInteger("Condition", 0);
+        //else
+        //    anim.SetInteger("Condition", 0);
 
         
     }
