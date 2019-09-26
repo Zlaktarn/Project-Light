@@ -26,20 +26,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(straffe, 0, translation);
 
         if (Input.GetKeyDown("escape"))
-            Cursor.lockState = CursorLockMode.None;
-
-        //if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.LeftShift))
-        //    anim.SetInteger("Condition", 1);
-
-        //else if (Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    anim.SetInteger("Condition", 2);
-            
-        //}
-           
-        //else
-        //    anim.SetInteger("Condition", 0);
-
-        
+            Cursor.lockState = CursorLockMode.None;        
     }
 }

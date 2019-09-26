@@ -7,7 +7,6 @@ public class CameraMovement : MonoBehaviour
     Vector2 mouseLook, smooth;
     public float sensitivity = 5.0f;
     public float smoothness = 2.0f;
-
     GameObject character;
 
     void Start()
@@ -15,7 +14,6 @@ public class CameraMovement : MonoBehaviour
         character = this.transform.parent.gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
         var mousedir = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -27,5 +25,6 @@ public class CameraMovement : MonoBehaviour
         mouseLook += smooth;
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+
     }
 }
