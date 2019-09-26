@@ -6,7 +6,7 @@ public class LootScript : MonoBehaviour
 {
     public Item item;
     bool Triggered = false;
-    Color oldColor = Color.red;
+    Color oldColor = Color.white;
     Renderer render;
 
     [SerializeField] public int itemID;
