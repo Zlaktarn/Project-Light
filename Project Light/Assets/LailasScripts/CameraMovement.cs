@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+
     Vector2 mouseLook, smooth;
-    public float sensitivity = 5.0f;
+    public float sensitivity = 10.0f;
     public float smoothness = 2.0f;
     GameObject character;
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         character = this.transform.parent.gameObject;
     }
 
@@ -23,8 +25,11 @@ public class CameraMovement : MonoBehaviour
         smooth.y = Mathf.Lerp(smooth.y, mousedir.y, 1f / smoothness);
 
         mouseLook += smooth;
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -60f, 60f);
+
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
     }
+
 }
