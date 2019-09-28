@@ -7,6 +7,8 @@ public class InventoryUI : MonoBehaviour
     Inventory inventory;
     public Transform ItemParent;
     InventorySlot[] slots;
+    public GameObject inventoryUI;
+
     void Start()
     {
         inventory = Inventory.instance;
@@ -17,7 +19,10 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetButtonDown("Inventory"))
+        {
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
+        }
     }
 
     public void UpdateUI()
@@ -26,8 +31,7 @@ public class InventoryUI : MonoBehaviour
         {
             if(i < inventory.items.Count)
             {
-                slots[i].AddItem(inventory.items[i]);
-                Debug.Log(".  INVENOTRY WORKS ");
+                slots[i].AddItem(inventory.items[i]);               
             }
             else
             {
