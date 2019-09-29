@@ -65,7 +65,6 @@ MonoBehaviour:
   health: 100
   horizontalInputName: Horizontal
   verticalInputName: Vertical
-  rb: {fileID: 0}
   walkSpeed: 4
   runKey: 304
   runSpeed: 8
@@ -224,7 +223,6 @@ MonoBehaviour:
   mouseYInputName: Mouse Y
   mouseSensitivity: 200
   playerBody: {fileID: 1621451483596283661}
-  crouchKey: 0
 --- !u!114 &7394035113694903027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +312,7 @@ GameObject:
   - component: {fileID: 1621451485356227555}
   m_Layer: 0
   m_Name: LootCube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

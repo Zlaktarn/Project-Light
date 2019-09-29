@@ -8,43 +8,55 @@ public class PlantHealthAdjuster : MonoBehaviour
     private GameObject player;
     private bool isInside;
     private MovementScript playerScript;
+    public int degenAndRegen = 1;
+
+    // Temp Variables - should be added to player class
+    private float maxHealth = 100f;
+    private float minHealth = 0f;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<MovementScript>();        
+        playerScript = player.GetComponent<MovementScript>();
     }
 
-    void Update()
+    // These are of the type invoke repeating
+    // which may cause bugs and should possibly change to Coroutines
+    private void RegenHealth()
     {
-        HealthAdjuster();
+        if(playerScript.health <= maxHealth)
+        {
+            playerScript.health += degenAndRegen;
+            print("Oxygen: " + playerScript.health);
+        }
     }
 
-    void HealthAdjuster()
+    private void DegenHealth()
     {
-        if (isInside)
-            if(playerScript.health < 100)
-            {
-                playerScript.health += Time.deltaTime;
-                Debug.Log("Hp: " + playerScript.health);
-            }
-        else
-            if(playerScript.health > 0)
-            {
-                playerScript.health -= Time.deltaTime;
-                Debug.Log("Hp: " + playerScript.health);
-            }
+        if(playerScript.health > minHealth)
+        {
+            playerScript.health -= degenAndRegen;
+            print("Oxygen: " + playerScript.health);
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    // Does not work when you leave one plants area but is still
+    // inside another ones - needs fixing
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-            isInside = true;
+        if (other.gameObject.tag == "Player" && !IsInvoking("RegenHealth"))
+        {
+            CancelInvoke("DegenHealth");
+            InvokeRepeating("RegenHealth", 0f, 1f);
+        }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-            isInside = false;
+        if (other.gameObject.tag == "Player" && !IsInvoking("DegenHealth"))
+        {
+            CancelInvoke("RegenHealth");
+            InvokeRepeating("DegenHealth", 0f, 1f);
+        }
     }
 }
