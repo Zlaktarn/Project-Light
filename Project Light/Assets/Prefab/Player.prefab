@@ -62,12 +62,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466f705016ced014eb881b09a6aa2ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   horizontalInputName: Horizontal
   verticalInputName: Vertical
+  rb: {fileID: 0}
   walkSpeed: 4
+  runKey: 304
   runSpeed: 8
   runBuildUpSpeed: 2
-  runKey: 304
+  crouchKey: 0
+  crouchSpeed: 0
+  crouchHeight: 0
   slopeForce: 6
   slopeForceRayLength: 1.5
   jumpFallOff:
@@ -94,9 +99,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpMultiplier: 10
   jumpKey: 32
-  health: 100
+  jumpMultiplier: 10
+  dodgeMultiplier: 0
+  dodgeSpeed: 12
 --- !u!143 &1621451483596283663
 CharacterController:
   m_ObjectHideFlags: 0
@@ -218,6 +224,7 @@ MonoBehaviour:
   mouseYInputName: Mouse Y
   mouseSensitivity: 200
   playerBody: {fileID: 1621451483596283661}
+  crouchKey: 0
 --- !u!114 &7394035113694903027
 MonoBehaviour:
   m_ObjectHideFlags: 0

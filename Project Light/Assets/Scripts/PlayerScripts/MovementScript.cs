@@ -4,29 +4,48 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
+    private Rigidbody rb;
+
+    #region General Variables
+    CharacterController charController;
+    float movementSpeed;
+    float originalHeight; //For camera
+    bool isJumping;
+    bool isDodging;
+    public float health = 100;
+    #endregion
+
     [SerializeField] string horizontalInputName;
     [SerializeField] string verticalInputName;
-    CharacterController charController;
 
+    #region Movement Variables
     [SerializeField] float walkSpeed;
+    [SerializeField] KeyCode runKey;
     [SerializeField] float runSpeed;
     [SerializeField] float runBuildUpSpeed;
-    [SerializeField] KeyCode runKey;
-    float movementSpeed = 4;
+    [SerializeField] KeyCode crouchKey;
+    [SerializeField] float crouchSpeed;
+    [SerializeField] float crouchHeight;
+    Vector3 rightMovement;
+    #endregion
 
+    #region Slope Variables
     [SerializeField] float slopeForce;
     [SerializeField] float slopeForceRayLength;
+    #endregion
 
+    #region Jump Variables
     [SerializeField] AnimationCurve jumpFallOff;
-    [SerializeField] float jumpMultiplier;
     [SerializeField] KeyCode jumpKey;
-    bool isJumping;
-
-    public float health = 100;
+    [SerializeField] float jumpMultiplier;
+    [SerializeField] float dodgeMultiplier;
+    [SerializeField] float dodgeSpeed = 12f;
+    #endregion
 
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
+        originalHeight = charController.height;
     }
 
     void Update()
@@ -40,40 +59,48 @@ public class MovementScript : MonoBehaviour
         float vInput = Input.GetAxis(verticalInputName);
 
         Vector3 forwardMovement = transform.forward * vInput;
-        Vector3 rightMovement = transform.right * hInput;
+        rightMovement = transform.right * hInput;
 
         charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * movementSpeed);
 
         if ((vInput != 0 || hInput != 0) && OnSlope())
-        {
             charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
-        }
 
-        JumpInput();
+        if (vInput == 0 && hInput != 0)
+            DodgeInput();
+        else
+            JumpInput();
+
         SetMovementSpeed();
+        Crouching();
     }
 
     private void SetMovementSpeed()
     {
         if (Input.GetKey(runKey))
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
+        else if(Input.GetKey(crouchKey))
+            movementSpeed = Mathf.Lerp(movementSpeed, crouchSpeed, Time.deltaTime * runBuildUpSpeed);
         else
             movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
     }
 
+    #region Slope Method
     private bool OnSlope()
     {
-        if (isJumping)
+        if (isJumping || isDodging)
             return false;
 
         RaycastHit hit;
 
         if(Physics.Raycast(transform.position, Vector3.down, out hit, charController.height / 2 * slopeForceRayLength))
-            if(hit.normal != Vector3.up)
-                return true;
+            return true;
+            
         return false;
     }
+    #endregion
 
+    #region Jump Method
     private void JumpInput()
     {
         if (Input.GetKeyDown(jumpKey) && !isJumping)
@@ -100,4 +127,47 @@ public class MovementScript : MonoBehaviour
         charController.slopeLimit = 45.0f;
         isJumping = false;
     }
+    #endregion
+
+    #region Dodge Method
+    private void DodgeInput()
+    {
+        float hInput = Input.GetAxis(horizontalInputName);
+
+        if (Input.GetKeyDown(jumpKey) && !isJumping)
+        {
+            isDodging = true;
+            StartCoroutine(DodgeEvent());
+        }
+    }
+
+    private IEnumerator DodgeEvent()
+    {
+        float airTime = 0.0f;
+        float hInput = Input.GetAxis(horizontalInputName);
+
+        do
+        {
+            float jumpForce = jumpFallOff.Evaluate(airTime);
+            charController.Move(Vector3.up * jumpForce * dodgeMultiplier * Time.deltaTime);
+            charController.Move(Camera.main.transform.right * jumpForce * dodgeSpeed * hInput * Time.deltaTime);
+            airTime += Time.deltaTime;
+            yield return null;
+        } while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
+
+        isDodging = false;
+    }
+    #endregion
+
+    #region Crouch Method
+    void Crouching()
+    {
+         //Vector3 centerPoint = charController.center = new Vector3(0, charController.height / 2, 0);
+
+        if (Input.GetKey(crouchKey))  //SKAPAR EN BUG FÖR ONSLOPE()
+            charController.height = crouchHeight;
+        else
+            charController.height = originalHeight;
+    }
+    #endregion
 }

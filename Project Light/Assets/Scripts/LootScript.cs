@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LootScript : MonoBehaviour
 {
+    public Item item;
     bool Triggered = false;
-    bool pickedUp = false;
-    Color oldColor = Color.red;
+    Color oldColor = Color.white;
     Renderer render;
 
     [SerializeField] public int itemID;
@@ -19,10 +19,13 @@ public class LootScript : MonoBehaviour
 
     void Update()
     {
-        if(Triggered)
+        if (Triggered)
         {
             if (Input.GetKey(KeyCode.E))
+            {
+                Interact();
                 render.material.color = Color.green;
+            }
             else
                 render.material.color = Color.yellow;
         }
@@ -44,5 +47,13 @@ public class LootScript : MonoBehaviour
         render.material.color = oldColor;
 
         Triggered = false;
+    }
+    public void Interact()
+    {
+        Debug.Log("Picking up" + item.name);
+        bool wasPickeUp = Inventory.instance.Add(item);
+
+        if (wasPickeUp)
+            Destroy(gameObject);
     }
 }
