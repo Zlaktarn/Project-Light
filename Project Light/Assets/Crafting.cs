@@ -12,6 +12,6 @@ public class Crafting : MonoBehaviour
 
     void Update()
     {
-        if()
+        
     }
 }

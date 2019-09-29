@@ -637,7 +637,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: d634c80cd438f6741bc97b845d82e3a9,
+      objectReference: {fileID: 11400000, guid: c89890b3b94c0bb4bad77767eea1de37,
         type: 2}
     - target: {fileID: 5494992213320674064, guid: 3a0cd3de56fd4c54b94beee9d1d2aacb,
         type: 3}
@@ -2196,7 +2196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3692,7 +3692,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 9d3e66c9ca4185b4d9bb13d558aa62d4,
+      objectReference: {fileID: 11400000, guid: c89890b3b94c0bb4bad77767eea1de37,
         type: 2}
     - target: {fileID: 8637104260224015032, guid: 3a0cd3de56fd4c54b94beee9d1d2aacb,
         type: 3}
