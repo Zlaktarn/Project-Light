@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1621451483596283660}
   - component: {fileID: 1621451483596283662}
   - component: {fileID: 1621451483596283663}
+  - component: {fileID: 8403456346450129223}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -65,14 +66,13 @@ MonoBehaviour:
   health: 100
   horizontalInputName: Horizontal
   verticalInputName: Vertical
-  rb: {fileID: 0}
   walkSpeed: 4
   runKey: 304
   runSpeed: 8
   runBuildUpSpeed: 2
-  crouchKey: 0
-  crouchSpeed: 0
-  crouchHeight: 0
+  crouchKey: 306
+  crouchSpeed: 2
+  crouchHeight: 0.9
   slopeForce: 6
   slopeForceRayLength: 1.5
   jumpFallOff:
@@ -101,7 +101,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   jumpKey: 32
   jumpMultiplier: 10
-  dodgeMultiplier: 0
+  dodgeMultiplier: 1.5
   dodgeSpeed: 12
 --- !u!143 &1621451483596283663
 CharacterController:
@@ -121,6 +121,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &8403456346450129223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621451483596283762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa648b2de01b8254a875fb31c69c79c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621451483744482365
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +144,9 @@ GameObject:
   - component: {fileID: 1621451483744482360}
   - component: {fileID: 1621451483744482367}
   - component: {fileID: 1621451483744482366}
-  - component: {fileID: 1621451483744482361}
   - component: {fileID: 7394035113694903027}
   - component: {fileID: 7328323269536438020}
+  - component: {fileID: 2652978448452331692}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -208,23 +220,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621451483744482365}
   m_Enabled: 1
---- !u!114 &1621451483744482361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621451483744482365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0686f7dca02183f4282244d3b0a0fd49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseXInputName: Mouse X
-  mouseYInputName: Mouse Y
-  mouseSensitivity: 200
-  playerBody: {fileID: 1621451483596283661}
-  crouchKey: 0
 --- !u!114 &7394035113694903027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,9 +292,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677dddf138ecd25409bfa2f166772647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobbingSpeed: 0.18
-  bobbingAmount: 0.2
-  midPoint: 2
+  bobbingSpeed: 0.09
+  bobbingAmount: 0.16
+  midPoint: 1.6
+--- !u!114 &2652978448452331692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621451483744482365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f79b5e980f1304b8bf67c47a954d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 10
+  smoothness: 2
 --- !u!1 &1621451485356227553
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +323,7 @@ GameObject:
   - component: {fileID: 1621451485356227555}
   m_Layer: 0
   m_Name: LootCube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,59 +9,81 @@ public class LightAdjuster : MonoBehaviour
     private Color endColor;
     public Color startColor;
     private float emissionIntensity = 1f;
-    public bool colorEnabled;
-    public float colorSpeed = 0.5f;
+    public bool colorEnabled = true;
 
     // Intensity Variables
     public float startIntensity = 0f;
     public float maxIntensity = 1f;
-    public bool intensityEnabled;
-    public float intensitySpeed = 2f;
+    public bool intensityEnabled = true;
 
     // Range Variables
     public float startRange = 0f;
     public float maxRange = 10f;
-    public bool rangeEnabled;
-    public float rangeSpeed = 2f;
+    public bool rangeEnabled = true;
+
+    // Scale Variables
+    public Vector3 startScale = new Vector3(0.15f, 0.15f, 0.15f);
+    public Vector3 maxScale = new Vector3(0.8f, 0.8f, 0.8f);
+    public bool scaleEnabled = true;
 
     // Common Variables
+    public float duration = 5f;
+    private float colorTime, intensityTime, rangeTime, scaleTime;
+    public bool isPlanted = false;
     private Light lt;
     private Material mat;
-    private float startTime;
 
     // Sets the starting intensity, the end color and gets the light and material components
-    void Start()
+    void Awake()
     {
         lt = GetComponentInChildren<Light>();
         mat = GetComponent<Renderer>().material;
         endColor = mat.GetColor("_EmissionColor");
         mat.SetColor("_EmissionColor", startColor);
         lt.intensity = startIntensity;
-        startTime = Time.time;
+        colorTime = 0f;
+        intensityTime = 0f;
+        rangeTime = 0f;
     }
 
     // Changes the intensity, color and range over time until target is reached
-    void Update()
+    void FixedUpdate()
     {
-        if (colorEnabled){
-            float t = Time.time * colorSpeed;
-            mat.SetColor("_EmissionColor", Color.Lerp(startColor, (endColor * emissionIntensity), t));
-            if (startColor == endColor){
-                colorEnabled = false;
-            }
-        }
+        if(Input.GetKeyDown(KeyCode.C))
+            isPlanted = true;
 
-        if (intensityEnabled){
-            lt.intensity = Time.time * intensitySpeed;
-            if(lt.intensity >= maxIntensity){
-                intensityEnabled = false;
+        if (isPlanted)
+        {
+            if (colorEnabled)
+            {
+                colorTime += Time.deltaTime/duration;
+                mat.SetColor("_EmissionColor", Color.Lerp(startColor, (endColor * emissionIntensity), colorTime));
+                if (startColor == endColor)
+                    colorEnabled = false;
             }
-        }
 
-        if (rangeEnabled){
-            lt.range = Time.time * rangeSpeed;
-            if(lt.range >= maxRange){
-                rangeEnabled = false;
+            if (intensityEnabled)
+            {
+                intensityTime += Time.deltaTime/duration;
+                lt.intensity = Mathf.Lerp(startIntensity, maxIntensity, intensityTime);
+                if (lt.intensity >= maxIntensity)
+                    intensityEnabled = false;
+            }
+
+            if (rangeEnabled)
+            {
+                rangeTime += Time.deltaTime/duration;
+                lt.range = Mathf.Lerp(startRange, maxRange, rangeTime);
+                if (lt.range >= maxRange)
+                    rangeEnabled = false;
+            }
+
+            if (scaleEnabled)
+            {
+                scaleTime += Time.deltaTime/duration;
+                transform.localScale = Vector3.Lerp(startScale, maxScale, scaleTime);
+                if(transform.localScale == maxScale)
+                    scaleEnabled = false;
             }
         }
     }

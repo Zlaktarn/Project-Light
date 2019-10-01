@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        health = data.health;
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+    }
+
+
     private Rigidbody rb;
 
     #region General Variables
@@ -51,6 +69,11 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         PlayerControls();
+
+        if (Input.GetKeyDown(KeyCode.N))
+            SavePlayer();
+        if (Input.GetKeyDown(KeyCode.M))
+            LoadPlayer();
     }
 
     void PlayerControls()
