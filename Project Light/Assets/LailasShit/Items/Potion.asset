@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Potion
   icon: {fileID: 21300000, guid: 7267ca3baae6b154fa428afb98b4b733, type: 3}
   isDefaultItem: 0
+  itemID: 5

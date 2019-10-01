@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Money
   icon: {fileID: 21300000, guid: c29162d11d03499498205196908712a5, type: 3}
   isDefaultItem: 0
+  itemID: 4

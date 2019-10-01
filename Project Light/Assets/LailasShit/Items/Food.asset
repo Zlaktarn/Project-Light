@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Food
   icon: {fileID: 21300000, guid: f6c0d59c0ebad20469c6fda3fb827c43, type: 3}
   isDefaultItem: 0
+  itemID: 3

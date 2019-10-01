@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Crossbow
   icon: {fileID: 21300000, guid: 17546f921cdbdf64a973b138528d93e9, type: 3}
   isDefaultItem: 0
+  itemID: 1
