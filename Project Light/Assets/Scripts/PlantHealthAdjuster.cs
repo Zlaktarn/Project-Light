@@ -27,7 +27,7 @@ public class PlantHealthAdjuster : MonoBehaviour
         if(playerScript.health <= maxHealth)
         {
             playerScript.health += degenAndRegen;
-            print("Oxygen: " + playerScript.health);
+            //print("Oxygen: " + playerScript.health);
         }
     }
 
@@ -36,7 +36,7 @@ public class PlantHealthAdjuster : MonoBehaviour
         if(playerScript.health > minHealth)
         {
             playerScript.health -= degenAndRegen;
-            print("Oxygen: " + playerScript.health);
+            //print("Oxygen: " + playerScript.health);
         }
     }
 
