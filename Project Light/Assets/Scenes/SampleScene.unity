@@ -977,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 5064252426328221146, guid: 376dfa57f81903441bd9a6d17236515c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.03
+      value: 10.35
       objectReference: {fileID: 0}
     - target: {fileID: 5064252426328221146, guid: 376dfa57f81903441bd9a6d17236515c,
         type: 3}
@@ -1255,6 +1255,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1621451485356227553, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Lootcube
+      objectReference: {fileID: 0}
     - target: {fileID: 1621451483744482365, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_TagString
@@ -1314,11 +1319,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1621451485356227553, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_TagString
-      value: Lootcube
       objectReference: {fileID: 0}
     - target: {fileID: 7394035113694903027, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
