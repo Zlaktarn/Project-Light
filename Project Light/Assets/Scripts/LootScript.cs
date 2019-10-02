@@ -9,7 +9,6 @@ public class LootScript : MonoBehaviour
     Color oldColor = Color.white;
     Renderer render;
 
-    [SerializeField] public int itemID;
 
     private void Start()
     {

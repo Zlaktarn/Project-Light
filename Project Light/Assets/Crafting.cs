@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Crafting : MonoBehaviour
 {
-    
+    public Item item;
+    public Inventory inventory;
     void Start()
     {
         
@@ -13,5 +14,10 @@ public class Crafting : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CraftingRecipe()
+    {
+
     }
 }
