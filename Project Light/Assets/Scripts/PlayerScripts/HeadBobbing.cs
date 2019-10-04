@@ -5,9 +5,15 @@ using UnityEngine;
 public class HeadBobbing : MonoBehaviour
 {
     float timer = 0.0f;
-    public float bobbingSpeed = 0.18f;
-    public float bobbingAmount = 0.2f;
-    public float midPoint = 2.0f;
+    [SerializeField] float bobbingSpeed;
+    float oldBobbingSpeed;
+    [SerializeField] float bobbingAmount;
+    [SerializeField] float midPoint;
+
+    private void Start()
+    {
+        oldBobbingSpeed = bobbingSpeed;
+    }
 
     void Update()
     {
@@ -16,17 +22,13 @@ public class HeadBobbing : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical)== 0)
-        {
             timer = 0.0f;
-        }
         else
         {
             waveSlice = Mathf.Sin(timer);
             timer = timer + bobbingSpeed;
             if(timer > Mathf.PI * 2)
-            {
                 timer = timer - (Mathf.PI * 2);
-            }
         }
 
         Vector3 v3T = transform.localPosition;
@@ -39,10 +41,13 @@ public class HeadBobbing : MonoBehaviour
             v3T.y = midPoint + translateChange;
         }
         else
-        {
             v3T.y = midPoint;
-        }
 
         transform.localPosition = v3T;
+
+        if (PauseMenu.GameIsPaused)
+            bobbingSpeed = 0;
+        else
+            bobbingSpeed = oldBobbingSpeed;
     }
 }

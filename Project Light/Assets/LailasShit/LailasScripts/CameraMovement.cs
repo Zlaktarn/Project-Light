@@ -6,15 +6,21 @@ public class CameraMovement : MonoBehaviour
 {
 
     Vector2 mouseLook, smooth;
-    public float sensitivity = 10.0f;
-    public float smoothness = 2.0f;
+    public float sensitivity;
+    [SerializeField] float smoothness;
+    float oldSensitivity;
     GameObject character;
+    MovementScript player;
 
-    void Start()
+    void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         character = this.transform.parent.gameObject;
+
+        oldSensitivity = sensitivity;
+
     }
+
 
     void Update()
     {
@@ -30,6 +36,30 @@ public class CameraMovement : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
+
+        //if (player.isDead || PauseMenu.GameIsPaused)
+        //    sensitivity = 0;
+        //else
+        //    sensitivity = oldSensitivity;
+
+        if (PauseMenu.GameIsPaused)
+        {
+            //sensitivity = 0;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (!PauseMenu.GameIsPaused)
+        {
+            //sensitivity = oldSensitivity;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        
+
+
+        Death();
     }
 
+    void Death()
+    {
+    }
 }
