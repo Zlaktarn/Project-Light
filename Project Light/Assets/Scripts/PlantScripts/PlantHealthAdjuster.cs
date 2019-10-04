@@ -6,9 +6,8 @@ public class PlantHealthAdjuster : MonoBehaviour
 {
     // Health Variables
     private GameObject player;
-    private bool isInside;
     private MovementScript playerScript;
-    public int degenAndRegen = 1;
+    public int regen = 2;
 
     // Temp Variables - should be added to player class
     private float maxHealth = 100f;
@@ -26,17 +25,8 @@ public class PlantHealthAdjuster : MonoBehaviour
     {
         if(playerScript.health <= maxHealth)
         {
-            playerScript.health += degenAndRegen;
-            //print("Oxygen: " + playerScript.health);
-        }
-    }
-
-    private void DegenHealth()
-    {
-        if(playerScript.health > minHealth)
-        {
-            playerScript.health -= degenAndRegen;
-            //print("Oxygen: " + playerScript.health);
+            playerScript.health += regen;
+            print("Oxygen: " + playerScript.health);
         }
     }
 
@@ -46,17 +36,17 @@ public class PlantHealthAdjuster : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !IsInvoking("RegenHealth"))
         {
-            CancelInvoke("DegenHealth");
+            Debug.Log("Started regen");
             InvokeRepeating("RegenHealth", 0f, 1f);
-        }
+        } 
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !IsInvoking("DegenHealth"))
+        if (other.gameObject.tag == "Player")
         {
             CancelInvoke("RegenHealth");
-            InvokeRepeating("DegenHealth", 0f, 1f);
         }
     }
 }

@@ -132,6 +132,9 @@ MonoBehaviour:
   startRange: 0
   maxRange: 15
   rangeEnabled: 1
+  startScale: {x: 0.15, y: 0.15, z: 0.15}
+  maxScale: {x: 0.8, y: 0.8, z: 0.8}
+  scaleEnabled: 1
   duration: 5
   isPlanted: 0
 --- !u!1 &7707298599572604504
@@ -254,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a96fc0fd923a94fb51a3e655c21c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degenAndRegen: 1
+  regen: 2
 --- !u!54 &8007284371869108241
 Rigidbody:
   m_ObjectHideFlags: 0

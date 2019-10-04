@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1621451483596283662}
   - component: {fileID: 1621451483596283663}
   - component: {fileID: 8403456346450129223}
+  - component: {fileID: 1180667467}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,6 +134,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa648b2de01b8254a875fb31c69c79c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1180667467
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621451483596283762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1621451483744482365
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +252,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -275,7 +289,7 @@ MonoBehaviour:
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
   m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -321,9 +335,10 @@ GameObject:
   - component: {fileID: 1621451485356227581}
   - component: {fileID: 1621451485356227580}
   - component: {fileID: 1621451485356227555}
+  - component: {fileID: 556673830}
   m_Layer: 0
   m_Name: LootCube
-  m_TagString: Player
+  m_TagString: Lootcube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,3 +416,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &556673830
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621451485356227553}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

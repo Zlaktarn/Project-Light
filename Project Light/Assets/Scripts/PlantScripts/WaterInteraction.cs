@@ -43,7 +43,7 @@ public class WaterInteraction : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 if (hasWater && currentWater <= 100)
                 {
@@ -101,16 +101,12 @@ public class WaterInteraction : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Lootcube")
-        {
             triggered = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.tag == "Lootcube")
-        {
             triggered = false;
-        }
     }
 }
