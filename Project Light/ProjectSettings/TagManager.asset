@@ -7,6 +7,7 @@ TagManager:
   - Lootcube
   - GM
   - Environment
+  - MainPlant Hitbox
   layers:
   - Default
   - TransparentFX
