@@ -4,22 +4,8 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    public void SavePlayer()
-    {
-        SaveSystem.SavePlayer(this);
-    }
-
-    public void LoadPlayer()
-    {
-        PlayerData data = SaveSystem.LoadPlayer();
-        health = data.health;
-
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        transform.position = position;
-    }
+    float oldHealth;
+    public float health = 100;
 
 
     private Rigidbody rb;
@@ -27,10 +13,11 @@ public class MovementScript : MonoBehaviour
     #region General Variables
     CharacterController charController;
     float movementSpeed;
+    float oldMovementSpeed;
     float originalHeight; //For camera
     bool isJumping;
     bool isDodging;
-    public float health = 100;
+    public bool isDead;
     #endregion
 
     [SerializeField] string horizontalInputName;
@@ -64,6 +51,7 @@ public class MovementScript : MonoBehaviour
     {
         charController = GetComponent<CharacterController>();
         originalHeight = charController.height;
+        oldMovementSpeed = movementSpeed;
     }
 
     void Update()
@@ -76,6 +64,7 @@ public class MovementScript : MonoBehaviour
             LoadPlayer();
     }
 
+    #region Movement
     void PlayerControls()
     {
         float hInput = Input.GetAxis(horizontalInputName);
@@ -191,6 +180,26 @@ public class MovementScript : MonoBehaviour
             charController.height = crouchHeight;
         else
             charController.height = originalHeight;
+    }
+    #endregion
+    #endregion
+
+    #region Save&Load
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        health = data.health;
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
     }
     #endregion
 }
