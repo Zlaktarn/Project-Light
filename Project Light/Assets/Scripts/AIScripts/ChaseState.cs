@@ -9,7 +9,8 @@ public class ChaseState : BaseState
     private float speed = 3f;
     private float attackRange = 10f;
     private float aggroRange = 20f;
-    private float rotationSpeed = 2f;
+    private float rotationSpeed = 1.5f;
+    private float closeAngle = 25f;
     private Vector3 direction;
     private Quaternion desiredRotation;
 
@@ -27,10 +28,10 @@ public class ChaseState : BaseState
         direction = new Vector3(direction.x, 0f, direction.z);
         desiredRotation = Quaternion.LookRotation(direction);
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * 1.5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationSpeed);
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        if(Vector3.Distance(transform.position, enemy.Target.transform.position) < attackRange)
+        if(Vector3.Distance(transform.position, enemy.Target.transform.position) < attackRange && CloseEnoughRotation())
             return typeof(AttackState);
 
         if(Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange || IsPathBlocked())
@@ -39,14 +40,18 @@ public class ChaseState : BaseState
         return null;
     }
 
+    private bool CloseEnoughRotation()
+    {
+        if(Quaternion.Angle(transform.rotation, desiredRotation) <= closeAngle)
+            return true;
+        return false;
+    }
+
     private bool IsPathBlocked()
     {
-        RaycastHit hit;
-        var pos = transform.position;
-        if(Physics.SphereCast(pos, 0.5f, direction, out hit, 5.0f))
-            if(hit.collider.tag == "Environment")
-                return true;
-
+        Ray ray = new Ray(transform.position, direction);
+        if(Physics.SphereCast(ray, 0.5f, 5.0f, environmentLayer))
+            return true;
         return false;
     }
 }
