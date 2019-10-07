@@ -1,64 +1,67 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
+using System;
 
 public class Inventory : MonoBehaviour
 {
-    #region
-    public static Inventory instance;
+    [SerializeField] List<Item> items;
+    [SerializeField] Transform itemsParent;
+    [SerializeField] ItemSlot[] itemSlots;
+
+    public event Action<Item> OnItemRightclickevent;
+
     private void Awake()
     {
-        if(instance != null)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            Debug.LogWarning("Dont work");
-            return;
+            itemSlots[i].OnRightClickEvent += OnItemRightclickevent;
         }
-        instance = this;
     }
-    #endregion
-
-    public delegate void OnItemChange();
-    public OnItemChange onItemChangeCallBack;
-    
-
-    public int space = 3;
-
-    public List<Item> items = new List<Item>();
-    public List<string> ItemsCarried;
-
-
-    public bool Add(Item item)
+    private void OnValidate()
     {
-        if (!item.isDefaultItem)
+        if (itemsParent != null)
         {
-            if (items.Count >= space)
-            {
-                Debug.Log("Not enough room");
-                return false;
-            }
-            items.Add(item);
-            ItemsCarried.Add(item.name);
-            if (onItemChangeCallBack != null)
-            {
-                onItemChangeCallBack.Invoke();
-            }
+            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
+        RefreshUI();
+    }
+
+
+    private void RefreshUI()
+    {
+        int i = 0;
+        for (; i < items.Count && i < itemSlots.Length; i++)
+        {
+            itemSlots[i].item = items[i];
+        }
+        for (; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].item = null;
+        }
+    }
+    public bool AddItem(Item item)
+    {
+        if(IsFull())
+        {
+            return false;
+        }
+
+        items.Add(item);
+        RefreshUI();
+
         return true;
     }
-    public void Remove(Item item)
+    public bool RemoveItem(Item item)
     {
-        items.Remove(item);
-        ItemsCarried.Remove(item.name);
-        if (onItemChangeCallBack != null)
-            onItemChangeCallBack.Invoke();
-    }
-
-    public void Crafting()
-    {
-        if (ItemsCarried.Contains("Book") & ItemsCarried.Contains("Money"))
+        if(items.Remove(item))
         {
+            RefreshUI();
+            return true;
         }
+        return false;
+    }
+    public bool IsFull()
+    {
+        return items.Count >= itemSlots.Length;
     }
 }

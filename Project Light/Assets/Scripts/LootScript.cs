@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LootScript : MonoBehaviour
 {
-    public Item item;
     bool Triggered = false;
     Color oldColor = Color.white;
     Renderer render;
@@ -22,7 +21,7 @@ public class LootScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                Interact();
+                //Interact();
                 render.material.color = Color.green;
             }
             else
@@ -47,12 +46,12 @@ public class LootScript : MonoBehaviour
 
         Triggered = false;
     }
-    public void Interact()
-    {
-        Debug.Log("Picking up" + item.name);
-        bool wasPickeUp = Inventory.instance.Add(item);
+    //public void Interact()
+    //{
+    //    Debug.Log("Picking up" + item.name);
+    //    bool wasPickeUp = Inventory.instance.Add(item);
 
-        if (wasPickeUp)
-            Destroy(gameObject);
-    }
+    //    if (wasPickeUp)
+    //        Destroy(gameObject);
+    //}
 }
