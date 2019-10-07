@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
+    public float health = 100f;
 
     public void TakeDamage(float amount)
     {
@@ -17,5 +17,11 @@ public class TargetScript : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Bolt")
+            health -= 5;
     }
 }
