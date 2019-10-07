@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     public StateMachine_AI StateMachine => GetComponent<StateMachine_AI>();
     public GameObject Target {get; private set;}
+    public NavMeshAgent Agent;
     public float currentHealth = 100f;
     public float maxHealth = 100f;
+    public bool navMesh;
 
     void Awake()
     {

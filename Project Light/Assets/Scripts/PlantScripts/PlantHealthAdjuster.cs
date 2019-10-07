@@ -8,6 +8,7 @@ public class PlantHealthAdjuster : MonoBehaviour
     private GameObject player;
     private MovementScript playerScript;
     public int regen = 2;
+    private bool Enabled = false;
 
     // Temp Variables - should be added to player class
     private float maxHealth = 100f;
@@ -19,14 +20,15 @@ public class PlantHealthAdjuster : MonoBehaviour
         playerScript = player.GetComponent<MovementScript>();
     }
 
-    // These are of the type invoke repeating
-    // which may cause bugs and should possibly change to Coroutines
-    private void RegenHealth()
+    void Update()
     {
-        if(playerScript.health <= maxHealth)
+        if (Enabled)
         {
-            playerScript.health += regen;
-            print("Oxygen: " + playerScript.health);
+            if(playerScript.health <= maxHealth)
+                playerScript.health += regen * Time.deltaTime;
+
+            if(playerScript.health > maxHealth)
+                playerScript.health = maxHealth;
         }
     }
 
@@ -34,10 +36,9 @@ public class PlantHealthAdjuster : MonoBehaviour
     // inside another ones - needs fixing
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !IsInvoking("RegenHealth"))
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Started regen");
-            InvokeRepeating("RegenHealth", 0f, 1f);
+            Enabled = true;
         } 
 
     }
@@ -46,7 +47,7 @@ public class PlantHealthAdjuster : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            CancelInvoke("RegenHealth");
+            Enabled = false;
         }
     }
 }

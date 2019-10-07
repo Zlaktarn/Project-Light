@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class WanderState : BaseState
 {
@@ -11,6 +12,7 @@ public class WanderState : BaseState
     private float stoppingDistance = 1.5f;
     private float speed = 1f;
     private float rotationSpeed = 1.5f;
+    private bool holdRotation = false;
     
     private Vector3 newPosition;
     private Vector3 rightOrLeft;
@@ -38,25 +40,34 @@ public class WanderState : BaseState
             return typeof(ChaseState);
         }
 
+        if(!enemy.navMesh)
+            NormalTick();
+        else
+            NavTick();
+
+        return null;
+    }
+
+    private void NormalTick()
+    {
         var rayColor = IsPathBlocked() ? Color.red : Color.green;
         Debug.DrawRay(transform.position, direction * rayDistance, rayColor);
 
         if (NeedsDestination())
             GetDestination(false);
-
+        
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationSpeed);
 
         if (IsForwardBlocked())
-            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.2f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.1f);
         else
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        while (IsPathBlocked())
+        if(IsPathBlocked())
         {
             Debug.Log("Path blocked!");
             GetDestination(true);
         }
-        return null;
     }
 
     private bool NeedsDestination()
@@ -106,7 +117,7 @@ public class WanderState : BaseState
                                    UnityEngine.Random.Range(-2.5f, 2.5f));
         }
 
-       destination = new Vector3(newPosition.x, 1f, newPosition.z);
+       destination = new Vector3(newPosition.x, 0f, newPosition.z);
 
        direction = Vector3.Normalize(destination - transform.position);
        direction = new Vector3(direction.x, 0f, direction.z);
@@ -121,22 +132,38 @@ public class WanderState : BaseState
         Ray ray = new Ray(transform.position, transform.forward);
         if (Physics.SphereCast(ray, 3.0f, out hit, aggroRadius, playerLayer))
         {
-            var player = hit.collider.GetComponent<Transform>();
-            return player;
+            if (!IsPathBlocked())
+            {
+                var player = hit.collider.GetComponent<Transform>();
+                return player;
+            }
         } 
         return null;
     }
 
-
-    // Old version, may be useful someday
-    private bool OldIsPathBlocked()
+    // NavMesh Agent methods - may be useful in the future
+    private void NavGetDestination()
     {
-        RaycastHit hit;
-        var pos = transform.position;
-        if(Physics.SphereCast(pos, 0.5f, direction, out hit, rayDistance))
-            if(hit.collider.tag == "Environment")
-                return true;
+        float radius = 100;
+        Vector3 testDirection = UnityEngine.Random.insideUnitSphere * radius;
+        testDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(testDirection, out hit, radius, 3);
+        Vector3 finalTestPosition = hit.position;
 
-        return false;
+        NavMeshPath path = new NavMeshPath();
+        if(NavMesh.CalculatePath(transform.position, finalTestPosition, NavMesh.AllAreas, path))
+            if(path.status == NavMeshPathStatus.PathComplete)
+                destination = finalTestPosition;
+            else
+                NavGetDestination();
+    }
+
+    private void NavTick()
+    {
+        if(NeedsDestination())
+            NavGetDestination();
+
+        enemy.Agent.SetDestination(destination);
     }
 }

@@ -11,7 +11,7 @@ public class AttackState : BaseState
     private Rigidbody rb;
     private float speed = 3f;
     private float fleeSpeed = 5f;
-    private float aggroRange = 10f;
+    private float aggroRange = 12f;
     private float resetRange = 2f;
     private Vector3 direction;
     private Quaternion desiredRotation;
@@ -26,8 +26,15 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
+
         if(enemy.Target == null)
             return typeof(WanderState);
+
+        if (init)
+        {
+            tempTargetTransform = enemy.Target.transform.position;
+            init = false;
+        }
 
         if (IsForwardBlocked())
         {
@@ -40,12 +47,6 @@ public class AttackState : BaseState
         direction = new Vector3(direction.x, 0f, direction.z);
         desiredRotation = Quaternion.LookRotation(direction);
 
-        if (init)
-        {
-            tempTargetTransform = enemy.Target.transform.position;
-            init = false;
-        }
-
         if(Vector3.Distance(transform.position, tempTargetTransform) <= resetRange)
             reset = true;
 
@@ -56,7 +57,7 @@ public class AttackState : BaseState
         else
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * 1.5f);
-            rb.AddForce((tempTargetTransform - transform.position).normalized * lungeForce, ForceMode.VelocityChange);
+            transform.Translate(Vector3.forward * Time.deltaTime * 10f);
         }
 
         if(Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange)
@@ -71,6 +72,8 @@ public class AttackState : BaseState
     {
         reset = false;
         init = true;
+        enemy.Agent.isStopped = false;
+        enemy.Agent.ResetPath();
     }
 
     private bool IsForwardBlocked()

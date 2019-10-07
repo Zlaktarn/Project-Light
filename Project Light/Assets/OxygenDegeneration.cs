@@ -14,15 +14,21 @@ public class OxygenDegeneration : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<MovementScript>();
-        InvokeRepeating("DegenHealth", 0f, 1f);
     }
 
-    private void DegenHealth()
+    void Update()
     {
+        if(playerScript.health > 100)
+            playerScript.health = 100;
+
         if(playerScript.health > minHealth)
         {
-            playerScript.health -= degen;
-            print("Oxygen: " + playerScript.health);
+            playerScript.health -= degen * Time.deltaTime;
+            print("Oxygen: " + (int)playerScript.health);
         }
+            
+
+        if(playerScript.health < 0)
+            playerScript.health = 0;
     }
 }
