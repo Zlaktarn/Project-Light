@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
             Shoot();
