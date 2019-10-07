@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IItemConatiner
 {
     [SerializeField] List<Item> items;
     [SerializeField] Transform itemsParent;
@@ -27,7 +27,13 @@ public class Inventory : MonoBehaviour
         RefreshUI();
     }
 
+    //private void SetStartingItem()
+    //{
+    //    for (int i = 0; i < SetStartingItem.Length; i++)
+    //    {
 
+    //    }
+    //}
     private void RefreshUI()
     {
         int i = 0;
@@ -42,27 +48,67 @@ public class Inventory : MonoBehaviour
     }
     public bool AddItem(Item item)
     {
-        if(IsFull())
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            return false;
+            if (itemSlots[i].item == null)
+            {
+                itemSlots[i].item = item;
+                return true;
+            }
+
         }
-
-        items.Add(item);
-        RefreshUI();
-
-        return true;
+        return false;
     }
     public bool RemoveItem(Item item)
     {
-        if(items.Remove(item))
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            RefreshUI();
-            return true;
+            if (itemSlots[i].item == item)
+            {
+                itemSlots[i].item = null;
+                return true;
+            }
+
         }
         return false;
     }
     public bool IsFull()
     {
-        return items.Count >= itemSlots.Length;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i].item == null)
+            {
+                return false;
+            }
+            
+        }
+        return true;
+    }
+
+    public bool ContainItem(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public int ItemCount(Item item)
+    {
+        int number = 0;
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                number++;
+            }
+
+        }
+        return number;
     }
 }

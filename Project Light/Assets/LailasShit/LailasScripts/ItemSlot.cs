@@ -7,7 +7,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
 {
 
     [SerializeField] Image image;
+    [SerializeField] Text AmountText;
     [SerializeField] ItemTooltip toolTip;
+
+
+    public event Action<Item> OnPointerEnterEvent;
+    public event Action<Item> OnPointerExitEvent;
     public event Action<Item> OnRightClickEvent;
 
     private Item _item;
@@ -29,6 +34,16 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
             }
         }
     }
+    //private int _amount;
+    //public int Amount
+    //{ get { return _amount; }
+    //    set
+    //    {
+    //        _amount = value;
+    //        AmountText.enabled = _item != null && _item.MaximumStack
+    //    }
+    //}
+    
 
     public void OnPointerClick(PointerEventData eventData)
     {
