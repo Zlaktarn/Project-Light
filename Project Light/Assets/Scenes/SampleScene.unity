@@ -964,6 +964,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 5025589173639953616, guid: 376dfa57f81903441bd9a6d17236515c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8656591593072512502, guid: 376dfa57f81903441bd9a6d17236515c,
         type: 3}
       propertyPath: m_Layer
@@ -1097,7 +1102,7 @@ PrefabInstance:
     - target: {fileID: 5637433656518367667, guid: bd15c31e54a777c43af3ff58056d60dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.929
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 5637433656518367667, guid: bd15c31e54a777c43af3ff58056d60dd,
         type: 3}
@@ -1142,6 +1147,71 @@ PrefabInstance:
     - target: {fileID: 5637433656518367667, guid: bd15c31e54a777c43af3ff58056d60dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410204835377236747, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756048982999379211, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877813517376914292, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602205727264539388, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310082412323392512, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684082941951433794, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302181829900388738, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129952010220963069, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218114417883053960, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179298002065386163, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207666169155162307, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207666169155162307, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207666169155162307, guid: bd15c31e54a777c43af3ff58056d60dd,
+        type: 3}
+      propertyPath: m_Drag
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1329,15 +1399,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1621451483744482365, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 1621451485356227553, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_TagString
       value: Lootcube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621451483744482365, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 1621451483596283661, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}

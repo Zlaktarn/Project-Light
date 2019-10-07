@@ -22,7 +22,7 @@ public class WaterInteraction : MonoBehaviour
     private Vector3 originPoint;
     private Vector3 lastPoint;
     public int groupSize = 1;
-    public float seedRadius = 2f;
+    public float seedRadius = 3f;
     public float personalSeedRadius = 2f;
 
     void Start()

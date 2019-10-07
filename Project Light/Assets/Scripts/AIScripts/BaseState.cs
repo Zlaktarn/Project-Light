@@ -11,8 +11,11 @@ public abstract class BaseState
         this.transform = gameObject.transform;
     }
 
+    protected int playerLayer = 1 << 9;
+    protected int environmentLayer = 1 << 10;
     protected GameObject gameObject;
     protected Transform transform;
+    protected bool reset, init;
 
     public abstract Type Tick();
 }

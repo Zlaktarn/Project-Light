@@ -9,11 +9,12 @@ public class AttackState : BaseState
     private Vector3 tempTargetTransform;
     private float lungeForce = 0.3f;
     private Rigidbody rb;
-    private bool reset, init;
     private float speed = 3f;
+    private float fleeSpeed = 5f;
     private float aggroRange = 10f;
     private float resetRange = 2f;
     private Vector3 direction;
+    private Quaternion desiredRotation;
 
     public AttackState(Enemy theEnemy) : base(theEnemy.gameObject)
     {
@@ -25,8 +26,19 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
+        if(enemy.Target == null)
+            return typeof(WanderState);
+
+        if (IsForwardBlocked())
+        {
+            ResetBools();
+            return typeof(ChaseState);
+        }
+            
+
         direction = Vector3.Normalize(enemy.Target.transform.position - transform.position);
         direction = new Vector3(direction.x, 0f, direction.z);
+        desiredRotation = Quaternion.LookRotation(direction);
 
         if (init)
         {
@@ -34,36 +46,38 @@ public class AttackState : BaseState
             init = false;
         }
 
-        if(enemy.Target == null)
-            return typeof(WanderState);
-
         if(Vector3.Distance(transform.position, tempTargetTransform) <= resetRange)
             reset = true;
 
-        if(reset)
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        else
-            rb.AddForce((tempTargetTransform - transform.position).normalized * lungeForce, ForceMode.VelocityChange);
-
-        if(Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange || IsPathBlocked())
+        if (reset)
         {
-            init = true;
-            reset = false;
-            return typeof(ChaseState);
+            transform.Translate(Vector3.forward * Time.deltaTime * fleeSpeed);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * 1.5f);
+            rb.AddForce((tempTargetTransform - transform.position).normalized * lungeForce, ForceMode.VelocityChange);
         }
 
+        if(Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange)
+        {
+            ResetBools();
+            return typeof(ChaseState);
+        }
         return null;
     }
 
-    
-    private bool IsPathBlocked()
+    private void ResetBools()
     {
-        RaycastHit hit;
-        var pos = transform.position;
-        if(Physics.SphereCast(pos, 0.5f, direction, out hit, 5.0f))
-            if(hit.collider.tag == "Environment")
-                return true;
+        reset = false;
+        init = true;
+    }
 
+    private bool IsForwardBlocked()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if(Physics.SphereCast(ray, 0.5f, 5.0f, environmentLayer))
+            return true;
         return false;
     }
 }
