@@ -1,64 +1,114 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
+using System;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IItemConatiner
 {
-    #region
-    public static Inventory instance;
-    private void Awake()
+    [SerializeField] List<Item> items;
+    [SerializeField] Transform itemsParent;
+    [SerializeField] ItemSlot[] itemSlots;
+
+    public event Action<Item> OnItemRightclickevent;
+
+    void Start()
     {
-        if(instance != null)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            Debug.LogWarning("Dont work");
-            return;
+            itemSlots[i].OnRightClickEvent += OnItemRightclickevent;
         }
-        instance = this;
+        RefreshUI();
     }
-    #endregion
-
-    public delegate void OnItemChange();
-    public OnItemChange onItemChangeCallBack;
-    
-
-    public int space = 3;
-
-    public List<Item> items = new List<Item>();
-    public List<string> ItemsCarried;
-
-
-    public bool Add(Item item)
+    private void OnValidate()
     {
-        if (!item.isDefaultItem)
+        if (itemsParent != null)
         {
-            if (items.Count >= space)
+            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        }
+        RefreshUI();
+    }
+
+    //private void SetStartingItem()
+    //{
+    //    for (int i = 0; i < SetStartingItem.Length; i++)
+    //    {
+
+    //    }
+    //}
+    private void RefreshUI()
+    {
+        int i = 0;
+        for (; i < items.Count && i < itemSlots.Length; i++)
+        {
+            itemSlots[i].item = items[i];
+        }
+        for (; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].item = null;
+        }
+    }
+    public bool AddItem(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == null)
             {
-                Debug.Log("Not enough room");
+                itemSlots[i].item = item;
+                return true;
+            }
+
+        }
+        return false;
+    }
+    public bool RemoveItem(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                itemSlots[i].item = null;
+                return true;
+            }
+
+        }
+        return false;
+    }
+    public bool IsFull()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i].item == null)
+            {
                 return false;
             }
-            items.Add(item);
-            ItemsCarried.Add(item.name);
-            if (onItemChangeCallBack != null)
-            {
-                onItemChangeCallBack.Invoke();
-            }
+            
         }
         return true;
     }
-    public void Remove(Item item)
+
+    public bool ContainItem(Item item)
     {
-        items.Remove(item);
-        ItemsCarried.Remove(item.name);
-        if (onItemChangeCallBack != null)
-            onItemChangeCallBack.Invoke();
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].item == item)
+            {
+                return true;
+            }
+
+        }
+        return false;
     }
 
-    public void Crafting()
+    public int ItemCount(Item item)
     {
-        if (ItemsCarried.Contains("Book") & ItemsCarried.Contains("Money"))
+        int number = 0;
+        for (int i = 0; i < itemSlots.Length; i++)
         {
+            if (itemSlots[i].item == item)
+            {
+                number++;
+            }
+
         }
+        return number;
     }
 }

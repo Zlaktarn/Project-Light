@@ -62,6 +62,9 @@ public class MovementScript : MonoBehaviour
             SavePlayer();
         if (Input.GetKeyDown(KeyCode.M))
             LoadPlayer();
+
+
+            
     }
 
     #region Movement

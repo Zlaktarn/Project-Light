@@ -1,54 +1,53 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 [Serializable]
 public struct ItemAmount
 {
     public Item item;
-    [Range(1, 99)]
-    public int amount;
+    [Range(1, 3)]
+    public int Amount;
 }
 
 [CreateAssetMenu]
 public class CraftingRecipe : ScriptableObject
 {
     public List<ItemAmount> Materials;
-    public List<ItemAmount> Results;
+    public List<ItemAmount> Result;
 
-    public bool Craftable(ItemContainer itemC)
+    public bool CantCraft(IItemConatiner itemConatiner)
     {
         foreach (ItemAmount itemAmount in Materials)
         {
-            if(itemC.ItemCount(itemAmount.item) < itemAmount.amount)
+            if(itemConatiner.ItemCount(itemAmount.item) < itemAmount.Amount)
             {
                 return false;
             }
         }
         return true;
     }
-    public bool Craft(ItemContainer itemC)
+    public void Craftable(IItemConatiner itemConatiner)
     {
-        if(Craftable(itemC))
+        if(CantCraft(itemConatiner))
         {
             foreach (ItemAmount itemAmount in Materials)
             {
-                for (int i = 0; i < itemAmount.amount; i++)
+                for (int i = 0; i < itemAmount.Amount; i++)
                 {
-                    itemC.RemoveItem(itemAmount.item);
+                    itemConatiner.RemoveItem(itemAmount.item);
                 }
             }
-
-            foreach (ItemAmount itemAmount in Results)
+            foreach (ItemAmount itemAmount in Result)
             {
-                for (int i = 0; i < itemAmount.amount; i++)
+                for (int i = 0; i < itemAmount.Amount; i++)
                 {
-                    itemC.AddItem(itemAmount.item);
+                    itemConatiner.AddItem(itemAmount.item);
                 }
             }
         }
-        return true;
     }
+
 }
