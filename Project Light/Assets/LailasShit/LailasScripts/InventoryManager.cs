@@ -5,7 +5,7 @@ public class InventoryManager : MonoBehaviour //Charachter clas
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
 
-    void Start()
+    void Awake()
     {
         inventory.OnItemRightclickevent += EquipFromInventory;
         equipmentPanel.OnItemRightclickevent += UnequipFromEquipPanel;

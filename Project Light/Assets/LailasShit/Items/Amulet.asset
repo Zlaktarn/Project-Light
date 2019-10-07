@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 77343f8a07dc2544aae3d0bd0533f442, type: 3}
   Damage: 0
   Ammo: 0
-  Defense: 0
+  Defense: 33
   DamagePercent: 0
   DefensePercent: 0
   EquipmentType: 2
