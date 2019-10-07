@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour //Charachter clas
 {
     [SerializeField] Inventory inventory;
     [SerializeField] EquipmentPanel equipmentPanel;
 
-    private void Awake()
+    void Start()
     {
         inventory.OnItemRightclickevent += EquipFromInventory;
         equipmentPanel.OnItemRightclickevent += UnequipFromEquipPanel;
