@@ -37,19 +37,19 @@ public class SoundTracker : MonoBehaviour
         {
             stepsSource.clip = concreteSteps[speed];
             jumpSource.clip = concreteJump[UnityEngine.Random.Range(0, 3)];
-            print("concrete");
+            print(floorTypes.ToString());
         }
         else if (floorTypes == 2)
         {
             stepsSource.clip = gravelSteps[speed];
             jumpSource.clip = gravelJump[UnityEngine.Random.Range(0, 3)];
-            print("gravel");
+            print(floorTypes.ToString());
         }
         else if (floorTypes == 3)
         {
             stepsSource.clip = woodSteps[speed];
             jumpSource.clip = woodJump[UnityEngine.Random.Range(0, 3)];
-            print("wood");
+            print(floorTypes.ToString());
         }
         else
         {
@@ -77,6 +77,12 @@ public class SoundTracker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            print("sug");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("wtf");
             FloorUpdater();
             jumpSource.PlayDelayed(0.5f);
         }

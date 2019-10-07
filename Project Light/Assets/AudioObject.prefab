@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935596350764309126}
-  - component: {fileID: 1935596350764309125}
   - component: {fileID: 1935596350764309124}
   - component: {fileID: 1935596350764309179}
+  - component: {fileID: 6338663236791460959}
   m_Layer: 0
   m_Name: AudioObject
   m_TagString: Untagged
@@ -33,46 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1935596350764309125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935596350764309178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b58c61e6ea10d44885c643bb0397b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  concreteJump:
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  gravelJump:
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  woodJump:
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
-  concreteSteps:
-  - {fileID: 8300000, guid: b43638f48c6cbb042ac32ef7e210837b, type: 3}
-  - {fileID: 8300000, guid: b43638f48c6cbb042ac32ef7e210837b, type: 3}
-  - {fileID: 8300000, guid: b43638f48c6cbb042ac32ef7e210837b, type: 3}
-  gravelSteps:
-  - {fileID: 8300000, guid: 8d84fc95790eb8b4689622151a5e0ddd, type: 3}
-  - {fileID: 8300000, guid: e1f378130ae7f25439f9091e8150faee, type: 3}
-  - {fileID: 8300000, guid: 2eaa69b35eb36e74683059ecc4a65912, type: 3}
-  woodSteps:
-  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
-  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
-  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
-  floorTypes: 0
-  jumpSource: {fileID: 1935596350764309124}
-  stepsSource: {fileID: 1935596350764309179}
 --- !u!82 &1935596350764309124
 AudioSource:
   m_ObjectHideFlags: 0
@@ -265,3 +225,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6338663236791460959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935596350764309178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bcf81df3f47b64ab405e52ede1aff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  concreteJump:
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  gravelJump:
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  woodJump:
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  - {fileID: 8300000, guid: d0dbc36e5dcadc241ad2135871e6bfc0, type: 3}
+  concreteSteps:
+  - {fileID: 8300000, guid: b43638f48c6cbb042ac32ef7e210837b, type: 3}
+  - {fileID: 8300000, guid: 347e50897cb6b89458a241affa34dc9a, type: 3}
+  - {fileID: 8300000, guid: 347e50897cb6b89458a241affa34dc9a, type: 3}
+  gravelSteps:
+  - {fileID: 8300000, guid: 8d84fc95790eb8b4689622151a5e0ddd, type: 3}
+  - {fileID: 8300000, guid: e1f378130ae7f25439f9091e8150faee, type: 3}
+  - {fileID: 8300000, guid: 2eaa69b35eb36e74683059ecc4a65912, type: 3}
+  woodSteps:
+  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
+  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
+  - {fileID: 8300000, guid: f45bcd769680ae5449949d58b755b555, type: 3}
+  floorTypes: 0
+  jumpSource: {fileID: 1935596350764309179}
+  stepsSource: {fileID: 1935596350764309124}
