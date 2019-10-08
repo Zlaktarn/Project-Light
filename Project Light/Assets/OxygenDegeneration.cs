@@ -6,7 +6,7 @@ public class OxygenDegeneration : MonoBehaviour
 {
     private GameObject player;
     private MovementScript playerScript;
-    private float minHealth = 0f;
+    private float minOxygen = 0f;
     private int degen = 1;
 
     // Start is called before the first frame update
@@ -18,17 +18,23 @@ public class OxygenDegeneration : MonoBehaviour
 
     void Update()
     {
-        if(playerScript.health > 100)
-            playerScript.health = 100;
+        if(playerScript.Oxygen > 100)
+            playerScript.Oxygen = 100;
 
-        if(playerScript.health > minHealth)
+        if(playerScript.Oxygen > minOxygen)
         {
-            playerScript.health -= degen * Time.deltaTime;
-            print("Oxygen: " + (int)playerScript.health);
+            playerScript.Oxygen -= degen * Time.deltaTime;
+            print("Oxygen: " + (int)playerScript.Oxygen);
         }
             
 
-        if(playerScript.health < 0)
-            playerScript.health = 0;
+        if(playerScript.Oxygen < 0)
+            playerScript.Oxygen= 0;
+
+        if(playerScript.Oxygen <= 0)
+        {
+            playerScript.health -= degen * Time.deltaTime;
+            print("Health: " + (int)playerScript.health);
+        }
     }
 }

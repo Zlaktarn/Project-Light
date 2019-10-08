@@ -9,7 +9,7 @@ public class ChaseState : BaseState
     private float speed = 3f;
     private float attackRange = 10f;
     private float aggroRange = 20f;
-    private float rotationSpeed = 1.5f;
+    private float rotationSpeed = 2.5f;
     private float closeAngle = 10f;
     private Vector3 direction;
     private Quaternion desiredRotation;

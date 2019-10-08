@@ -11,8 +11,8 @@ public class PlantHealthAdjuster : MonoBehaviour
     private bool Enabled = false;
 
     // Temp Variables - should be added to player class
-    private float maxHealth = 100f;
-    private float minHealth = 0f;
+    private float maxOxygen = 100f;
+    private float minOxygen = 0f;
 
     void Start()
     {
@@ -24,11 +24,11 @@ public class PlantHealthAdjuster : MonoBehaviour
     {
         if (Enabled)
         {
-            if(playerScript.health <= maxHealth)
-                playerScript.health += regen * Time.deltaTime;
+            if(playerScript.Oxygen <= maxOxygen)
+                playerScript.Oxygen += regen * Time.deltaTime;
 
-            if(playerScript.health > maxHealth)
-                playerScript.health = maxHealth;
+            if(playerScript.Oxygen > maxOxygen)
+                playerScript.Oxygen = maxOxygen;
         }
     }
 

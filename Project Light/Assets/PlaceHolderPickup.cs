@@ -6,44 +6,54 @@ public class PlaceHolderPickup : MonoBehaviour
 {
     private bool triggered;
     public bool PickedUp {get; set;}
-    public Transform onhand;
+    private Vector3 onhand = new Vector3(-0.23f, -0.15f, 0.46f);
     public Transform parent;
+    public GameObject weapon;
+    private Rigidbody rb;
+    private int held = 0;
     
     void Start()
     {
         PickedUp = false;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !PickedUp)
             {
-                if(PickedUp)
-                    ReleaseItem();
-                else
-                    HoldItem();
+                HoldItem();
+            }
+            else if(Input.GetKeyDown(KeyCode.E) && PickedUp)
+            {
+                ReleaseItem();
             }
         }
     }
 
     private void HoldItem()
     {
+        weapon.SetActive(false);
         PickedUp = true;
-        GetComponent<Rigidbody>().useGravity = false;
-        this.transform.position = onhand.position;
+        rb.useGravity = false;
+        rb.isKinematic = true;
         this.transform.parent = parent;
+        this.transform.localPosition = onhand;
+        this.transform.localRotation = parent.localRotation;
     }
 
     private void ReleaseItem()
     {
         PickedUp = false;
-        //this.transform.parent = null;
-        GetComponent<Rigidbody>().useGravity = true;
+        this.transform.parent = null;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        weapon.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Lootcube")
             triggered = true;

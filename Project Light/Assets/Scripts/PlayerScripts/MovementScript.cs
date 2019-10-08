@@ -6,6 +6,7 @@ public class MovementScript : MonoBehaviour
 {
     float oldHealth;
     public float health = 100;
+    public float Oxygen = 100;
 
 
     private Rigidbody rb;

@@ -10,7 +10,7 @@ public class AttackState : BaseState
     private float lungeForce = 0.3f;
     private Rigidbody rb;
     private float speed = 3f;
-    private float fleeSpeed = 5f;
+    private float fleeSpeed = 6f;
     private float aggroRange = 12f;
     private float resetRange = 2f;
     private Vector3 direction;
@@ -36,7 +36,10 @@ public class AttackState : BaseState
             init = false;
         }
 
-        if (IsForwardBlocked())
+        if(IsPathBlocked())
+            return typeof(WanderState);
+
+        if (IsForwardBlocked() && !IsTargetTooClose())
         {
             ResetBools();
             return typeof(ChaseState);
@@ -57,7 +60,7 @@ public class AttackState : BaseState
         else
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * 1.5f);
-            transform.Translate(Vector3.forward * Time.deltaTime * 10f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 8f);
         }
 
         if(Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange)
@@ -72,14 +75,30 @@ public class AttackState : BaseState
     {
         reset = false;
         init = true;
-        enemy.Agent.isStopped = false;
-        enemy.Agent.ResetPath();
+        //enemy.Agent.isStopped = false;
+        //enemy.Agent.ResetPath();
     }
 
     private bool IsForwardBlocked()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         if(Physics.SphereCast(ray, 0.5f, 5.0f, environmentLayer))
+            return true;
+        return false;
+    }
+
+    private bool IsPathBlocked()
+    {
+        Ray ray = new Ray(transform.position, direction);
+        if(Physics.SphereCast(ray, 0.5f, 5.0f, environmentLayer))
+            return true;
+        return false;
+    }
+
+    private bool IsTargetTooClose()
+    {
+        var dist = Vector3.Distance(transform.position, enemy.Target.transform.position);
+        if(dist < 4f)
             return true;
         return false;
     }
