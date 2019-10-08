@@ -77,11 +77,6 @@ public class SoundTracker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("sug");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
             print("wtf");
             FloorUpdater();
             jumpSource.PlayDelayed(0.5f);

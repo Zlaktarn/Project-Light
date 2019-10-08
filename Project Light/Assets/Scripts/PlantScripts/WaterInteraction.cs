@@ -43,7 +43,7 @@ public class WaterInteraction : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.G))
             {
                 if (hasWater && currentWater <= 100)
                 {
