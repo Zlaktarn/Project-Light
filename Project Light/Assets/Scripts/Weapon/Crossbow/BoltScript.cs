@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoltScript : MonoBehaviour
 {
     Rigidbody myBody;
-    private float lifeTimer = 2f;
+    private float lifeTimer = 6f;
 
     private float timer;
     private bool hitSomething = false;
@@ -15,8 +15,6 @@ public class BoltScript : MonoBehaviour
     private void Start()
     {
         myBody = GetComponent<Rigidbody>();
-        //transform.rotation = Quaternion.LookRotation(myBody.velocity);
-
     }
 
     void Update()
