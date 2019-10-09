@@ -5,13 +5,21 @@ public class TargetScript : MonoBehaviour
 {
     public float health = 100f;
 
-    public void TakeDamage(float amount)
+    private void Update()
     {
-        health -= amount;
-        if(health <= 0f)
+        if (health <= 0f)
         {
             Die();
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        //if(health <= 0f)
+        //{
+        //    Die();
+        //}
     }
 
     void Die()

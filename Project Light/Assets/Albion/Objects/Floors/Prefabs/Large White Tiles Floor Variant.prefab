@@ -1,6 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5288354164314052237
+--- !u!65 &4003692994675615071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678910739132473361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 0.3, z: 4}
+  m_Center: {x: 0.42474896, y: 0.180965, z: 1.714067}
+--- !u!1001 &622646076928076581
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,22 +23,22 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 1619d9ea08644534384063c7dd14a41a,
         type: 3}
       propertyPath: m_Name
-      value: A_FloorPanel
+      value: Large White Tiles Floor Variant
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1619d9ea08644534384063c7dd14a41a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.7339497
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1619d9ea08644534384063c7dd14a41a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07057501
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1619d9ea08644534384063c7dd14a41a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.6367316
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1619d9ea08644534384063c7dd14a41a,
         type: 3}
@@ -71,6 +84,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 55703982cc27c91488339656faf651d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 85f4aa04b305e6b4ea12dbb779a19929, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1619d9ea08644534384063c7dd14a41a, type: 3}
+--- !u!1 &4678910739132473361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5209188984312744756, guid: 1619d9ea08644534384063c7dd14a41a,
+    type: 3}
+  m_PrefabInstance: {fileID: 622646076928076581}
+  m_PrefabAsset: {fileID: 0}

@@ -5,12 +5,13 @@ using UnityEngine;
 public class BoltScript : MonoBehaviour
 {
     Rigidbody myBody;
-    private float lifeTimer = 6f;
+    private float lifeTimer = 2f;
 
     private float timer;
     private bool hitSomething = false;
 
-    [SerializeField] float damage = 10f;
+    /*public*/ float damage = 30;
+    TargetScript target;
 
     private void Start()
     {
@@ -38,8 +39,8 @@ public class BoltScript : MonoBehaviour
             hitSomething = true;
             Stick();
 
-            if (collision.collider.tag == "Enemy")
-                print("Hit!");
+            //if (collision.collider.tag == "Enemy")
+            //    target.health -= damage;
 
         }
     }
