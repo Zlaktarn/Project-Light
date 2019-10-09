@@ -36,7 +36,9 @@ public class Inventory : ItemContainer
         if (itemsParent != null)
         {
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
+            //itemsParent.GetComponentsInChildren(includeInactive: true, result: startingItems);
         }
+        //itemsParent.GetComponentsInChildren(includeInactive: true, result: startingItems);
         SetStartingItems();
     }
 
@@ -54,19 +56,4 @@ public class Inventory : ItemContainer
             itemSlots[i].Amount = 0;
         }
     }
-
-    //public bool ContainItem(Item item)
-    //{
-    //    for (int i = 0; i < itemSlots.Length; i++)
-    //    {
-    //        if (itemSlots[i].item == item)
-    //        {
-    //            return true;
-    //        }
-
-    //    }
-    //    return false;
-    //}
-
-
 }

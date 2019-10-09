@@ -38,7 +38,7 @@ public class CraftingRecipe : ScriptableObject
     {
         foreach (ItemAmount itemAmount in Results)
         {
-            if (!itemContainer.AddItem(itemAmount.Item, itemAmount.Amount))
+            if (!itemContainer.CanAddItem(itemAmount.Item, itemAmount.Amount))
             {
                 Debug.LogWarning("Your inventory is full.");
                 return false;

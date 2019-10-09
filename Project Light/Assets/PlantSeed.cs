@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlantSeed : MonoBehaviour
 {
+    Inventory inventory;
     public GameObject seed;
     private GameObject spawnedSeed;
     private Rigidbody rb;
@@ -19,7 +20,7 @@ public class PlantSeed : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !spawned)
+            if (Input.GetKeyDown(KeyCode.E) && !spawned && inventory.gameObject)
             {
                 spawnedSeed = (GameObject)Instantiate(seed, transform.localPosition + new Vector3(0, 0.64f, 0), Quaternion.identity);
                 spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;

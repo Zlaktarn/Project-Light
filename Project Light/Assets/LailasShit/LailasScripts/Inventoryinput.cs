@@ -6,6 +6,11 @@ public class Inventoryinput : MonoBehaviour
     [SerializeField] GameObject EquipPanelObject;
 
     [SerializeField] KeyCode[] toggleInventory;
+
+    private void Start()
+    {
+        InventoryObject.SetActive(!InventoryObject.activeSelf);
+    }
     void Update()
     {
         for (int i = 0; i < toggleInventory.Length; i++)

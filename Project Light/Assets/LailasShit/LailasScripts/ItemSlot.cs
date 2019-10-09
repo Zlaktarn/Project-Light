@@ -12,6 +12,11 @@ public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragH
 
     private Color dragColor = Color.white;
 
+    public override bool CanAddStack(Item item, int amount = 1)
+    {
+        return base.CanAddStack(item, amount) && Amount + amount <= item.MaximumStacks;
+    }
+
     public override bool CanReceiveItem(Item item)
     {
         return true;

@@ -28,11 +28,11 @@ public class CraftingWindow : MonoBehaviour
 
         foreach (CraftingRecipeUI craftingRecipeUI in craftingRecipeUIs)
         {
-            //craftingRecipeUI.OnPointerEnterE += OnPointerEnterEvent;
-            //craftingRecipeUI.OnPointerExitE += OnPointerExitEvent;
+            craftingRecipeUI.OnPointerEnterE += OnPointerEnterEvent;
+            craftingRecipeUI.OnPointerExitE += OnPointerExitEvent;
 
-            craftingRecipeUI.OnPointerEnterE += slot => OnPointerEnterEvent(slot);
-            craftingRecipeUI.OnPointerExitE += slot => OnPointerExitEvent(slot);
+            //craftingRecipeUI.OnPointerEnterE += slot => OnPointerEnterEvent(slot);
+            //craftingRecipeUI.OnPointerExitE += slot => OnPointerExitEvent(slot);
         }
     }
 

@@ -33,9 +33,9 @@ RectTransform:
   m_Father: {fileID: 179291586}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 232.99994, y: -75.000015}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.49999964, y: 0.49999988}
 --- !u!222 &25947932
@@ -344,9 +344,9 @@ RectTransform:
   m_Father: {fileID: 4019763509294389852}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 301.05, y: -297}
   m_SizeDelta: {x: 602.1, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &179291589
@@ -981,9 +981,9 @@ RectTransform:
   m_Father: {fileID: 179291586}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74.99995, y: -75.000015}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.49999964, y: 0.49999988}
 --- !u!222 &471405303
@@ -1823,9 +1823,9 @@ RectTransform:
   m_Father: {fileID: 179291586}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 336, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1966643626
@@ -1861,9 +1861,9 @@ RectTransform:
   m_Father: {fileID: 179291586}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 438.99994, y: -75.000015}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.49999964, y: 0.49999988}
 --- !u!222 &1966643629
@@ -2090,9 +2090,9 @@ RectTransform:
   m_Father: {fileID: 179291586}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 537, y: -80}
   m_SizeDelta: {x: 30, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2078088782
@@ -5656,7 +5656,7 @@ RectTransform:
   m_GameObject: {fileID: 488076949678789894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 488076950087641712}
   - {fileID: 488076949431403277}
@@ -6555,7 +6555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &488076950087641712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7596,9 +7596,9 @@ RectTransform:
   m_Father: {fileID: 4019763509294389852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 268, y: 0}
   m_SizeDelta: {x: 536, y: 111}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &3637622370117019770
@@ -7618,7 +7618,7 @@ MonoBehaviour:
   - {fileID: 6255977356839713846}
   - {fileID: 1340978934057577989}
   - {fileID: 8695423411555456316}
-  itemContainer: {fileID: 0}
+  itemContainer: {fileID: 488076949431403276}
 --- !u!1 &2695767771446972812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8101,14 +8101,14 @@ GameObject:
   - component: {fileID: 3779936535625557464}
   - component: {fileID: 5872505596352767794}
   - component: {fileID: 4661933670099286930}
-  - component: {fileID: 1630029777}
+  - component: {fileID: 836573879}
   m_Layer: 5
   m_Name: CraftingWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3779936535625557464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8118,7 +8118,7 @@ RectTransform:
   m_GameObject: {fileID: 3498693230683927078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 423244781002053200}
   m_Father: {fileID: 488076950142633410}
@@ -8126,9 +8126,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 676.6499, y: 188.80005}
+  m_AnchoredPosition: {x: 676.6504, y: 80}
   m_SizeDelta: {x: 600, y: 664.1}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!222 &5872505596352767794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8165,7 +8165,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1630029777
+--- !u!114 &836573879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8179,14 +8179,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeUIPrefab: {fileID: 7584947654436974424, guid: 3e21c0c4a9994f94bb745486341c3c93,
     type: 3}
-  RecipeUIParent: {fileID: 0}
+  RecipeUIParent: {fileID: 3471548293249382469}
   craftingRecipeUIs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3637622370117019770}
+  - {fileID: 488076949167844218}
+  - {fileID: 8927358279273359000}
   itemContainer: {fileID: 488076949431403276}
   CraftingRecipes:
   - {fileID: 11400000, guid: 64e16e2112457d04f943afe9b04e3108, type: 2}
   - {fileID: 11400000, guid: d2c9b571fd97bc8438d36295537e907f, type: 2}
+  - {fileID: 11400000, guid: 64e16e2112457d04f943afe9b04e3108, type: 2}
 --- !u!1 &4035283401885715485
 GameObject:
   m_ObjectHideFlags: 0
@@ -8991,12 +8993,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 77343f8a07dc2544aae3d0bd0533f442, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9243,12 +9245,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e4a21082f4393f145a488c2f8dcb7b2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9566,7 +9568,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00048828125, y: 0.00012207031}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 2.0999756, y: 372}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8618348549579496112
 MonoBehaviour:
@@ -9687,21 +9689,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4019763509294389852}
     m_Modifications:
-    - target: {fileID: 8036351181447863149, guid: 3e21c0c4a9994f94bb745486341c3c93,
-        type: 3}
-      propertyPath: m_Name
-      value: CraftingsRecipeUI
-      objectReference: {fileID: 0}
     - target: {fileID: 7584947654436974424, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 488076949431403276}
-    - target: {fileID: 8036351180626387653, guid: 3e21c0c4a9994f94bb745486341c3c93,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9760,12 +9752,12 @@ PrefabInstance:
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -111
       objectReference: {fileID: 0}
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
@@ -9785,7 +9777,7 @@ PrefabInstance:
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
@@ -9795,7 +9787,7 @@ PrefabInstance:
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
@@ -9807,8 +9799,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8036351181447863149, guid: 3e21c0c4a9994f94bb745486341c3c93,
+        type: 3}
+      propertyPath: m_Name
+      value: CraftingsRecipeUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e21c0c4a9994f94bb745486341c3c93, type: 3}
+--- !u!114 &488076949167844218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7584947654436974424, guid: 3e21c0c4a9994f94bb745486341c3c93,
+    type: 3}
+  m_PrefabInstance: {fileID: 8036351181851804706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8204e1535c4cb774f9f359cf9fd256cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2028789584 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8036351181447863154, guid: 3e21c0c4a9994f94bb745486341c3c93,

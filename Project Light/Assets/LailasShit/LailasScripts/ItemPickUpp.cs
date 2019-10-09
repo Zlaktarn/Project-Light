@@ -19,8 +19,7 @@ public class ItemPickUpp : MonoBehaviour
     {
         if(isInRange && Input.GetKeyDown(ItemPickUp))
         {
-            inventory.AddItem(item.GetCopy());
-            item = null;
+            inventory.AddItem(Instantiate(item));
             Destroy(gameObject);
         }
     }
