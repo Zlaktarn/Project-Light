@@ -2,7 +2,7 @@
 
 public class Inventoryinput : MonoBehaviour
 {
-    [SerializeField] GameObject InventoryObject;
+    [SerializeField] public GameObject InventoryObject;
     [SerializeField] GameObject EquipPanelObject;
 
     [SerializeField] KeyCode[] toggleInventory;
@@ -19,7 +19,7 @@ public class Inventoryinput : MonoBehaviour
             {
                 InventoryObject.SetActive(!InventoryObject.activeSelf);
 
-                if(InventoryObject.activeSelf)
+                if(InventoryObject.activeSelf || PauseMenu.GameIsPaused)
                 {
                     ShowMouse();
                 }
@@ -33,8 +33,11 @@ public class Inventoryinput : MonoBehaviour
     }
     public void HideMouse()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if(!PauseMenu.GameIsPaused && !InventoryObject.activeSelf)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     public void ShowMouse()
     {

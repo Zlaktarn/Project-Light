@@ -42,16 +42,16 @@ public class CameraMovement : MonoBehaviour
         //else
         //    sensitivity = oldSensitivity;
 
-        if (PauseMenu.GameIsPaused)
-        {
-            //sensitivity = 0;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (!PauseMenu.GameIsPaused)
-        {
-            //sensitivity = oldSensitivity;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        //if (PauseMenu.GameIsPaused)
+        //{
+        //    //sensitivity = 0;
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
+        //else if (!PauseMenu.GameIsPaused)
+        //{
+        //    //sensitivity = oldSensitivity;
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
 
         
 
