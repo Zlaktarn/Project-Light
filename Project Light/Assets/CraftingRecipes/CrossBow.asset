@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CrossBow
   m_EditorClassIdentifier: 
   Materials:
-  - item: {fileID: 11400000, guid: 7b149730d051aec459175b62641f08a8, type: 2}
+  - Item: {fileID: 11400000, guid: 3f8e88535f7b87a48bcb7592e55d5713, type: 2}
     Amount: 1
-  - item: {fileID: 11400000, guid: bc918e6629afb58479c19758543f14e1, type: 2}
+  - Item: {fileID: 11400000, guid: eee24e42750569248bf087db0f1e9e9e, type: 2}
     Amount: 1
-  Result:
-  - item: {fileID: 11400000, guid: 3f8e88535f7b87a48bcb7592e55d5713, type: 2}
-    Amount: 1
+  Results:
+  - Item: {fileID: 11400000, guid: 7b149730d051aec459175b62641f08a8, type: 2}
+    Amount: 0

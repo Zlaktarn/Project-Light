@@ -4,15 +4,15 @@ public class ItemPickUpp : MonoBehaviour
 {
     [SerializeField] Item item;
     [SerializeField] Inventory inventory;
-    [SerializeField] SpriteRenderer spriteRender;
+    //[SerializeField] SpriteRenderer spriteRender;
     [SerializeField] KeyCode ItemPickUp = KeyCode.E;
 
     private bool isInRange;
 
     private void Start()
     {
-        spriteRender.sprite = item.icon;
-        spriteRender.enabled = false;
+        //spriteRender.sprite = item.icon;
+        //spriteRender.enabled = false;
     }
 
     private void Update()
@@ -27,11 +27,11 @@ public class ItemPickUpp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isInRange = true;
-        spriteRender.enabled = true;
+        //spriteRender.enabled = true;
     }
     private void OnTriggerExit(Collider other)
     {
         isInRange = false;
-        spriteRender.enabled = false;
+        //spriteRender.enabled = false;
     }
 }
