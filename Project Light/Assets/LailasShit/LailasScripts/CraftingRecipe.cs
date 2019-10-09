@@ -1,14 +1,12 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-
 
 [Serializable]
 public struct ItemAmount
 {
-    public Item item;
-    [Range(1, 10)]
+    public Item Item;
+    [Range(1, 999)]
     public int Amount;
 }
 
@@ -16,39 +14,68 @@ public struct ItemAmount
 public class CraftingRecipe : ScriptableObject
 {
     public List<ItemAmount> Materials;
-    public List<ItemAmount> Result;
+    public List<ItemAmount> Results;
 
-    public bool CantCraft(IItemConatiner itemConatiner)
+    public bool CanCraft(IItemConatiner itemContainer)
+    {
+        return HasMaterials(itemContainer) && HasSpace(itemContainer);
+    }
+
+    private bool HasMaterials(IItemConatiner itemContainer)
     {
         foreach (ItemAmount itemAmount in Materials)
         {
-            if(itemConatiner.ItemCount(itemAmount.item.ID) < itemAmount.Amount)
+            if (itemContainer.ItemCount(itemAmount.Item.ID) < itemAmount.Amount)
             {
+                Debug.LogWarning("You don't have the required materials.");
                 return false;
             }
         }
         return true;
     }
-    public void Craftable(IItemConatiner itemConatiner)
+
+    private bool HasSpace(IItemConatiner itemContainer)
     {
-        if(CantCraft(itemConatiner))
+        foreach (ItemAmount itemAmount in Results)
         {
-            foreach (ItemAmount itemAmount in Materials)
+            if (!itemContainer.AddItem(itemAmount.Item, itemAmount.Amount))
             {
-                for (int i = 0; i < itemAmount.Amount; i++)
-                {
-                    Item olditem = itemConatiner.RemoveItem(itemAmount.item.ID);
-                    olditem.Destroy();
-                }
+                Debug.LogWarning("Your inventory is full.");
+                return false;
             }
-            foreach (ItemAmount itemAmount in Result)
+        }
+        return true;
+    }
+
+    public void Craft(IItemConatiner itemContainer)
+    {
+        if (CanCraft(itemContainer))
+        {
+            RemoveMaterials(itemContainer);
+            AddResults(itemContainer);
+        }
+    }
+
+    public void RemoveMaterials(IItemConatiner itemContainer)
+    {
+        foreach (ItemAmount itemAmount in Materials)
+        {
+            for (int i = 0; i < itemAmount.Amount; i++)
             {
-                for (int i = 0; i < itemAmount.Amount; i++)
-                {
-                    itemConatiner.AddItem(itemAmount.item.GetCopy());
-                }
+                Item oldItem = itemContainer.RemoveItem(itemAmount.Item.ID);
+                oldItem.Destroy();
             }
         }
     }
 
+    public void AddResults(IItemConatiner itemContainer)
+    {
+        foreach (ItemAmount itemAmount in Results)
+        {
+            for (int i = 0; i < itemAmount.Amount; i++)
+            {
+                itemContainer.AddItem(itemAmount.Item.GetCopy());
+            }
+        }
+    }
 }

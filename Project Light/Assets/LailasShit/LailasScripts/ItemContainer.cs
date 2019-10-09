@@ -20,6 +20,25 @@ public abstract class ItemContainer : MonoBehaviour, IItemConatiner
         return false;
     }
 
+    public bool AddItem(Item item, int amount = 1)
+    {
+        int freeSpaces = 0;
+
+        foreach (ItemSlot itemSlot in itemSlots)
+        {
+            if (itemSlot.item == null || itemSlot.item.ID == item.ID)
+            {
+                freeSpaces += item.MaximumStacks - itemSlot.Amount;
+            }
+        }
+        return freeSpaces >= amount;
+    }
+
+    public void Clear()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public virtual bool IsFull()
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -61,6 +80,8 @@ public abstract class ItemContainer : MonoBehaviour, IItemConatiner
         }
         return null;
     }
+
+
 
     public virtual bool RemoveItem(Item item)
     {

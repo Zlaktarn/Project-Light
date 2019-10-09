@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4612ea5e3918b44d90eb92c77c66425, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
+  id: 7b149730d051aec459175b62641f08a8
   ItemName: Gold
+  MaximumStacks: 2
   icon: {fileID: 21300000, guid: 2b5e33946ce0ed341a3e0bfd33fc4110, type: 3}
   Damage: 0
   Ammo: 0

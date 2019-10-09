@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 3aec331c4452621468f24e3f757f0e73
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 19
+  mGraphInstanceData:
+  - graphLabel: Rock_Ground_1
+    prototypeName: Rock_Ground
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Rock_Ground\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"2252253853\" type=\"8\" value=\"10,10\" />\n
+      \ <presetinput identifier=\"Shape_02_Rotation\" uid=\"4138396695\" type=\"0\"
+      value=\"0.683\" />\n  <presetinput identifier=\"Shape_02_Trim_Position\" uid=\"4138396689\"
+      type=\"0\" value=\"1\" />\n  <presetinput identifier=\"Shape_02_Trim_Contrast\"
+      uid=\"4138396691\" type=\"0\" value=\"0.733\" />\n  <presetinput identifier=\"Ground_Dirt_Contrast\"
+      uid=\"4138548150\" type=\"0\" value=\"0.43\" />\n  <presetinput identifier=\"Puddles_Position\"
+      uid=\"4138551856\" type=\"0\" value=\"0.491\" />\n  <presetinput identifier=\"Puddles_Contrast\"
+      uid=\"4138551858\" type=\"0\" value=\"0.813\" />\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: baseColor,normal,ambientOcclusion,height,metallic
+    materialProperties:
+      shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
+      lightmapFlags: 4
+      texEnvs:
+      - name: _BumpMap
+        texture: {fileID: 3061157332863724571, guid: 3aec331c4452621468f24e3f757f0e73,
+          type: 3}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _DetailAlbedoMap
+        texture: {instanceID: 0}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _DetailMask
+        texture: {instanceID: 0}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _DetailNormalMap
+        texture: {instanceID: 0}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _EmissionMap
+        texture: {instanceID: 0}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _MainTex
+        texture: {fileID: -2609044816669697167, guid: 3aec331c4452621468f24e3f757f0e73,
+          type: 3}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _MetallicGlossMap
+        texture: {fileID: -3983916721561707369, guid: 3aec331c4452621468f24e3f757f0e73,
+          type: 3}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _OcclusionMap
+        texture: {fileID: -3531585796465846001, guid: 3aec331c4452621468f24e3f757f0e73,
+          type: 3}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      - name: _ParallaxMap
+        texture: {fileID: 4761670839474500010, guid: 3aec331c4452621468f24e3f757f0e73,
+          type: 3}
+        scale: {x: 1, y: 1}
+        offset: {x: 0, y: 0}
+      floats:
+      - name: _BumpScale
+        float: 1
+      - name: _Cutoff
+        float: 0.5
+      - name: _DetailNormalMapScale
+        float: 1
+      - name: _DstBlend
+        float: 0
+      - name: _GlossMapScale
+        float: 1
+      - name: _Glossiness
+        float: 0.5
+      - name: _GlossyReflections
+        float: 1
+      - name: _Metallic
+        float: 0
+      - name: _Mode
+        float: 0
+      - name: _OcclusionStrength
+        float: 1
+      - name: _Parallax
+        float: 0.02
+      - name: _SmoothnessTextureChannel
+        float: 0
+      - name: _SpecularHighlights
+        float: 1
+      - name: _SrcBlend
+        float: 1
+      - name: _UVSec
+        float: 0
+      - name: _ZWrite
+        float: 1
+      colors:
+      - name: _Color
+        color: {r: 1, g: 1, b: 1, a: 1}
+      - name: _EmissionColor
+        color: {r: 0, g: 0, b: 0, a: 1}
+    texturePackingList:
+    - outputName: baseColor
+      alphaSource: baseColor
+    - outputName: normal
+      alphaSource: normal
+    - outputName: roughness
+      alphaSource: roughness
+    - outputName: ambientOcclusion
+      alphaSource: ambientOcclusion
+    - outputName: height
+      alphaSource: height
+    - outputName: metallic
+      alphaSource: smoothness
+    textureParameters:
+    - textureName: Rock_Ground_1 - roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Rock_Ground_1 - baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Rock_Ground_1 - normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Rock_Ground_1 - ambientOcclusion
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Rock_Ground_1 - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 0
+    - textureName: Rock_Ground_1 - metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    colorSpaceList:
+    - outputName: baseColor
+      bLinear: 0
+    - outputName: normal
+      bLinear: 1
+    - outputName: roughness
+      bLinear: 1
+    - outputName: ambientOcclusion
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    - outputName: metallic
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: 
+      bLockRatio: 1
+      textureWidth: 1024
+      textureHeight: 1024
+      textureFormat: 0
+      bGenerateOnLoad: 1
+    material: {fileID: -4544312313494763378, guid: 3aec331c4452621468f24e3f757f0e73,
+      type: 3}
+    generatedTextures:
+    - {fileID: -2609044816669697167, guid: 3aec331c4452621468f24e3f757f0e73, type: 3}
+    - {fileID: 3061157332863724571, guid: 3aec331c4452621468f24e3f757f0e73, type: 3}
+    - {fileID: -3531585796465846001, guid: 3aec331c4452621468f24e3f757f0e73, type: 3}
+    - {fileID: 4761670839474500010, guid: 3aec331c4452621468f24e3f757f0e73, type: 3}
+    - {fileID: -3983916721561707369, guid: 3aec331c4452621468f24e3f757f0e73, type: 3}

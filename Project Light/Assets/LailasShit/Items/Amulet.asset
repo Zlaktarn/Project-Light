@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4612ea5e3918b44d90eb92c77c66425, type: 3}
   m_Name: Amulet
   m_EditorClassIdentifier: 
+  id: 3f8e88535f7b87a48bcb7592e55d5713
   ItemName: Amulet
+  MaximumStacks: 2
   icon: {fileID: 21300000, guid: 77343f8a07dc2544aae3d0bd0533f442, type: 3}
   Damage: 0
   Ammo: 0

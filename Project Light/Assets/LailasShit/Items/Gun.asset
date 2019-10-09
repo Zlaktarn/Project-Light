@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4612ea5e3918b44d90eb92c77c66425, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
+  id: 17fdf3f3e3d964d4b9cdd7c8cf47a1ae
   ItemName: Gun
+  MaximumStacks: 2
   icon: {fileID: 21300000, guid: a0aebb8ef7d42f5419114d55ffe1da4b, type: 3}
   Damage: 20
   Ammo: 0

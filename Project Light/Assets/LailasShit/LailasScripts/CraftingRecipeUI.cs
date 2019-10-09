@@ -12,7 +12,11 @@ public class CraftingRecipeUI : MonoBehaviour
     public ItemContainer itemContainer;
 
     private CraftingRecipe craftingrecipe;
-    public CraftingRecipe Craftingrecipe { get { return craftingrecipe; } set { SetCraftingRecipe(value); } }
+    public CraftingRecipe Craftingrecipe
+    {
+        get { return craftingrecipe; }
+        set { SetCraftingRecipe(value); }
+    }
 
     public event Action<BaseItemSlot> OnPointerEnterE;
     public event Action<BaseItemSlot> OnPointerExitE;
@@ -26,30 +30,19 @@ public class CraftingRecipeUI : MonoBehaviour
     {
         foreach (BaseItemSlot itemSlot in itemSlots)
         {
-            itemSlot.OnPointerEnterEvent += OnPointerEnterE;
-            itemSlot.OnPointerExitEvent += OnPointerExitE;
+            //itemSlot.OnPointerEnterEvent += OnPointerEnterE;
+            //itemSlot.OnPointerExitEvent += OnPointerExitE;
+            itemSlot.OnPointerEnterEvent += slot => OnPointerEnterE(slot);
+            itemSlot.OnPointerExitEvent += slot => OnPointerExitE(slot);
+
         }
     }
 
     public void OnCraftButtonClick()
     {
-        if(craftingrecipe != null && itemContainer !=null)
+        if (craftingrecipe != null && itemContainer != null)
         {
-            if(craftingrecipe.CantCraft(itemContainer))
-            {
-                if(!itemContainer.IsFull())
-                {
-                    craftingrecipe.Craftable(itemContainer);
-                }
-                else
-                {
-                    Debug.Log("INVENTORY FULL");
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("  NO CAN DO. NO ALL MATERIALS U HAF");
+            craftingrecipe.Craft(itemContainer);
         }
     }
 
@@ -62,7 +55,7 @@ public class CraftingRecipeUI : MonoBehaviour
             int slotIndex = 0;
             slotIndex = SetSlots(craftingrecipe.Materials, slotIndex);
             arrowParent.SetSiblingIndex(slotIndex);
-            slotIndex = SetSlots(craftingrecipe.Result, slotIndex);
+            slotIndex = SetSlots(craftingrecipe.Results, slotIndex);
 
             for (int i = slotIndex; i < itemSlots.Length; i++)
             {
@@ -76,6 +69,7 @@ public class CraftingRecipeUI : MonoBehaviour
         }
 
     }
+
     private int SetSlots(IList<ItemAmount> itemAmountList, int slotIndex)
     {
         for (int i = 0; i < itemAmountList.Count; i++, slotIndex++)
@@ -83,7 +77,7 @@ public class CraftingRecipeUI : MonoBehaviour
             ItemAmount itemAmount = itemAmountList[i];
             BaseItemSlot itemSlot = itemSlots[slotIndex];
 
-            itemSlot.item = itemAmount.item;
+            itemSlot.item = itemAmount.Item;
             itemSlot.Amount = itemAmount.Amount;
             itemSlot.transform.parent.gameObject.SetActive(true);
 

@@ -49,6 +49,6 @@ public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragH
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+
     }
 }
