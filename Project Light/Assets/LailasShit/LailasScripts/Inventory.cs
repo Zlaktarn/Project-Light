@@ -2,21 +2,34 @@
 using UnityEngine;
 using System;
 
-public class Inventory : MonoBehaviour, IItemConatiner
+public class Inventory : ItemContainer
 {
-    [SerializeField] List<Item> items;
+    [SerializeField] List<Item> startingItems;
     [SerializeField] Transform itemsParent;
-    [SerializeField] ItemSlot[] itemSlots;
+    [SerializeField] ItemTooltip itemToolTip;
 
-    public event Action<Item> OnItemRightclickevent;
+
+    public event Action<BaseItemSlot> OnPointerEnterEvent;
+    public event Action<BaseItemSlot> OnPointerExitEvent;
+    public event Action<BaseItemSlot> OnRightClickEvent;
+    public event Action<BaseItemSlot> OnBeginDragE;
+    public event Action<BaseItemSlot> OnEndDragE;
+    public event Action<BaseItemSlot> OnDragE;
+    public event Action<BaseItemSlot> OnDropE;
 
     void Start()
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlots[i].OnRightClickEvent += OnItemRightclickevent;
+            itemSlots[i].OnPointerEnterEvent += OnPointerEnterEvent;
+            itemSlots[i].OnPointerExitEvent += OnPointerExitEvent;
+            itemSlots[i].OnRightClickEvent += OnRightClickEvent;
+            itemSlots[i].OnBeginDragE += OnBeginDragE;
+            itemSlots[i].OnEndDragE += OnEndDragE;
+            itemSlots[i].OnDragE += OnDragE;
+            itemSlots[i].OnDropE += OnDropE;
         }
-        RefreshUI();
+        SetStartingItems();
     }
     private void OnValidate()
     {
@@ -24,91 +37,36 @@ public class Inventory : MonoBehaviour, IItemConatiner
         {
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
         }
-        RefreshUI();
+        SetStartingItems();
     }
 
-    //private void SetStartingItem()
-    //{
-    //    for (int i = 0; i < SetStartingItem.Length; i++)
-    //    {
-
-    //    }
-    //}
-    private void RefreshUI()
+    private void SetStartingItems()
     {
         int i = 0;
-        for (; i < items.Count && i < itemSlots.Length; i++)
+        for (; i < startingItems.Count && i < itemSlots.Length; i++)
         {
-            itemSlots[i].item = items[i];
+            itemSlots[i].item = startingItems[i].GetCopy();
+            itemSlots[i].Amount = 1;
         }
         for (; i < itemSlots.Length; i++)
         {
             itemSlots[i].item = null;
+            itemSlots[i].Amount = 0;
         }
     }
-    public bool AddItem(Item item)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if (itemSlots[i].item == null)
-            {
-                itemSlots[i].item = item;
-                return true;
-            }
 
-        }
-        return false;
-    }
-    public bool RemoveItem(Item item)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if (itemSlots[i].item == item)
-            {
-                itemSlots[i].item = null;
-                return true;
-            }
+    //public bool ContainItem(Item item)
+    //{
+    //    for (int i = 0; i < itemSlots.Length; i++)
+    //    {
+    //        if (itemSlots[i].item == item)
+    //        {
+    //            return true;
+    //        }
 
-        }
-        return false;
-    }
-    public bool IsFull()
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if(itemSlots[i].item == null)
-            {
-                return false;
-            }
-            
-        }
-        return true;
-    }
+    //    }
+    //    return false;
+    //}
 
-    public bool ContainItem(Item item)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if (itemSlots[i].item == item)
-            {
-                return true;
-            }
 
-        }
-        return false;
-    }
-
-    public int ItemCount(Item item)
-    {
-        int number = 0;
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if (itemSlots[i].item == item)
-            {
-                number++;
-            }
-
-        }
-        return number;
-    }
 }

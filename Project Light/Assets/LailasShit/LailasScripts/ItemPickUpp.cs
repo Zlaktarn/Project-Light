@@ -4,24 +4,34 @@ public class ItemPickUpp : MonoBehaviour
 {
     [SerializeField] Item item;
     [SerializeField] Inventory inventory;
+    [SerializeField] SpriteRenderer spriteRender;
     [SerializeField] KeyCode ItemPickUp = KeyCode.E;
 
     private bool isInRange;
+
+    private void Start()
+    {
+        spriteRender.sprite = item.icon;
+        spriteRender.enabled = false;
+    }
 
     private void Update()
     {
         if(isInRange && Input.GetKeyDown(ItemPickUp))
         {
-            inventory.AddItem(item);
+            inventory.AddItem(item.GetCopy());
+            item = null;
             Destroy(gameObject);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         isInRange = true;
+        spriteRender.enabled = true;
     }
     private void OnTriggerExit(Collider other)
     {
         isInRange = false;
+        spriteRender.enabled = false;
     }
 }

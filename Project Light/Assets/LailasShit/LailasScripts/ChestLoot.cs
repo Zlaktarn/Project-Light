@@ -16,7 +16,7 @@ public class ChestLoot : MonoBehaviour
         {
             if(item != null)
             {
-                inventory.AddItem(item);
+                inventory.AddItem(Instantiate(item));
                 item = null;
             }
         }

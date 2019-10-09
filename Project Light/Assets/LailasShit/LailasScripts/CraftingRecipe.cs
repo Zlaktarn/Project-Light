@@ -8,7 +8,7 @@ using System;
 public struct ItemAmount
 {
     public Item item;
-    [Range(1, 3)]
+    [Range(1, 10)]
     public int Amount;
 }
 
@@ -22,7 +22,7 @@ public class CraftingRecipe : ScriptableObject
     {
         foreach (ItemAmount itemAmount in Materials)
         {
-            if(itemConatiner.ItemCount(itemAmount.item) < itemAmount.Amount)
+            if(itemConatiner.ItemCount(itemAmount.item.ID) < itemAmount.Amount)
             {
                 return false;
             }
@@ -37,14 +37,15 @@ public class CraftingRecipe : ScriptableObject
             {
                 for (int i = 0; i < itemAmount.Amount; i++)
                 {
-                    itemConatiner.RemoveItem(itemAmount.item);
+                    Item olditem = itemConatiner.RemoveItem(itemAmount.item.ID);
+                    olditem.Destroy();
                 }
             }
             foreach (ItemAmount itemAmount in Result)
             {
                 for (int i = 0; i < itemAmount.Amount; i++)
                 {
-                    itemConatiner.AddItem(itemAmount.item);
+                    itemConatiner.AddItem(itemAmount.item.GetCopy());
                 }
             }
         }

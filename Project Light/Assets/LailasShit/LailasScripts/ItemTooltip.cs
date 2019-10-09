@@ -14,6 +14,8 @@ public class ItemTooltip : MonoBehaviour
     {
         ItemNameText.text = item.name;
         ItemSlotText.text = item.EquipmentType.ToString();
+
+
         sb.Length = 0;
         AddStat(item.Damage, "Damage");
         AddStat(item.Defense, "Defense");
