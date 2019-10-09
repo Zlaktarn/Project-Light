@@ -20,7 +20,7 @@ public abstract class ItemContainer : MonoBehaviour, IItemConatiner
         return false;
     }
 
-    public bool AddItem(Item item, int amount = 1)
+    public bool CanAddItem(Item item, int amount = 1)
     {
         int freeSpaces = 0;
 
@@ -57,9 +57,11 @@ public abstract class ItemContainer : MonoBehaviour, IItemConatiner
         int number = 0;
         for (int i = 0; i < itemSlots.Length; i++)
         {
+            Item item = itemSlots[i].item;
             if (itemSlots[i].item.ID == itemID)
             {
-                number++;
+                number += itemSlots[i].Amount;
+                //number++;
             }
 
         }
@@ -73,7 +75,7 @@ public abstract class ItemContainer : MonoBehaviour, IItemConatiner
             Item item = itemSlots[i].item;
             if (itemSlots[i].item.ID == itemID)
             {
-                itemSlots[i].item = null;
+                itemSlots[i].Amount--;
                 return item;
             }
 

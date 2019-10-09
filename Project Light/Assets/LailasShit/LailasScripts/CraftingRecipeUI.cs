@@ -30,10 +30,10 @@ public class CraftingRecipeUI : MonoBehaviour
     {
         foreach (BaseItemSlot itemSlot in itemSlots)
         {
-            //itemSlot.OnPointerEnterEvent += OnPointerEnterE;
-            //itemSlot.OnPointerExitEvent += OnPointerExitE;
-            itemSlot.OnPointerEnterEvent += slot => OnPointerEnterE(slot);
-            itemSlot.OnPointerExitEvent += slot => OnPointerExitE(slot);
+            itemSlot.OnPointerEnterEvent += OnPointerEnterE;
+            itemSlot.OnPointerExitEvent += OnPointerExitE;
+            //itemSlot.OnPointerEnterEvent += slot => OnPointerEnterE(slot);
+            //itemSlot.OnPointerExitEvent += slot => OnPointerExitE(slot);
 
         }
     }
@@ -60,6 +60,7 @@ public class CraftingRecipeUI : MonoBehaviour
             for (int i = slotIndex; i < itemSlots.Length; i++)
             {
                 itemSlots[i].transform.parent.gameObject.SetActive(false);
+                slotIndex++;
             }
             gameObject.SetActive(true);
         }
@@ -80,8 +81,6 @@ public class CraftingRecipeUI : MonoBehaviour
             itemSlot.item = itemAmount.Item;
             itemSlot.Amount = itemAmount.Amount;
             itemSlot.transform.parent.gameObject.SetActive(true);
-
-
         }
         return slotIndex;
     }
