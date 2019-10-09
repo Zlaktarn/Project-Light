@@ -10,6 +10,8 @@ TagManager:
   - MainPlant Hitbox
   - Bolt
   - Enemy
+  - PlantSpot
+  - Hand
   layers:
   - Default
   - TransparentFX

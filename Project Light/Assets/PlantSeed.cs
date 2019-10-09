@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlantSeed : MonoBehaviour
 {
     Inventory inventory;
+    public PlaceHolderUsablePickup pickup;
     public GameObject seed;
     private GameObject spawnedSeed;
+    private GameObject parent;
     private Rigidbody rb;
     private bool spawned = false;
     private bool triggered = false;
@@ -14,13 +16,14 @@ public class PlantSeed : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        parent = GameObject.Find("Hand");
     }
 
     void Update()
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !spawned && inventory.gameObject)
+            if (Input.GetKeyDown(KeyCode.E) && !spawned)
             {
                 spawnedSeed = (GameObject)Instantiate(seed, transform.localPosition + new Vector3(0, 0.64f, 0), Quaternion.identity);
                 spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
