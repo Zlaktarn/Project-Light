@@ -9689,6 +9689,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4019763509294389852}
     m_Modifications:
+    - target: {fileID: 8036351181447863149, guid: 3e21c0c4a9994f94bb745486341c3c93,
+        type: 3}
+      propertyPath: m_Name
+      value: CraftingsRecipeUI
+      objectReference: {fileID: 0}
     - target: {fileID: 7584947654436974424, guid: 3e21c0c4a9994f94bb745486341c3c93,
         type: 3}
       propertyPath: itemContainer
@@ -9798,11 +9803,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8036351181447863149, guid: 3e21c0c4a9994f94bb745486341c3c93,
-        type: 3}
-      propertyPath: m_Name
-      value: CraftingsRecipeUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e21c0c4a9994f94bb745486341c3c93, type: 3}
