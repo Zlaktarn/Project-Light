@@ -4,6 +4,7 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     public float health = 100f;
+    public BoltScript bolt;
 
     private void Update()
     {
@@ -30,6 +31,6 @@ public class TargetScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Bolt")
-            health -= 5;
+            health -= bolt.damage;
     }
 }

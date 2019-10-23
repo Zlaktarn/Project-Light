@@ -14,14 +14,13 @@ GameObject:
   - component: {fileID: 461496966110975713}
   - component: {fileID: 461496966110975714}
   - component: {fileID: 461496966110975715}
-  - component: {fileID: 461496966110975724}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &461496966110975718
 Transform:
   m_ObjectHideFlags: 0
@@ -102,12 +101,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461496966110975725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbd8c2535451ee54eb658f13b325cd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  childCollider: {fileID: 461496966110975713}
 --- !u!54 &461496966110975715
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,16 +123,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &461496966110975724
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461496966110975725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.025
-  m_Center: {x: 0, y: 0, z: 0.35}
