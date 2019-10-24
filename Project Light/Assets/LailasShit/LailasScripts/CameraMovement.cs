@@ -12,6 +12,8 @@ public class CameraMovement : MonoBehaviour
     GameObject character;
     MovementScript player;
 
+    public Transform playerBody;
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -26,7 +28,7 @@ public class CameraMovement : MonoBehaviour
     {
         var mousedir = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-        mousedir = Vector2.Scale(mousedir, new Vector2(sensitivity * smoothness, sensitivity * smoothness));
+        mousedir = Vector2.Scale(mousedir, new Vector2(sensitivity * smoothness * Time.deltaTime, sensitivity * smoothness * Time.deltaTime));
         smooth.x = Mathf.Lerp(smooth.x, mousedir.x, 1f / smoothness);
         smooth.y = Mathf.Lerp(smooth.y, mousedir.y, 1f / smoothness);
 
@@ -36,6 +38,11 @@ public class CameraMovement : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
+        //float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        //float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+
+        //transform.Rotate(Vector3.left * mouseY);
+        //playerBody.Rotate(Vector3.up * mouseX);
 
         //if (player.isDead || PauseMenu.GameIsPaused)
         //    sensitivity = 0;
@@ -53,7 +60,7 @@ public class CameraMovement : MonoBehaviour
         //    Cursor.lockState = CursorLockMode.Locked;
         //}
 
-        
+
 
 
         Death();

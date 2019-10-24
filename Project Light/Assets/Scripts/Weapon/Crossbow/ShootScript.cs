@@ -11,7 +11,7 @@ public class ShootScript : MonoBehaviour
     [SerializeField] float shootForce;
 
     private float timer;
-    private float timeInterval = 2f;
+    private float timeInterval = 1f;
 
     bool reloading = false;
     bool loaded = true;
@@ -40,7 +40,7 @@ public class ShootScript : MonoBehaviour
         if (reloading)
         {
             timer += Time.deltaTime;
-            this.transform.Rotate(0, 0, 180 * Time.deltaTime, Space.Self);
+            this.transform.Rotate(0, 0, 360 * Time.deltaTime, Space.Self);
 
             if (timer >= timeInterval)
             {

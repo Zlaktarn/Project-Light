@@ -10,7 +10,7 @@ public class BoltScript : MonoBehaviour
     private float timer;
     private bool hitSomething = false;
 
-    /*public*/ float damage = 30;
+    public float damage;
     TargetScript target;
 
     private void Start()
