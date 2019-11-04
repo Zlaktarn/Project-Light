@@ -31,6 +31,9 @@ public class TargetScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Bolt")
+        {
             health -= bolt.damage;
+            GetComponent<Enemy>().SetHit(true);
+        }
     }
 }

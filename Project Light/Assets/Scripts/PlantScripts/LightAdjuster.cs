@@ -46,6 +46,14 @@ public class LightAdjuster : MonoBehaviour
         rangeTime = 0f;
     }
 
+    private void Planted()
+    {
+        if (isPlanted)
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
+    }
+
     // Changes the intensity, color and range over time until target is reached
     void FixedUpdate()
     {

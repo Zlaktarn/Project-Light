@@ -32,6 +32,15 @@ public class WanderState : BaseState
 
     public override Type Tick()
     {
+        if (enemy.GotHit())
+        {
+            enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
+            return typeof(ChaseState);
+        }
+
+        if (PlayerTooClose())
+            return typeof(ChaseState);
+
         var targetToAggro = CheckForAggro();
 
         if (targetToAggro != null)
@@ -139,6 +148,16 @@ public class WanderState : BaseState
             }
         } 
         return null;
+    }
+
+    private bool PlayerTooClose()
+    {
+        if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < enemy.GetRange())
+        {
+            enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
+            return true;
+        }
+        return false;
     }
 
     // NavMesh Agent methods - may be useful in the future

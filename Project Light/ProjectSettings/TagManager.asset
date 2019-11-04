@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - PlantSpot
   - Hand
+  - Usable
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - PostProcessing
   - Player
   - Environment
-  - 
-  - 
+  - Item
+  - UsableObject
   - 
   - 
   - 

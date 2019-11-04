@@ -21,6 +21,8 @@ public class ChaseState : BaseState
 
     public override Type Tick()
     {
+        enemy.SetHit(false);
+
         if (enemy.Target == null)
             return typeof(WanderState);
 

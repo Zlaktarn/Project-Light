@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 573707550292443966}
   - component: {fileID: 573707550292443967}
   - component: {fileID: 573707550292443963}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlantSpot
   m_TagString: PlantSpot
   m_Icon: {fileID: 0}
@@ -105,5 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f0ee0b7cdeaab4895ed05e3e587b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: {fileID: 350700593, guid: 4ae1bafef2e48294b9c26035352d42bd, type: 3}
+  search: {fileID: 0}
   seed: {fileID: 7661993081843643344, guid: 4ae1bafef2e48294b9c26035352d42bd, type: 3}
+  parent: {fileID: 0}

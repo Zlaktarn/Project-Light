@@ -45,20 +45,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &388214253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676019558387887008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf878476cde13f419fbd2cb587057ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  weapon: {fileID: 0}
 --- !u!114 &5041359197697813703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PotTree2.0 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1db5fb85b48893643b90c9bf460df6c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 1db5fb85b48893643b90c9bf460df6c3,
         type: 3}

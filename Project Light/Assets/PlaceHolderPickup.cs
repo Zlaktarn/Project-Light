@@ -9,26 +9,36 @@ public class PlaceHolderPickup : MonoBehaviour
     private Vector3 onhand = new Vector3(-0.23f, -0.15f, 0.46f);
     public Transform parent;
     public GameObject weapon;
+    public Camera fpsCam;
+    private GameObject item;
     private Rigidbody rb;
     private int held = 0;
+    private int itemLayer = 1<<11;
+    private int usableLayer = 1<<12;
     
     void Start()
     {
         PickedUp = false;
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+
         if (triggered)
         {
             if (Input.GetKeyDown(KeyCode.E) && !PickedUp)
             {
-                HoldItem();
+                if (FindItem())
+                {
+                    HoldItem(); 
+                }
             }
             else if(Input.GetKeyDown(KeyCode.E) && PickedUp)
             {
-                ReleaseItem();
+                if (rb != null)
+                {
+                    ReleaseItem(); 
+                }
             }
         }
     }
@@ -39,18 +49,43 @@ public class PlaceHolderPickup : MonoBehaviour
         PickedUp = true;
         rb.useGravity = false;
         rb.isKinematic = true;
-        this.transform.parent = parent;
-        this.transform.localPosition = onhand;
-        this.transform.localRotation = parent.localRotation;
+        item.transform.parent = parent;
+        item.transform.localPosition = onhand;
+        item.transform.localRotation = parent.localRotation;
     }
 
     private void ReleaseItem()
     {
-        PickedUp = false;
-        this.transform.parent = null;
-        rb.useGravity = true;
-        rb.isKinematic = false;
-        weapon.SetActive(true);
+        if (!IsUsable())
+        {
+            PickedUp = false;
+            item.transform.parent = null;
+            rb.useGravity = true;
+            rb.isKinematic = false;
+            weapon.SetActive(true); 
+        }
+    }
+
+    private bool IsUsable()
+    {
+        RaycastHit hit;
+        if(item.tag == "Usable" && Physics.SphereCast(fpsCam.transform.position, 0.5f, fpsCam.transform.forward, out hit, 4f, usableLayer))
+            return true;
+        return false;
+    }
+
+    private bool FindItem()
+    {
+        RaycastHit hit;
+        if(Physics.SphereCast(fpsCam.transform.position, 0.5f, fpsCam.transform.forward, out hit, 8f, itemLayer))
+        {
+            rb = hit.transform.gameObject.GetComponent<Rigidbody>();
+            item = hit.transform.gameObject;
+            return true;
+        }
+        else
+            rb = null;
+        return false;
     }
 
     private void OnTriggerStay(Collider other)

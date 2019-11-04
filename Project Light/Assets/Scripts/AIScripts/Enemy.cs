@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public float currentHealth = 100f;
     public float maxHealth = 100f;
     public bool navMesh;
+    private bool gotHit = false;
+    private float soundRange = 5f;
 
     void Awake()
     {
@@ -33,6 +35,26 @@ public class Enemy : MonoBehaviour
     public void SetTarget(GameObject target)
     {
         Target = target;
+    }
+
+    public bool GotHit()
+    {
+        return gotHit;
+    }
+    
+    public void SetHit(bool yes)
+    {
+        gotHit = yes;
+    }
+
+    public void SetRange(float range)
+    {
+        soundRange = range;
+    }
+
+    public float GetRange()
+    {
+        return soundRange;
     }
 
     private void Update()
