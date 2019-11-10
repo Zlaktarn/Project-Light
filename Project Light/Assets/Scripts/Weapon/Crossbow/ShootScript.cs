@@ -8,6 +8,7 @@ public class ShootScript : MonoBehaviour
     public Camera cam;
     public GameObject boltPrefab;
     public Transform boltSpawn;
+    public Animator anim;
     [SerializeField] float shootForce;
 
     private float timer;
@@ -18,8 +19,10 @@ public class ShootScript : MonoBehaviour
 
     void Update()
     {
+        anim = GetComponent<Animator>();
         if (Input.GetMouseButtonDown(0) && loaded)
         {
+            anim.SetTrigger("MakeShoot");
             GameObject gameObject = Instantiate(boltPrefab, boltSpawn.position, Quaternion.identity);
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.velocity = cam.transform.forward * shootForce;
