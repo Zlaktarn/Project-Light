@@ -6,11 +6,12 @@ using UnityEngine;
 public class ChaseState : BaseState
 {
     private Enemy enemy;
-    private float speed = 3f;
-    private float attackRange = 10f;
-    private float aggroRange = 20f;
+    private float aggroRange = 30f;
     private float rotationSpeed = 2.5f;
+    private float fixRotation = 5f;
+    private float originalRotation = 2.5f;
     private float closeAngle = 10f;
+    private bool move = true;
     private Vector3 direction;
     private Quaternion desiredRotation;
 
@@ -21,31 +22,48 @@ public class ChaseState : BaseState
 
     public override Type Tick()
     {
+        if(enemy.currentAI == AIType.FastAI)
+            rotationSpeed = 2.5f;
+        else if(enemy.currentAI == AIType.SlowAI)
+            rotationSpeed = 5f;
+
+        gameObject.GetComponent<AIChargeAttack>().attacking = false;
         enemy.SetHit(false);
 
         if (enemy.Target == null)
-            return typeof(WanderState);
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.WanderState);
 
-        if (!enemy.navMesh)
-        {
-            NormalTick();
-            if (Vector3.Distance(transform.position, enemy.Target.transform.position) < attackRange && CloseEnoughRotation())
-                return typeof(AttackState);
-        }
+        if (Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange)
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.WanderState);
+
+        if(GetDistanceToPlayer() > 20f && IsPathBlocked())
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.WanderState);
+
+        if (!enemy.NeighborTooClose(2f))
+            NormalTick();  
         else
+            AvoidNieghbor();
+
+        if (Vector3.Distance(transform.position, enemy.Target.transform.position) < enemy.attackRange && CloseEnoughRotation())
         {
-            NavTick();
-            if(Vector3.Distance(transform.position, enemy.Target.transform.position) < attackRange)
-            {
-                enemy.Agent.isStopped = true;
-                return typeof(AttackState);
-            }
+            rotationSpeed = originalRotation;
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.AttackState);
         }
 
-        if (Vector3.Distance(transform.position, enemy.Target.transform.position) > aggroRange || IsPathBlocked())
-            return typeof(WanderState);
+        if(Vector3.Distance(transform.position, enemy.Target.transform.position) <= enemy.attackRange && !CloseEnoughRotation())
+            rotationSpeed = fixRotation;
 
         return null;
+    }
+
+    private void AvoidNieghbor()
+    {
+        direction = Vector3.Normalize(enemy.GetNeighbor().transform.position - transform.position);
+        direction = new Vector3(-direction.x, 0f, -direction.z);
+        desiredRotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime * enemy.chaseSpeed);
     }
 
     private void NormalTick()
@@ -55,7 +73,7 @@ public class ChaseState : BaseState
         desiredRotation = Quaternion.LookRotation(direction);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationSpeed);
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * enemy.chaseSpeed * Time.deltaTime);
     }
 
     private bool CloseEnoughRotation()
@@ -65,19 +83,16 @@ public class ChaseState : BaseState
         return false;
     }
 
+    private float GetDistanceToPlayer()
+    {
+        return Vector3.Distance(transform.position, enemy.Target.transform.position);
+    }
+
     private bool IsPathBlocked()
     {
         Ray ray = new Ray(transform.position, direction);
         if(Physics.SphereCast(ray, 0.5f, 5.0f, environmentLayer))
             return true;
         return false;
-    }
-
-    // NavMesh Agents Methods
-    private void NavTick()
-    {
-        enemy.Agent.speed = speed;
-        direction = enemy.Target.transform.position;
-        enemy.Agent.SetDestination(direction);
     }
 }

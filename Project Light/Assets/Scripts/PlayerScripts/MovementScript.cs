@@ -7,7 +7,7 @@ public class MovementScript : MonoBehaviour
     float oldHealth;
     public float health = 100;
     public float Oxygen = 100;
-
+    public float soundRange = 15;
 
     private Rigidbody rb;
 
@@ -94,11 +94,20 @@ public class MovementScript : MonoBehaviour
     private void SetMovementSpeed()
     {
         if (Input.GetKey(runKey))
+        {
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
-        else if(Input.GetKey(crouchKey))
+            soundRange = 20f;
+        }
+        else if (Input.GetKey(crouchKey))
+        {
             movementSpeed = Mathf.Lerp(movementSpeed, crouchSpeed, Time.deltaTime * runBuildUpSpeed);
+            soundRange = 10f;
+        }
         else
+        {
             movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
+            soundRange = 15f;
+        }
     }
 
     #region Slope Method

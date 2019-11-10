@@ -49,6 +49,7 @@ public class PlaceHolderPickup : MonoBehaviour
         PickedUp = true;
         rb.useGravity = false;
         rb.isKinematic = true;
+        item.GetComponent<SphereCollider>().enabled = false;
         item.transform.parent = parent;
         item.transform.localPosition = onhand;
         item.transform.localRotation = parent.localRotation;
@@ -62,6 +63,7 @@ public class PlaceHolderPickup : MonoBehaviour
             item.transform.parent = null;
             rb.useGravity = true;
             rb.isKinematic = false;
+            item.GetComponent<SphereCollider>().enabled = true;
             weapon.SetActive(true); 
         }
     }
