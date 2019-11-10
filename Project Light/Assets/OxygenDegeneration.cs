@@ -24,7 +24,7 @@ public class OxygenDegeneration : MonoBehaviour
         if(playerScript.Oxygen > minOxygen)
         {
             playerScript.Oxygen -= degen * Time.deltaTime;
-            print("Oxygen: " + (int)playerScript.Oxygen);
+            //print("Oxygen: " + (int)playerScript.Oxygen);
         }
             
 

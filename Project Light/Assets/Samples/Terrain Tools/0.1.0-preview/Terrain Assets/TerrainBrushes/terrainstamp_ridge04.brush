@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 12146, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: terrainstamp_ridge04
   m_EditorClassIdentifier: 
-  m_Mask: {fileID: 2800000, guid: 440810c88740a8045949d48b489e443b, type: 3}
+  m_Mask: {fileID: 2800000, guid: 218d78d68fb62dd468903d3893642cb6, type: 3}
   m_Falloff:
     serializedVersion: 2
     m_Curve:
