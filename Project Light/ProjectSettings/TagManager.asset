@@ -13,6 +13,7 @@ TagManager:
   - PlantSpot
   - Hand
   - Usable
+  - AttackCube
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Environment
   - Item
   - UsableObject
-  - 
+  - Enemy
   - 
   - 
   - 

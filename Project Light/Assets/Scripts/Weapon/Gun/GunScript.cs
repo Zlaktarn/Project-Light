@@ -8,28 +8,35 @@ public class GunScript : MonoBehaviour
     public float impactForce = 30f;
 
     public Transform transform;
+    Animator anim;
+    private float animSpeed;
 
     private float nextTimeToFire = 0f;
     public float fireRate = 10;
 
     //public ParticleSystem muzzleFlash;
     //public GameObject impactEffect;
-
-
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        animSpeed = 2.5f;
+        anim.speed = animSpeed;
+    }
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire)
+        if(Input.GetKeyDown(KeyCode.K) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1 / fireRate;
             Shoot();
+            Debug.Log("SHOT FIRED");
         }
     }
 
     void Shoot()
     {
         RaycastHit hit;
-
         //muzzleFlash.Play();
+        anim.SetTrigger("Shoot");
         if(Physics.Raycast(transform.position, transform.up, out hit, range))
         {
             Debug.Log(hit.transform.name);

@@ -36,4 +36,9 @@ public class StateMachine_AI : MonoBehaviour
         CurrentState = availableStates[nextState];
         OnStateChanged?.Invoke(CurrentState);
     }
+
+    public Type GetType(int type)
+    {
+        return availableStates.ElementAt(type).Key;
+    }
 }
