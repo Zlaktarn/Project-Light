@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3481792519545011657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,6 +37,20 @@ Transform:
   m_Father: {fileID: 3366119033058726223}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2097353458733218682
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235496974995791178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4068373912626513877, guid: 120ca0ee4403353419c68e7b01e4f9e6, type: 3}
 --- !u!1 &7489762234092348267
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,7 +60,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3366119033058726223}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Small House 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,6 +80,7 @@ Transform:
   m_Children:
   - {fileID: 3481792519545011657}
   - {fileID: 4207328874200353577}
+  - {fileID: 5923077871431020377}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4207328874200353577}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallwWindow Prefab Variant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
@@ -220,6 +240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirty Floor Prefab (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,10 +320,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 3.91
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -350,6 +380,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &2373741394387756462 stripped
@@ -369,6 +404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -445,6 +485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirty Floor Prefab (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -520,10 +565,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallwithDoor-Fbx Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 292684044636336762, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 3.343
       objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
@@ -575,6 +625,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952fe39ba2f1abf44b3095b8c63d5270, type: 3}
 --- !u!4 &4547172261538234315 stripped
@@ -594,6 +649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallwWindow Prefab Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
@@ -658,6 +718,92 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1391907393675915816}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1677673598204429379
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3366119033058726223}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_Name
+      value: Roof2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 120ca0ee4403353419c68e7b01e4f9e6, type: 3}
+--- !u!1 &7235496974995791178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1677673598204429379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5923077871431020377 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 120ca0ee4403353419c68e7b01e4f9e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1677673598204429379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1716808691036290813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -669,6 +815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -745,6 +896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirty Floor Prefab (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -819,6 +975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -895,6 +1056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -970,6 +1136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -983,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 1.093
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1025,6 +1196,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &4565257274913990020 stripped
@@ -1045,10 +1221,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6.92
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1100,6 +1281,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &536509164172941716 stripped
@@ -1119,6 +1305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallwithDoor-Fbx Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 292684044636336762, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
@@ -1195,6 +1386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallwWindow Prefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1269,6 +1465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dirty Floor Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
@@ -1345,6 +1546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1419,6 +1625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1495,10 +1706,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.921
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1550,6 +1766,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &1250625719356017816 stripped
@@ -1570,10 +1791,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1625,6 +1851,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &1451629090278396247 stripped
@@ -1645,6 +1876,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1658,7 +1894,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1700,6 +1936,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &1975489082254523392 stripped
@@ -1719,6 +1960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1795,6 +2041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1808,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -2.92
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1850,6 +2101,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &7125641137134860920 stripped
@@ -1870,6 +2126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1883,7 +2144,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -1925,6 +2186,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &7378395960645062859 stripped
@@ -1945,6 +2211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallwithDoor-Fbx Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 292684044636336762, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1958,7 +2229,7 @@ PrefabInstance:
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
@@ -2000,6 +2271,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952fe39ba2f1abf44b3095b8c63d5270, type: 3}
 --- !u!4 &8929480073164939229 stripped
@@ -2019,6 +2295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallwWindow Prefab Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
@@ -2095,6 +2376,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2170,6 +2456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2183,7 +2474,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2225,6 +2516,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &8150489352259587635 stripped
@@ -2244,6 +2540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dirty Floor Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
@@ -2320,6 +2621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2333,7 +2639,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2375,6 +2681,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &4688818877377372744 stripped
@@ -2394,6 +2705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dirty Floor Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
@@ -2470,10 +2786,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallwWindow Prefab Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
@@ -2525,6 +2846,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ebb813c1291df498916ee8912256e7, type: 3}
 --- !u!4 &5683497276247052573 stripped
@@ -2544,6 +2870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallwWindow Prefab Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222819833720121420, guid: 80ebb813c1291df498916ee8912256e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2918986787064011359, guid: 80ebb813c1291df498916ee8912256e7,
         type: 3}
@@ -2620,10 +2951,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 5.587
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2675,6 +3011,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.415
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &5272069596678704119 stripped
@@ -2694,6 +3035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2770,6 +3116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2783,7 +3134,7 @@ PrefabInstance:
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 2.918
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2825,6 +3176,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &5635434566709933999 stripped
@@ -2844,6 +3200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2920,10 +3281,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Wood Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6.924
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -2975,6 +3341,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62906aada01fb634f90bb6c440fbd844, type: 3}
 --- !u!4 &6030307008330423101 stripped
@@ -2994,6 +3365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Wood Prefab (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493292271359932474, guid: 62906aada01fb634f90bb6c440fbd844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2513682250640935465, guid: 62906aada01fb634f90bb6c440fbd844,
         type: 3}
@@ -3070,6 +3446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirty Floor Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1146346428857837079, guid: a21eb133a9647424095e9d4ebc0d0346,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4157945985383601156, guid: a21eb133a9647424095e9d4ebc0d0346,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3145,6 +3526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallwithDoor-Fbx Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 292684044636336762, guid: 952fe39ba2f1abf44b3095b8c63d5270,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3158,7 +3544,7 @@ PrefabInstance:
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -2.826
       objectReference: {fileID: 0}
     - target: {fileID: 3626676769487044713, guid: 952fe39ba2f1abf44b3095b8c63d5270,
         type: 3}
