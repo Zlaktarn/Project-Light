@@ -16,6 +16,7 @@ public class BoltScript : MonoBehaviour
     private void Start()
     {
         myBody = GetComponent<Rigidbody>();
+        transform.rotation = Quaternion.LookRotation(myBody.velocity);
     }
 
     void Update()

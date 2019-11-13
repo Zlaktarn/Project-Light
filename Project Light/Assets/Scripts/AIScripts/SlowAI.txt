@@ -1,0 +1,31 @@
+tree("Root")
+	fallback
+		tree "Attack"
+		tree "Chase"
+		tree "Wander"
+
+tree("Attack")
+	sequence
+		IsInAttackRange
+		FixRotation
+		Slam
+
+tree("Chase")
+	fallback
+		tree "Hearing"
+		tree "Seeing"
+
+tree("Seeing")
+	sequence
+		CanSeePlayer
+		ChasePlayer
+
+tree("Hearing")
+	sequence
+		CanHearPlayer
+		ChasePlayer
+
+tree("Wander")
+	sequence
+		FindWanderTarget
+		WalkToWanderTarget

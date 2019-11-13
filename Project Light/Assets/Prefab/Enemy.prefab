@@ -15,12 +15,11 @@ GameObject:
   - component: {fileID: 3811430623297327716}
   - component: {fileID: 3811430623297327717}
   - component: {fileID: 3811430623297327718}
-  - component: {fileID: 1832030445}
   - component: {fileID: 1057231966}
   - component: {fileID: 5862948095102145434}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3811430623297327719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.65, y: 1.75, z: -3.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4844358, y: 1.4844358, z: 1.4844358}
   m_Children:
   - {fileID: 8005135656419664902}
   m_Father: {fileID: 0}
@@ -140,32 +139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6b810ee896a64cb95706e254c0a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 1832030445}
   currentHealth: 100
   maxHealth: 100
-  navMesh: 0
---- !u!195 &1832030445
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3811430623297327719}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  chaseSpeed: 5
+  wanderSpeed: 2
+  chargeSpeed: 10
+  attackRange: 10
+  smashAttacking: 0
+  currentAI: 0
+  WanderState: 0
+  ChaseState: 1
+  AttackState: 2
 --- !u!114 &1057231966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdff8b2e2d9b5ec44ad6a2b96e953f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacking: 0
+  force: 250
 --- !u!114 &5862948095102145434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +226,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4190558681954794494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -279,7 +265,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4190558681954794494}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

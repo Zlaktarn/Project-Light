@@ -10,7 +10,6 @@ public class WanderState : BaseState
 {
     private float rayDistance = 5.0f;
     private float stoppingDistance = 1.5f;
-    private float speed = 1f;
     private float rotationSpeed = 1.5f;
     private bool holdRotation = false;
     
@@ -32,27 +31,27 @@ public class WanderState : BaseState
 
     public override Type Tick()
     {
+        gameObject.GetComponent<AIChargeAttack>().attacking = false;
+
         if (enemy.GotHit())
         {
             enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
-            return typeof(ChaseState);
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.ChaseState);
         }
-
-        if (PlayerTooClose())
-            return typeof(ChaseState);
 
         var targetToAggro = CheckForAggro();
 
-        if (targetToAggro != null)
+        if (targetToAggro != null && !IsPathBlocked())
         {
             enemy.SetTarget(targetToAggro.gameObject);
-            return typeof(ChaseState);
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.ChaseState);
         }
 
-        if(!enemy.navMesh)
-            NormalTick();
-        else
-            NavTick();
+        if (enemy.PlayerTooClose() && !IsPathBlocked() && !IsForwardBlocked())
+            return gameObject.GetComponent<StateMachine_AI>().GetType(enemy.ChaseState);
+
+        NormalTick();
+
 
         return null;
     }
@@ -70,7 +69,7 @@ public class WanderState : BaseState
         if (IsForwardBlocked())
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, 0.1f);
         else
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * enemy.wanderSpeed);
 
         if(IsPathBlocked())
         {
@@ -150,16 +149,6 @@ public class WanderState : BaseState
         return null;
     }
 
-    private bool PlayerTooClose()
-    {
-        if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < enemy.GetRange())
-        {
-            enemy.SetTarget(GameObject.FindGameObjectWithTag("Player"));
-            return true;
-        }
-        return false;
-    }
-
     // NavMesh Agent methods - may be useful in the future
     private void NavGetDestination()
     {
@@ -176,13 +165,5 @@ public class WanderState : BaseState
                 destination = finalTestPosition;
             else
                 NavGetDestination();
-    }
-
-    private void NavTick()
-    {
-        if(NeedsDestination())
-            NavGetDestination();
-
-        enemy.Agent.SetDestination(destination);
     }
 }

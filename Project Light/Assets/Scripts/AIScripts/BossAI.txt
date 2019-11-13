@@ -1,0 +1,29 @@
+tree("Root")
+	fallback
+		tree("Roar")
+		tree("Charge")
+		tree("Smash")
+		tree("Chase")
+
+tree("Roar")
+	sequence
+		HealthBelowThreshold
+		RoarIsNotOnCooldown
+		Roar
+
+tree("Charge")
+	sequence
+		IsInChargeRange
+		IsNotTooClose
+		ChargeIsNotOnCooldown
+		FindChargePosition
+		Charge
+
+tree("Smash")
+	sequence
+		IsInSmashRange
+		SmashIsNotOnCooldown
+		Smash
+
+tree("Chase")
+	ChasePlayer

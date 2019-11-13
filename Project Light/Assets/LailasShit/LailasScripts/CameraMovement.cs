@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         var mousedir = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
