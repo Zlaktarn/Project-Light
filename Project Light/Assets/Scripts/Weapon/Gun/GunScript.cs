@@ -9,7 +9,7 @@ public class GunScript : MonoBehaviour
 
     public Transform transform;
     Animator anim;
-    private float animSpeed;
+    public float animSpeed;
 
     private float nextTimeToFire = 0f;
     public float fireRate = 10;
@@ -19,7 +19,6 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        animSpeed = 2.5f;
         anim.speed = animSpeed;
     }
     void Update()
@@ -36,7 +35,7 @@ public class GunScript : MonoBehaviour
     {
         RaycastHit hit;
         //muzzleFlash.Play();
-        anim.SetTrigger("Shoot");
+        anim.SetTrigger("RifleShoot");
         if(Physics.Raycast(transform.position, transform.up, out hit, range))
         {
             Debug.Log(hit.transform.name);

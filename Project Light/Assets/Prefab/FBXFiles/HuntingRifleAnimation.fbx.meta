@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 890e09e9c3eeea74f957747640453264
+guid: 2406b26b4e9ac5848813a2577b5cbeaa
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Revolver_Shoot
+    second: RifleShoot
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Revolver_Shoot
+      name: RifleShoot
       takeName: Take 001
       internalID: 0
       firstFrame: 1
-      lastFrame: 60
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
