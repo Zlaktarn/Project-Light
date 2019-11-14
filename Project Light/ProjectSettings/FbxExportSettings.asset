@@ -15,11 +15,11 @@
             "."
         ],
         "fbxSavePaths": [
+            "Prefab/FBXFiles",
             "Prefab/Houses/House4",
             "Prefab/Houses/Warehouse",
             "Prefab/Houses/House2",
-            "Prefab/Houses",
-            "."
+            "Prefab/Houses"
         ],
         "selectedFbxPath": 0,
         "selectedPrefabPath": 0,
