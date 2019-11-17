@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   Oxygen: 100
+  soundRange: 15
   isDead: 0
   horizontalInputName: Horizontal
   verticalInputName: Vertical
@@ -602,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseXInputName: Mouse X
   mouseYInputName: Mouse Y
-  mouseSensitivity: 100
+  mouseSensitivity: 7
   playerBody: {fileID: 1621451483596283661}
 --- !u!1 &1621451485356227553
 GameObject:
@@ -809,4 +810,5 @@ MonoBehaviour:
   boltPrefab: {fileID: 1745551658385998470, guid: f7ac5687ab82a504091db8a772e7fbf0,
     type: 3}
   boltSpawn: {fileID: 940080767200110292}
+  anim: {fileID: 0}
   shootForce: 30
