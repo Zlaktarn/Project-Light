@@ -15,14 +15,18 @@
             "."
         ],
         "fbxSavePaths": [
-            "."
+            "Prefab/FBXFiles",
+            "Prefab/Houses/House4",
+            "Prefab/Houses/Warehouse",
+            "Prefab/Houses/House2",
+            "Prefab/Houses"
         ],
         "selectedFbxPath": 0,
         "selectedPrefabPath": 0,
         "dccOptionNames": [],
         "dccOptionPaths": [],
         "exportModelSettingsSerialize": {
-            "exportFormat": 0,
+            "exportFormat": 1,
             "animatedSkinnedMesh": false,
             "mayaCompatibleNaming": true,
             "include": 0,

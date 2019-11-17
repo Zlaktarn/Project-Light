@@ -4,54 +4,75 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-
     public Camera cam;
     public GameObject boltPrefab;
     public Transform boltSpawn;
     public Animator anim;
     [SerializeField] float shootForce;
 
-    private float timer;
-    private float timeInterval = 1f;
+    public AmmoScript ammo;
 
-    bool reloading = false;
-    bool loaded = true;
+    bool isReloading = false;
+
+    private int reloadTime = 1;
+
+    [SerializeField] int currentAmmo = -1;
+    [SerializeField] int clipSize;
+    [SerializeField] float fireRate;
+
+    private float nextTimeToFire = 0f;
+
+    private void Start()
+    {
+        currentAmmo = clipSize;
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
-        anim = GetComponent<Animator>();
-        if (Input.GetMouseButtonDown(0) && loaded)
-        {
-            anim.SetTrigger("MakeShoot");
-            GameObject gameObject = Instantiate(boltPrefab, boltSpawn.position, Quaternion.identity);
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.velocity = cam.transform.forward * shootForce;
-            loaded = false;
-        }
-
-        Reloading();
+        Shoot();
+        Reload();
     }
 
-    private void Reloading()
+    void Shoot()
     {
-        if(Input.GetKeyDown(KeyCode.R) && !loaded && !reloading)
-        {
-            reloading = true;
-            print("Reloading..");
-        }
+        if (isReloading)
+            return;
 
-        if (reloading)
-        {
-            timer += Time.deltaTime;
-            this.transform.Rotate(0, 0, 360 * Time.deltaTime, Space.Self);
-
-            if (timer >= timeInterval)
+        if (!isReloading && currentAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
             {
-                print("Loaded!");
-                timer = 0;
-                loaded = true;
-                reloading = false;
+                anim.SetTrigger("MakeShoot");
+                GameObject gameObject = Instantiate(boltPrefab, boltSpawn.position, Quaternion.identity);
+                Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+                rb.velocity = cam.transform.forward * shootForce;
+                currentAmmo--;
             }
-        }
+
+        if (ammo.totalCrossbowAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+    }
+
+    IEnumerator Reload()
+    {
+        int remAmmo = currentAmmo;
+
+        isReloading = true;
+        print("reloading");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        if (ammo.totalCrossbowAmmo + currentAmmo >= clipSize)
+            currentAmmo = clipSize;
+        else if ((ammo.totalCrossbowAmmo + currentAmmo) < clipSize)
+            currentAmmo = ammo.totalCrossbowAmmo + remAmmo;
+
+        ammo.totalCrossbowAmmo -= clipSize - remAmmo;
+
+        isReloading = false;
     }
 }
