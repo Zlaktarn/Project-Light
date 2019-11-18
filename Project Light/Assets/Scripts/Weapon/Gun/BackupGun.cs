@@ -54,7 +54,7 @@ public class BackupGun : MonoBehaviour
                 Shoot();
             }
 
-        if (ammo.totalGunAmmo > 0)
+        if (ammo.gAmmoTotal > 0)
             if (Input.GetKeyDown(KeyCode.R))
             {
                 StartCoroutine(Reload());
@@ -72,12 +72,12 @@ public class BackupGun : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        if (ammo.totalGunAmmo + currentAmmo >= clipSize)
+        if (ammo.gAmmoTotal + currentAmmo >= clipSize)
             currentAmmo = clipSize;
-        else if ((ammo.totalGunAmmo + currentAmmo) < clipSize)
-            currentAmmo = ammo.totalGunAmmo + remAmmo;
+        else if ((ammo.gAmmoTotal + currentAmmo) < clipSize)
+            currentAmmo = ammo.gAmmoTotal + remAmmo;
 
-        ammo.totalGunAmmo -= clipSize - remAmmo;
+        ammo.gAmmoTotal -= clipSize - remAmmo;
 
         isReloading = false;
     }

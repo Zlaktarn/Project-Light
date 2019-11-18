@@ -17,8 +17,8 @@ public class ShootScript : MonoBehaviour
     private int reloadTime = 1;
 
     [SerializeField] int currentAmmo = -1;
-    [SerializeField] int clipSize;
-    [SerializeField] float fireRate;
+    [SerializeField] int clipSize = 1;
+    [SerializeField] float fireRate = 1;
 
     private float nextTimeToFire = 0f;
 
@@ -49,7 +49,7 @@ public class ShootScript : MonoBehaviour
                 currentAmmo--;
             }
 
-        if (ammo.totalCrossbowAmmo > 0)
+        if (ammo.cbAmmoTotal > 0)
             if (Input.GetKeyDown(KeyCode.R))
             {
                 StartCoroutine(Reload());
@@ -66,12 +66,12 @@ public class ShootScript : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        if (ammo.totalCrossbowAmmo + currentAmmo >= clipSize)
+        if (ammo.cbAmmoTotal + currentAmmo >= clipSize)
             currentAmmo = clipSize;
-        else if ((ammo.totalCrossbowAmmo + currentAmmo) < clipSize)
-            currentAmmo = ammo.totalCrossbowAmmo + remAmmo;
+        else if ((ammo.cbAmmoTotal + currentAmmo) < clipSize)
+            currentAmmo = ammo.cbAmmoTotal + remAmmo;
 
-        ammo.totalCrossbowAmmo -= clipSize - remAmmo;
+        ammo.cbAmmoTotal -= clipSize - remAmmo;
 
         isReloading = false;
     }

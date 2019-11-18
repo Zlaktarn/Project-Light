@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class AmmoScript : MonoBehaviour
 {
-    public int totalGunAmmo;
-    public int totalCrossbowAmmo;
+    public int gAmmoTotal;
+    public int rAmmoTotal;
+    public int cbAmmoTotal;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,14 @@ public class AmmoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (totalGunAmmo < 0)
-            totalGunAmmo = 0;
+        if (gAmmoTotal < 0)
+            gAmmoTotal = 0;
 
-        if(totalCrossbowAmmo < 0)
-            totalCrossbowAmmo = 0;
+        if (rAmmoTotal < 0)
+            rAmmoTotal = 0;
+
+        if (cbAmmoTotal < 0)
+            cbAmmoTotal = 0;
     }
 
     void Gun()

@@ -65,12 +65,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1683d021100fae49ad447ccab512cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponType: 
   damage: 10
   range: 100
   impactForce: 30
   transform: {fileID: 3723426391971001697}
   animSpeed: 0
   fireRate: 10
+  ammo: {fileID: 0}
+  clipSize: 6
+  currentAmmo: -1
+  reloadTime: 1
 --- !u!1 &935075607987213648
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5678534429790047236}
   - component: {fileID: 2683819101427530943}
-  - component: {fileID: 6101974790776461881}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -186,24 +190,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000237301, y: -0.054866746, z: -0.0013400316}
     m_Extent: {x: 0.015938975, y: 0.07891768, z: 0.397929}
   m_DirtyAABB: 0
---- !u!114 &6101974790776461881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157443465320939435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1683d021100fae49ad447ccab512cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  range: 100
-  impactForce: 30
-  transform: {fileID: 0}
-  animSpeed: 0
-  fireRate: 10
 --- !u!1 &1921028663535445289
 GameObject:
   m_ObjectHideFlags: 0

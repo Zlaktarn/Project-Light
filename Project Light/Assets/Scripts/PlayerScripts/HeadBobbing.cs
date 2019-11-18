@@ -5,10 +5,10 @@ using UnityEngine;
 public class HeadBobbing : MonoBehaviour
 {
     float timer = 0.0f;
-    [SerializeField] float bobbingSpeed;
+    [SerializeField] float bobbingSpeed = 0.12f;
     float oldBobbingSpeed;
-    [SerializeField] float bobbingAmount;
-    [SerializeField] float midPoint;
+    [SerializeField] float bobbingAmount = 0.09f;
+    [SerializeField] float midPoint = 1.6f;
 
     private void Start()
     {
