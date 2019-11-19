@@ -50,9 +50,14 @@ public class Boss : MonoBehaviour
     private Vector3 previousPosition;
     private Rigidbody rb;
 
+    // Animation
+    private Animator m_Animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        m_Animator = gameObject.GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         attackCube = GameObject.FindGameObjectWithTag("AttackCube");
@@ -113,6 +118,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Roar()
     {
+        m_Animator.SetBool("Roar", true);
         attacking = true;
         em.SpawnMinionsInRadius(transform.position, summonRadius, amountOfSummons);
         roarTimer = 0f;
@@ -174,6 +180,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Charge()
     {
+        m_Animator.SetBool("Charge", true);
         attacking = true;
         agent.isStopped = true;
         rb.isKinematic = false;
@@ -224,6 +231,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Smash()
     {
+        m_Animator.SetBool("Smash", true);
         if(Task.current.isStarting)
             smashAttacking = true;
 
