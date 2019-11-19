@@ -28,7 +28,7 @@ public class PlantSeed : MonoBehaviour
                 Debug.Log("worked!");
                 if (Input.GetKeyDown(KeyCode.E) && !spawned)
                 {
-                    spawnedSeed = (GameObject)Instantiate(seed, transform.localPosition + new Vector3(0, 0.64f, 0), Quaternion.identity);
+                    spawnedSeed = (GameObject)Instantiate(seed, transform.localPosition + new Vector3(0, 0, 0), Quaternion.identity);
                     spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
                     Destroy(preSeed);
                     spawned = true;

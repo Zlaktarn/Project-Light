@@ -8,7 +8,6 @@ public class PlaceHolderPickup : MonoBehaviour
     public bool PickedUp {get; set;}
     private Vector3 onhand = new Vector3(-0.23f, -0.15f, 0.46f);
     public Transform parent;
-    public GameObject weapon;
     public Camera fpsCam;
     private GameObject item;
     private Rigidbody rb;
@@ -45,11 +44,10 @@ public class PlaceHolderPickup : MonoBehaviour
 
     private void HoldItem()
     {
-        weapon.SetActive(false);
         PickedUp = true;
         rb.useGravity = false;
         rb.isKinematic = true;
-        item.GetComponent<SphereCollider>().enabled = false;
+        item.GetComponent<MeshCollider>().enabled = false;
         item.transform.parent = parent;
         item.transform.localPosition = onhand;
         item.transform.localRotation = parent.localRotation;
@@ -63,8 +61,7 @@ public class PlaceHolderPickup : MonoBehaviour
             item.transform.parent = null;
             rb.useGravity = true;
             rb.isKinematic = false;
-            item.GetComponent<SphereCollider>().enabled = true;
-            weapon.SetActive(true); 
+            item.GetComponent<MeshCollider>().enabled = true;
         }
     }
 

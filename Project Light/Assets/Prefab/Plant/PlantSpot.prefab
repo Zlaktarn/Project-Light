@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 573707550292443966}
   - component: {fileID: 573707550292443967}
   - component: {fileID: 573707550292443963}
+  - component: {fileID: 3728502567922617287}
   m_Layer: 12
   m_Name: PlantSpot
   m_TagString: PlantSpot
@@ -105,6 +106,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f0ee0b7cdeaab4895ed05e3e587b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search: {fileID: 0}
-  seed: {fileID: 7661993081843643344, guid: 4ae1bafef2e48294b9c26035352d42bd, type: 3}
+  search: {fileID: 3728502567922617287}
+  seed: {fileID: 5415394869858223549, guid: 104aba8183970f2458a110399c39f9de, type: 3}
   parent: {fileID: 0}
+--- !u!114 &3728502567922617287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573707550292443968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8e70e856d1d7d4e908becea4e91425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTag: 

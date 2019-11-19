@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8934791346365480479}
   - component: {fileID: 189776102265003163}
   - component: {fileID: 550856793737356920}
+  - component: {fileID: 8622480059822618782}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -89,6 +90,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8622480059822618782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515856303399623342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb3afe216239e247abaa41dc1a7a57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  colorEnabled: 1
+  startIntensity: 0
+  maxIntensity: 1
+  intensityEnabled: 1
+  startRange: 0
+  maxRange: 10
+  rangeEnabled: 1
+  startScale: {x: 0.15, y: 0.15, z: 0.15}
+  maxScale: {x: 0.8, y: 0.8, z: 0.8}
+  scaleEnabled: 1
+  duration: 5
+  isPlanted: 0
 --- !u!21 &4056360663842969739
 Material:
   serializedVersion: 6
