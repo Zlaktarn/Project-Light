@@ -21,30 +21,24 @@ public class MovementScript : MonoBehaviour
     public bool isDead;
     #endregion
 
-    [SerializeField] string horizontalInputName;
-    [SerializeField] string verticalInputName;
-
     #region Movement Variables
-    [SerializeField] float walkSpeed;
-    [SerializeField] KeyCode runKey;
-    [SerializeField] float runSpeed;
-    [SerializeField] float runBuildUpSpeed;
-    [SerializeField] KeyCode crouchKey;
-    [SerializeField] float crouchSpeed;
-    [SerializeField] float crouchHeight;
+    [SerializeField] float walkSpeed = 4;
+    [SerializeField] float runSpeed = 8;
+    [SerializeField] float runBuildUpSpeed = 2;
+    [SerializeField] float crouchSpeed = 2;
+    [SerializeField] float crouchHeight = 0.9f;
     Vector3 rightMovement;
     #endregion
 
     #region Slope Variables
-    [SerializeField] float slopeForce;
-    [SerializeField] float slopeForceRayLength;
+    [SerializeField] float slopeForce = 6;
+    [SerializeField] float slopeForceRayLength = 1.5f;
     #endregion
 
     #region Jump Variables
     [SerializeField] AnimationCurve jumpFallOff;
-    [SerializeField] KeyCode jumpKey;
-    [SerializeField] float jumpMultiplier;
-    [SerializeField] float dodgeMultiplier;
+    [SerializeField] float jumpMultiplier = 7;
+    [SerializeField] float dodgeMultiplier = 1.5f;
     [SerializeField] float dodgeSpeed = 12f;
     #endregion
 
@@ -71,8 +65,8 @@ public class MovementScript : MonoBehaviour
     #region Movement
     void PlayerControls()
     {
-        float hInput = Input.GetAxis(horizontalInputName);
-        float vInput = Input.GetAxis(verticalInputName);
+        float hInput = Input.GetAxis("Horizontal");
+        float vInput = Input.GetAxis("Vertical");
 
         Vector3 forwardMovement = transform.forward * vInput;
         rightMovement = transform.right * hInput;
@@ -93,12 +87,12 @@ public class MovementScript : MonoBehaviour
 
     private void SetMovementSpeed()
     {
-        if (Input.GetKey(runKey))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 20f;
         }
-        else if (Input.GetKey(crouchKey))
+        else if (Input.GetKey(KeyCode.LeftControl))
         {
             movementSpeed = Mathf.Lerp(movementSpeed, crouchSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 10f;
@@ -128,7 +122,7 @@ public class MovementScript : MonoBehaviour
     #region Jump Method
     private void JumpInput()
     {
-        if (Input.GetKeyDown(jumpKey) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             isJumping = true;
             StartCoroutine(JumpEvent());
@@ -157,9 +151,9 @@ public class MovementScript : MonoBehaviour
     #region Dodge Method
     private void DodgeInput()
     {
-        float hInput = Input.GetAxis(horizontalInputName);
+        float hInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(jumpKey) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             isDodging = true;
             StartCoroutine(DodgeEvent());
@@ -169,7 +163,7 @@ public class MovementScript : MonoBehaviour
     private IEnumerator DodgeEvent()
     {
         float airTime = 0.0f;
-        float hInput = Input.GetAxis(horizontalInputName);
+        float hInput = Input.GetAxis("Horizontal");
 
         do
         {
@@ -189,7 +183,7 @@ public class MovementScript : MonoBehaviour
     {
          //Vector3 centerPoint = charController.center = new Vector3(0, charController.height / 2, 0);
 
-        if (Input.GetKey(crouchKey))  //SKAPAR EN BUG FÖR ONSLOPE()
+        if (Input.GetKey(KeyCode.LeftControl))  //SKAPAR EN BUG FÖR ONSLOPE()
             charController.height = crouchHeight;
         else
             charController.height = originalHeight;

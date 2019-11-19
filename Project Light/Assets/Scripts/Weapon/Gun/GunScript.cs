@@ -3,12 +3,14 @@ using System.Collections;
 
 public class GunScript : MonoBehaviour
 {
+    public string WeaponType;
+
     public float damage = 10f;
     public float range = 100f;
     public float impactForce = 30f;
 
 
-    public Transform transform;
+    new public Transform transform;
     Animator anim;
     public float animSpeed;
 
@@ -44,12 +46,11 @@ public class GunScript : MonoBehaviour
                 Shoot();
             }
 
-        if (ammo.totalGunAmmo > 0)
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                StartCoroutine(Reload());
-                return;
-            }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
     }
 
     IEnumerator Reload()
@@ -62,12 +63,26 @@ public class GunScript : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        if (ammo.totalGunAmmo + currentAmmo >= clipSize)
-            currentAmmo = clipSize;
-        else if ((ammo.totalGunAmmo + currentAmmo) < clipSize)
-            currentAmmo = ammo.totalGunAmmo + remAmmo;
+        if(WeaponType == "Revolver")
+        {
+            if (ammo.gAmmoTotal + currentAmmo >= clipSize)
+                currentAmmo = clipSize;
+            else if ((ammo.gAmmoTotal + currentAmmo) < clipSize)
+                currentAmmo = ammo.gAmmoTotal + remAmmo;
 
-        ammo.totalGunAmmo -= clipSize - remAmmo;
+            ammo.gAmmoTotal -= clipSize - remAmmo;
+        }
+
+        if(WeaponType == "Rifle")
+        {
+            if (ammo.rAmmoTotal + currentAmmo >= clipSize)
+                currentAmmo = clipSize;
+            else if ((ammo.rAmmoTotal + currentAmmo) < clipSize)
+                currentAmmo = ammo.rAmmoTotal + remAmmo;
+
+            ammo.rAmmoTotal -= clipSize - remAmmo;
+        }
+        
 
         isReloading = false;
     }

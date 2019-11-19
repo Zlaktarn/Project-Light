@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    Inventoryinput invIn;
     public static bool GameIsPaused;
     public GameObject pauseMenuUI;
 
