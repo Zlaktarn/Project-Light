@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : Interactable
 {
     #region singleton
     public static Inventory instance;
@@ -25,6 +25,10 @@ public class Inventory : MonoBehaviour
 
     public List<Item> items = new List<Item>();
 
+    public override void Interact()
+    {
+        base.Interact();
+    }
 
     public void Add(Item item)
     {

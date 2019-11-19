@@ -18,7 +18,7 @@ public class AISmashAttack : MonoBehaviour
     {
         alpha = 0f;
         alphaTime = 0f;
-        duration = 2f;
+        //duration = 2f;
         mat = GetComponent<Renderer>().material;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<MovementScript>();

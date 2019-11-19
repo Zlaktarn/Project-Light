@@ -18,11 +18,11 @@ public class Boss : MonoBehaviour
     private EnemyManager em;
 
     // Charge Variables
-    private float chargeCooldown = 15f;
+    private float chargeCooldown = 8f;
     private float chargeTimer = 0f;
     private float chargeMaxRange = 30f;
     private float chargeMinRange = 15f;
-    private float chargeDistance = 20f;
+    private float chargeDistance = 35f;
     private float speedIncrease = 16f;
     private float rotationSpeed = 2f;
     private Quaternion chargeDirection;
@@ -30,7 +30,7 @@ public class Boss : MonoBehaviour
 
     // Smash Variables
     private bool smashAttacking = true;
-    private float smashRange = 7f;
+    private float smashRange = 5f;
     private float smashScale = 3f;
     private float smashTimer = 0f;
     private float smashCooldown = 3f;
