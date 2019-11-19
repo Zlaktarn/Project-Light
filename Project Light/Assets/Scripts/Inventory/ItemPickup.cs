@@ -6,6 +6,8 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item;
 
+   
+
     void PickUp()
     {
         print("Picking up" + item.iName);

@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1120829794484699026}
   - component: {fileID: 1120829794484699052}
   - component: {fileID: 1816637025345054103}
-  - component: {fileID: 1114309917}
+  - component: {fileID: 487995504593033260}
   m_Layer: 13
   m_Name: NEWSlowAI
   m_TagString: Enemy
@@ -189,7 +189,7 @@ NavMeshAgent:
   m_Radius: 1
   m_Speed: 6
   m_Acceleration: 6
-  avoidancePriority: 50
+  avoidancePriority: 10
   m_AngularSpeed: 999
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scripts:
-  - {fileID: 4900000, guid: 05dc35725e2706d428b0bb53f7116aaa, type: 3}
+  - {fileID: 4900000, guid: a02d6334c2ff3df4299a6d39c5244dda, type: 3}
   autoReset: 1
   tickOn: 0
   sourceInfos:
@@ -252,7 +252,7 @@ MonoBehaviour:
   attacking: 0
   force: 250
   smallForce: 50
---- !u!114 &1114309917
+--- !u!114 &487995504593033260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,12 +261,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120829794484699028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad79a59575f29b34382351634bd77c86, type: 3}
+  m_Script: {fileID: 11500000, guid: 7607fc2d7f50a4b49b5d0e353cf6d618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfSummons: 2
-  summonRadius: 15
-  roarCooldown: 45
-  animationDuration: 2
-  healthThreshold: 51
-  IsCharging: 0
+  wanderTarget: {x: 0, y: 0, z: 0}
+  wanderSpeed: 2
+  chaseSpeed: 6
+  attackRange: 4
+  attackForce: 6
+  downTime: 2

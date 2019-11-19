@@ -18,11 +18,11 @@ public class Boss : MonoBehaviour
     private EnemyManager em;
 
     // Charge Variables
-    private float chargeCooldown = 15f;
+    private float chargeCooldown = 8f;
     private float chargeTimer = 0f;
     private float chargeMaxRange = 30f;
     private float chargeMinRange = 15f;
-    private float chargeDistance = 20f;
+    private float chargeDistance = 35f;
     private float speedIncrease = 16f;
     private float rotationSpeed = 2f;
     private Quaternion chargeDirection;
@@ -30,7 +30,7 @@ public class Boss : MonoBehaviour
 
     // Smash Variables
     private bool smashAttacking = true;
-    private float smashRange = 7f;
+    private float smashRange = 5f;
     private float smashScale = 3f;
     private float smashTimer = 0f;
     private float smashCooldown = 3f;
@@ -50,9 +50,14 @@ public class Boss : MonoBehaviour
     private Vector3 previousPosition;
     private Rigidbody rb;
 
+    // Animation
+    private Animator m_Animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        m_Animator = gameObject.GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         attackCube = GameObject.FindGameObjectWithTag("AttackCube");
@@ -113,6 +118,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Roar()
     {
+        m_Animator.SetBool("Roar", true);
         attacking = true;
         em.SpawnMinionsInRadius(transform.position, summonRadius, amountOfSummons);
         roarTimer = 0f;
@@ -174,6 +180,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Charge()
     {
+        m_Animator.SetBool("Charge", true);
         attacking = true;
         agent.isStopped = true;
         rb.isKinematic = false;
@@ -224,6 +231,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Smash()
     {
+        m_Animator.SetBool("Smash", true);
         if(Task.current.isStarting)
             smashAttacking = true;
 

@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float radius = 2f;
+    public Transform interactionTransform;
+
+    private void Update()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Interact()
     {
-        
+        print("Interacting");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
