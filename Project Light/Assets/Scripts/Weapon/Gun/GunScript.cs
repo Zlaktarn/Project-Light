@@ -12,7 +12,7 @@ public class GunScript : MonoBehaviour
 
     new public Transform transform;
     Animator anim;
-    public float animSpeed;
+    public float animSpeed = 1;
 
     private float nextTimeToFire = 0f;
     public float fireRate;
@@ -24,14 +24,13 @@ public class GunScript : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading = false;
 
-    //public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash;
     //public GameObject impactEffect;
     void Start()
     {
         currentAmmo = clipSize;
 
         anim = GetComponent<Animator>();
-        animSpeed = 2.5f;
         anim.speed = animSpeed;
     }
     void Update()
@@ -91,7 +90,7 @@ public class GunScript : MonoBehaviour
     {
 
         RaycastHit hit;
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
 
         anim.SetTrigger("RifleShoot");
         if (Physics.Raycast(transform.position, transform.up, out hit, range))

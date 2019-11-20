@@ -367,7 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 6956828865966697699}
-  weapon: {fileID: 0}
   fpsCam: {fileID: 8028220984086433464}
 --- !u!114 &1621451483867748686
 MonoBehaviour:
@@ -465,6 +464,11 @@ PrefabInstance:
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 1621451483596283661}
+    - target: {fileID: 7792068468512038008, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4839691396f9d354b991474a78d6ef0b, type: 3}
 --- !u!4 &8028220984086433471 stripped
