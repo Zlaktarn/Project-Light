@@ -8,12 +8,14 @@ public class SettingsScript : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
+    public GameObject helpMenu;
 
     public bool settingsShow;
+    public bool helpShow;
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !settingsShow)
+        if(Input.GetKeyDown(KeyCode.P) && !settingsShow && !helpShow)
         {
             if(GameIsPaused)
             {
@@ -58,6 +60,20 @@ public class SettingsScript : MonoBehaviour
         pauseMenuUI.SetActive(true);
         settingsMenuUI.SetActive(false);
         settingsShow = false;
+    }
+
+    public void HelpButton()
+    {
+        pauseMenuUI.SetActive(false);
+        helpMenu.SetActive(true);
+        helpShow = true;
+    }
+
+    public void BackFromHelpButton()
+    {
+        helpMenu.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        helpShow = false;
     }
 
     public void QuitGame()
