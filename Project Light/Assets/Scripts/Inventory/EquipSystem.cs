@@ -5,8 +5,14 @@ using UnityEngine;
 public class EquipSystem : MonoBehaviour
 {
     public List<GameObject> equippable;
+    Inventory ammo;
 
     private int equipSlot = 1;
+
+    private void Start()
+    {
+        ammo = gameObject.GetComponent<Inventory>();
+    }
 
     void Update()
     {
@@ -18,11 +24,11 @@ public class EquipSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
             equipSlot = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && ammo.crossbow > 0)
             equipSlot = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && ammo.gun > 0)
             equipSlot = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && ammo.rifle > 0)
             equipSlot = 4;
     }
 

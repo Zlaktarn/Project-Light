@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementScript : MonoBehaviour
@@ -8,6 +7,7 @@ public class MovementScript : MonoBehaviour
     public float health = 100;
     public float Oxygen = 100;
     public float soundRange = 15;
+
 
     private Rigidbody rb;
 
@@ -62,6 +62,24 @@ public class MovementScript : MonoBehaviour
             
     }
 
+    private void Interact()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.up, out hit, 10))
+        {
+            Debug.Log(hit.transform.name);
+
+            Interactable interactable = hit.transform.GetComponent<Interactable>();
+
+            //if (interactable != null)
+            //{
+            //    interactable.Interact();
+            //}
+        }
+    }
+
+
     #region Movement
     void PlayerControls()
     {
@@ -103,6 +121,8 @@ public class MovementScript : MonoBehaviour
             soundRange = 15f;
         }
     }
+
+    
 
     #region Slope Method
     private bool OnSlope()

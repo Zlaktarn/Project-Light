@@ -8,10 +8,10 @@ public class ItemPickup : MonoBehaviour
 
    
 
-    void PickUp()
-    {
-        print("Picking up" + item.iName);
-        Inventory.instance.Add(item);
-        Destroy(gameObject);
-    }
+    //void PickUp()
+    //{
+    //    print("Picking up" + item.iName);
+    //    Inventory.instance.Add(item);
+    //    Destroy(gameObject);
+    //}
 }

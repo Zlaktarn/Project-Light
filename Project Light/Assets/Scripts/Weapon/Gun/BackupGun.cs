@@ -3,31 +3,29 @@ using System.Collections;
 
 public class BackupGun : MonoBehaviour
 {
+    public string WeaponType;
+
     public float damage = 10f;
     public float range = 100f;
     public float impactForce = 30f;
 
 
-    public Transform transform;
+    new public Transform transform;
+    Animator anim;
+    public float animSpeed;
 
-    public float fireRate;
     private float nextTimeToFire = 0f;
+    public float fireRate;
 
-    private Animator anim;
 
-
-    public AmmoScript ammo;
+    public Inventory ammo;
     public int clipSize = 6;
     public int currentAmmo = -1;
     public float reloadTime = 1f;
     private bool isReloading = false;
 
-
-    private float animSpeed;
-
     //public ParticleSystem muzzleFlash;
     //public GameObject impactEffect;
-
     void Start()
     {
         currentAmmo = clipSize;
@@ -36,12 +34,6 @@ public class BackupGun : MonoBehaviour
         animSpeed = 2.5f;
         anim.speed = animSpeed;
     }
-
-    private void OnEnable()
-    {
-        isReloading = false;
-    }
-
     void Update()
     {
         if (isReloading)
@@ -54,12 +46,11 @@ public class BackupGun : MonoBehaviour
                 Shoot();
             }
 
-        if (ammo.gAmmoTotal > 0)
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                StartCoroutine(Reload());
-                return;
-            }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
     }
 
     IEnumerator Reload()
@@ -72,12 +63,26 @@ public class BackupGun : MonoBehaviour
 
         yield return new WaitForSeconds(reloadTime);
 
-        if (ammo.gAmmoTotal + currentAmmo >= clipSize)
-            currentAmmo = clipSize;
-        else if ((ammo.gAmmoTotal + currentAmmo) < clipSize)
-            currentAmmo = ammo.gAmmoTotal + remAmmo;
+        if (WeaponType == "Revolver")
+        {
+            if (ammo.gAmmoTotal + currentAmmo >= clipSize)
+                currentAmmo = clipSize;
+            else if ((ammo.gAmmoTotal + currentAmmo) < clipSize)
+                currentAmmo = ammo.gAmmoTotal + remAmmo;
 
-        ammo.gAmmoTotal -= clipSize - remAmmo;
+            ammo.gAmmoTotal -= clipSize - remAmmo;
+        }
+
+        if (WeaponType == "Rifle")
+        {
+            if (ammo.rAmmoTotal + currentAmmo >= clipSize)
+                currentAmmo = clipSize;
+            else if ((ammo.rAmmoTotal + currentAmmo) < clipSize)
+                currentAmmo = ammo.rAmmoTotal + remAmmo;
+
+            ammo.rAmmoTotal -= clipSize - remAmmo;
+        }
+
 
         isReloading = false;
     }
@@ -88,7 +93,7 @@ public class BackupGun : MonoBehaviour
         RaycastHit hit;
         //muzzleFlash.Play();
 
-        anim.SetTrigger("Shoot");
+        anim.SetBool("Shoot", true);
         if (Physics.Raycast(transform.position, transform.up, out hit, range))
         {
             Debug.Log(hit.transform.name);
