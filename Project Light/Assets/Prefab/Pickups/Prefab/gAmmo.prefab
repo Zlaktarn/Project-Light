@@ -65,17 +65,17 @@ PrefabInstance:
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1420035
+      value: 4.716
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.122
+      value: 0.715
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.9499893
+      value: -6.235
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
@@ -121,11 +121,6 @@ PrefabInstance:
         type: 3}
       propertyPath: itemName
       value: gAmmo
-      objectReference: {fileID: 0}
-    - target: {fileID: 336185597642727757, guid: 1f7a0813156011a4c91e5be3d5d332fc,
-        type: 3}
-      propertyPath: itemType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7a0813156011a4c91e5be3d5d332fc, type: 3}

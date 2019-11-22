@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 4809556859583378549, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3135834
+      value: 5.285
       objectReference: {fileID: 0}
     - target: {fileID: 4809556859583378549, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.411
       objectReference: {fileID: 0}
     - target: {fileID: 4809556859583378549, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.26
+      value: -6.728
       objectReference: {fileID: 0}
     - target: {fileID: 4809556859583378549, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
@@ -72,21 +72,16 @@ PrefabInstance:
       propertyPath: itemName
       value: rAmmo
       objectReference: {fileID: 0}
-    - target: {fileID: 9175586811029964976, guid: 0b7a64587265a7747bc9f83ae5d94450,
+    - target: {fileID: 2892517984538023388, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
-      propertyPath: itemType
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1c555a561fb64f45a4d3a1314a071ed, type: 2}
     - target: {fileID: 2892517984538023388, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4164511204261677510, guid: a8c644ee64b304b4e94646175cc16e70,
         type: 3}
-    - target: {fileID: 2892517984538023388, guid: 0b7a64587265a7747bc9f83ae5d94450,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a1c555a561fb64f45a4d3a1314a071ed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7a64587265a7747bc9f83ae5d94450, type: 3}
