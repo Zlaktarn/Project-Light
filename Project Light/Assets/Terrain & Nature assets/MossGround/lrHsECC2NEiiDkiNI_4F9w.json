@@ -1,0 +1,163 @@
+{
+  "id": "lrHsECC2NEiiDkiNI_4F9w",
+  "name": "MossGround",
+  "origin": "mixer-created",
+  "categories": [
+    "surface",
+    "moss",
+    "mixer"
+  ],
+  "tags": [],
+  "previews": {
+    "images": [
+      {
+        "uri": "2x2 m"
+      }
+    ]
+  },
+  "meta": [
+    {
+      "name": "Scan Area",
+      "key": "scanArea",
+      "value": "C:\\Users\\Albio\\OneDrive\\Dokument\\Megascans Library\\Custom\\surface\\MossGround\\Moss_Mixer_lrHsECC2NEiiDkiNI_4F9w_surface_Preview.png"
+    }
+  ],
+  "averageColor": "#4C3D17",
+  "version": 2,
+  "maps": [
+    {
+      "name": "Albedo",
+      "type": "albedo",
+      "colorSpace": "sRGB",
+      "averageColor": "#4C3D17",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Albedo.png",
+      "mimeType": "image/png",
+      "bitDepth": 16,
+      "contentLength": 20343147
+    },
+    {
+      "name": "Albedo",
+      "type": "albedo",
+      "colorSpace": "sRGB",
+      "averageColor": "#4C3D17",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Albedo.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 4545923
+    },
+    {
+      "name": "Metalness",
+      "type": "metalness",
+      "colorSpace": "sRGB",
+      "averageColor": "#000000",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Metalness.png",
+      "mimeType": "image/png",
+      "bitDepth": 16,
+      "contentLength": 110324
+    },
+    {
+      "name": "Metalness",
+      "type": "metalness",
+      "colorSpace": "sRGB",
+      "averageColor": "#000000",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Metalness.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 27181
+    },
+    {
+      "name": "Roughness",
+      "type": "roughness",
+      "colorSpace": "Linear",
+      "averageColor": "#CECECE",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Roughness.png",
+      "mimeType": "image/png",
+      "bitDepth": 16,
+      "contentLength": 8839737
+    },
+    {
+      "name": "Roughness",
+      "type": "roughness",
+      "colorSpace": "Linear",
+      "averageColor": "#CECECE",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Roughness.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 3379575
+    },
+    {
+      "name": "Normal",
+      "type": "normal",
+      "colorSpace": "Linear",
+      "averageColor": "#8080DA",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Normal.png",
+      "mimeType": "image/png",
+      "bitDepth": 16,
+      "contentLength": 20905714
+    },
+    {
+      "name": "Normal",
+      "type": "normal",
+      "colorSpace": "Linear",
+      "averageColor": "#8080DA",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Normal.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 5435450
+    },
+    {
+      "name": "Displacement",
+      "type": "displacement",
+      "colorSpace": "Linear",
+      "averageColor": "#929292",
+      "heightMultiplier": 10.0,
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Displacement.exr",
+      "mimeType": "image/x-exr",
+      "bitDepth": 32,
+      "contentLength": 38593325
+    },
+    {
+      "name": "Displacement",
+      "type": "displacement",
+      "colorSpace": "Linear",
+      "averageColor": "#929292",
+      "heightMultiplier": 12.70975,
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_Displacement.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 1775601
+    },
+    {
+      "name": "AO",
+      "type": "ao",
+      "colorSpace": "sRGB",
+      "averageColor": "#9E9E9E",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_AO.png",
+      "mimeType": "image/png",
+      "bitDepth": 16,
+      "contentLength": 8051252
+    },
+    {
+      "name": "AO",
+      "type": "ao",
+      "colorSpace": "sRGB",
+      "averageColor": "#9E9E9E",
+      "resolution": "2048x2048",
+      "uri": "MossGround_2K_AO.jpg",
+      "mimeType": "image/jpeg",
+      "bitDepth": 8,
+      "contentLength": 3338825
+    }
+  ]
+}
