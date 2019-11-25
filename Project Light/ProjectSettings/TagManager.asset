@@ -14,6 +14,7 @@ TagManager:
   - Hand
   - Usable
   - AttackCube
+  - Inventory
   layers:
   - Default
   - TransparentFX

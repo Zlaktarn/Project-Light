@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
     public float fireRate;
 
 
-    public AmmoScript ammo;
+    public Inventory ammo;
     public int clipSize = 6;
     public int currentAmmo = -1;
     public float reloadTime = 1f;

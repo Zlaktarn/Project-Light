@@ -10,7 +10,7 @@ public class ShootScript : MonoBehaviour
     public Animator anim;
     [SerializeField] float shootForce;
 
-    public AmmoScript ammo;
+    public Inventory ammo;
 
     bool isReloading = false;
 
