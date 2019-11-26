@@ -47,8 +47,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0000000018626451, y: -0.000000007450581, z: -0.0000000018626451}
-    m_Extent: {x: 0.057497747, y: 0.09395038, z: 0.040951356}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
 --- !u!1001 &3786201565927218319
 PrefabInstance:
@@ -65,17 +65,17 @@ PrefabInstance:
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.022885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.03034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126034933358075272, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
@@ -120,7 +120,12 @@ PrefabInstance:
     - target: {fileID: 336185597642727757, guid: 1f7a0813156011a4c91e5be3d5d332fc,
         type: 3}
       propertyPath: itemName
-      value: water
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204094215459814309, guid: 1f7a0813156011a4c91e5be3d5d332fc,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7a0813156011a4c91e5be3d5d332fc, type: 3}

@@ -12,6 +12,8 @@ public class EquipSystem : MonoBehaviour
     private void Start()
     {
         ammo = gameObject.GetComponent<Inventory>();
+        equippable[0] = null;
+
     }
 
     void Update()
@@ -34,7 +36,7 @@ public class EquipSystem : MonoBehaviour
 
     private void Equipped()
     {
-        equippable[0] = null;
+
         if (equipSlot == 2)
         {
             equippable[1].SetActive(true);
@@ -43,7 +45,9 @@ public class EquipSystem : MonoBehaviour
             equippable[1].SetActive(false);
 
         if (equipSlot == 3)
+        {
             equippable[2].SetActive(true);
+        }
         else
             equippable[2].SetActive(false);
 

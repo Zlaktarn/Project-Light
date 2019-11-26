@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
+    public string weaponType;
     public Camera cam;
     public GameObject boltPrefab;
     public Transform boltSpawn;
@@ -42,7 +43,7 @@ public class ShootScript : MonoBehaviour
         if (!isReloading && currentAmmo > 0)
             if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
             {
-                anim.SetTrigger("MakeShoot");
+                anim.SetBool("MakeShoot", true);
                 GameObject gameObject = Instantiate(boltPrefab, boltSpawn.position, Quaternion.identity);
                 Rigidbody rb = gameObject.GetComponent<Rigidbody>();
                 rb.velocity = cam.transform.forward * shootForce;

@@ -5204,6 +5204,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abba6afa63dc85c4eadab5a183906c52, type: 3}
+--- !u!114 &315870349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1621451483596283662, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857005982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466f705016ced014eb881b09a6aa2ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &319623880
 GameObject:
   m_ObjectHideFlags: 0
@@ -6302,41 +6314,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3468076580843453890, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: itemName
-      value: Water
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598459820346940096, guid: e28f7cd9e619df546b8973e292ed13b4,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28f7cd9e619df546b8973e292ed13b4, type: 3}
 --- !u!1 &1329569835
@@ -6663,13 +6640,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9175586811029964976, guid: 0b7a64587265a7747bc9f83ae5d94450,
-        type: 3}
-      propertyPath: itemName
-      value: cbAmmo
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7a64587265a7747bc9f83ae5d94450, type: 3}
+--- !u!1 &1763823251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 166822787567290297, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857005982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1808837616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,6 +6765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6717171810885243435, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 315870349}
     - target: {fileID: 1621451483596283661, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6847,37 +6830,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6109728087892987156, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+    - target: {fileID: 1449046506461747031, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: weaponType
+      value: Crossbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 812720274534145462, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: equippable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1763823251}
+    - target: {fileID: 8784682271246981099, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521764663034763472, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7893989891859317405, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+    - target: {fileID: 8784682271246981096, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 717561278655189789, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: crossbow
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 717561278655189789, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: gun
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 717561278655189789, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: rifle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050177827802392839, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8784682271246981097, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+    - {fileID: 5584717959459558576, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
 --- !u!1001 &1868099368
 PrefabInstance:
@@ -7197,11 +7177,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 4527776562390979467, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4527776562390979460, guid: b74901c0c7c3c7545a082283920a4113,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7312,46 +7287,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1126731174}
-    - target: {fileID: 4527776561304317599, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527776561921180201, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527776562091384879, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4527776562511753427, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7720151646172870064, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -473.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633853415704350995, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.413206
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633853415704350995, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 6.413206
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633853415704350995, guid: b74901c0c7c3c7545a082283920a4113,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6.413206
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b74901c0c7c3c7545a082283920a4113, type: 3}
 --- !u!1001 &6458420079511946621

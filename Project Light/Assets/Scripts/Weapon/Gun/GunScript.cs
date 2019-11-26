@@ -43,7 +43,10 @@ public class GunScript : MonoBehaviour
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 Shoot();
+                muzzleFlash.Play();
+
             }
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -90,7 +93,6 @@ public class GunScript : MonoBehaviour
     {
 
         RaycastHit hit;
-        muzzleFlash.Play();
 
         anim.SetTrigger("RifleShoot");
         if (Physics.Raycast(transform.position, transform.up, out hit, range))

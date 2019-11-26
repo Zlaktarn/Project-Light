@@ -59,8 +59,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -75,7 +75,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: -0.12}
 --- !u!23 &874290464
 MeshRenderer:
@@ -182,17 +182,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4528387467374286826, guid: 890e09e9c3eeea74f957747640453264,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ccc52ab43fe10f64fb71970517fab64c, type: 2}
     - target: {fileID: -6057140222963153312, guid: 890e09e9c3eeea74f957747640453264,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 218265902962132710, guid: 890e09e9c3eeea74f957747640453264,
+    - target: {fileID: 4528387467374286826, guid: 890e09e9c3eeea74f957747640453264,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ccc52ab43fe10f64fb71970517fab64c, type: 2}
+    - target: {fileID: 4477106527210808578, guid: 890e09e9c3eeea74f957747640453264,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -202,7 +202,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ccc52ab43fe10f64fb71970517fab64c, type: 2}
-    - target: {fileID: 4477106527210808578, guid: 890e09e9c3eeea74f957747640453264,
+    - target: {fileID: 218265902962132710, guid: 890e09e9c3eeea74f957747640453264,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

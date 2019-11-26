@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    float oldHealth;
+    float maxHealth;
     public float health = 100;
     public float Oxygen = 100;
     public float soundRange = 15;
 
+    public int hDeath;
 
     private Rigidbody rb;
 
@@ -18,7 +19,7 @@ public class MovementScript : MonoBehaviour
     float originalHeight; //For camera
     bool isJumping;
     bool isDodging;
-    public bool isDead;
+    public static bool isDead = false;
     #endregion
 
     #region Movement Variables
@@ -47,6 +48,8 @@ public class MovementScript : MonoBehaviour
         charController = GetComponent<CharacterController>();
         originalHeight = charController.height;
         oldMovementSpeed = movementSpeed;
+
+        maxHealth = health;
     }
 
     void Update()
@@ -58,7 +61,8 @@ public class MovementScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
             LoadPlayer();
 
-
+        if (health <= 0 || transform.position.y < hDeath)
+            isDead = true;
             
     }
 
@@ -79,28 +83,30 @@ public class MovementScript : MonoBehaviour
         }
     }
 
-
     #region Movement
     void PlayerControls()
     {
-        float hInput = Input.GetAxis("Horizontal");
-        float vInput = Input.GetAxis("Vertical");
+        if(!isDead)
+        {
+            float hInput = Input.GetAxis("Horizontal");
+            float vInput = Input.GetAxis("Vertical");
 
-        Vector3 forwardMovement = transform.forward * vInput;
-        rightMovement = transform.right * hInput;
+            Vector3 forwardMovement = transform.forward * vInput;
+            rightMovement = transform.right * hInput;
 
-        charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * movementSpeed);
+            charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * movementSpeed);
 
-        if ((vInput != 0 || hInput != 0) && OnSlope())
-            charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
+            if ((vInput != 0 || hInput != 0) && OnSlope())
+                charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
 
-        if (vInput == 0 && hInput != 0)
-            DodgeInput();
-        else
-            JumpInput();
+            if (vInput == 0 && hInput != 0)
+                DodgeInput();
+            else
+                JumpInput();
 
-        SetMovementSpeed();
-        Crouching();
+            SetMovementSpeed();
+            Crouching();
+        }
     }
 
     private void SetMovementSpeed()
