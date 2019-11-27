@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6493015678469260305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644747017093233400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ead9c0c448d544cb3f5b1f7c11faba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxWater: 100
-  minWater: 0
-  hasWater: 1
-  smallSeed: {fileID: 4821592124635914375, guid: 1ff6e638b4ebea54b8f471606352c485,
-    type: 3}
-  groupSize: 1
-  seedRadius: 3
-  personalSeedRadius: 2
 --- !u!54 &481868226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -50,6 +30,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -8517725900640002782, guid: ab0621088e31e164e851ec45d98a7244, type: 3}
+--- !u!114 &6493015678469260305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644747017093233400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ead9c0c448d544cb3f5b1f7c11faba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWater: 100
+  minWater: 0
+  hasWater: 1
+  smallSeed: {fileID: 4821592124635914375, guid: 1ff6e638b4ebea54b8f471606352c485,
+    type: 3}
+  groupSize: 1
+  seedRadius: 3
+  personalSeedRadius: 2
 --- !u!1001 &2743486453303354601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,11 +312,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0082841925
       objectReference: {fileID: 0}
-    - target: {fileID: 1624067922492011733, guid: 376dfa57f81903441bd9a6d17236515c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9180075026495579708, guid: 376dfa57f81903441bd9a6d17236515c,
         type: 3}
       propertyPath: m_UseGravity
@@ -330,6 +325,11 @@ PrefabInstance:
     - target: {fileID: 4331968939299314075, guid: 376dfa57f81903441bd9a6d17236515c,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624067922492011733, guid: 376dfa57f81903441bd9a6d17236515c,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
