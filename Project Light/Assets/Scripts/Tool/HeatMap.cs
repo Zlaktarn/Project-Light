@@ -30,6 +30,24 @@ public class HeatMap : MonoBehaviour
             cubes[j].GetComponent<HeatCubeInfo>().SetScore(values[j]);
     }
 
+    public void SetDeaths(List<int> values)
+    {
+        for(int j = 0; j < cubes.Count; j++)
+            cubes[j].GetComponent<HeatCubeInfo>().SetDeaths(values[j]);
+    }
+
+    public void ResetActivety()
+    {
+        for(int j = 0; j < cubes.Count; j++)
+            cubes[j].GetComponent<HeatCubeInfo>().ResetScore();
+    }
+
+    public void ResetDeaths()
+    {
+        for(int j = 0; j < cubes.Count; j++)
+            cubes[j].GetComponent<HeatCubeInfo>().ResetDeaths();
+    }
+
     void SpawnGrid()
     {
         for(int x = 0; x < gridX; x++)

@@ -31,7 +31,7 @@ public class WanderState : BaseState
 
     public override Type Tick()
     {
-        gameObject.GetComponent<AIChargeAttack>().attacking = false;
+        //gameObject.GetComponent<AIChargeAttack>().attacking = false;
 
         if (enemy.GotHit())
         {

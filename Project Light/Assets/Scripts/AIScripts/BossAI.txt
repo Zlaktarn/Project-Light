@@ -3,6 +3,8 @@ tree("Root")
 		tree("Roar")
 		tree("Charge")
 		tree("Smash")
+		tree("Swipe")
+		tree("Aggro")
 		tree("Chase")
 
 tree("Roar")
@@ -24,6 +26,19 @@ tree("Smash")
 		IsInSmashRange
 		SmashIsNotOnCooldown
 		Smash
+
+tree("Swipe")
+	sequence
+		IsInSwipeRange
+		SwipeIsNotOnCooldown
+		Swipe
+
+tree("Aggro")
+	sequence
+		race
+			IsOutsideOfAggroRange
+			IsPlayerOutsideOfAggroRange
+		WalkBackToStart
 
 tree("Chase")
 	ChasePlayer

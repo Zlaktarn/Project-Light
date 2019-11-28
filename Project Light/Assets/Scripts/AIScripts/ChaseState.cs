@@ -27,7 +27,6 @@ public class ChaseState : BaseState
         else if(enemy.currentAI == AIType.SlowAI)
             rotationSpeed = 5f;
 
-        gameObject.GetComponent<AIChargeAttack>().attacking = false;
         enemy.SetHit(false);
 
         if (enemy.Target == null)

@@ -30,14 +30,25 @@ public class Boss : MonoBehaviour
 
     // Smash Variables
     private bool smashAttacking = true;
-    private float smashRange = 5f;
+    private float smashRange = 7f;
     private float smashScale = 3f;
     private float smashTimer = 0f;
-    private float smashCooldown = 3f;
+    private float smashCooldown = 10f;
     private GameObject attackCube;
     private GameObject spawnedCube;
     private Vector3 cubePos;
     private Quaternion cubeRot;
+
+    // Swipe Variables
+    private bool swipeAttacking = true;
+    private float swipeRange = 4f;
+    private float swipeScale = 2f;
+    private float swipeTimer = 0f;
+    private float swipeCooldown = 1f;
+    private GameObject swipeCube;
+    private GameObject spawnedSwipeCube;
+    private Vector3 swipePos;
+    private Quaternion swipeRot;
 
     // Global Variables
     private bool attacking = false;
@@ -47,8 +58,12 @@ public class Boss : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject player;
     private Vector3 directionToPlayer;
+    private float distanceToStart = 0;
+    private float distanceFromPlayerToStart = 0f;
     private Vector3 previousPosition;
     private Rigidbody rb;
+    private Vector3 startPosition;
+    private float aggroRange = 50f;
 
     // Animation
     private Animator m_Animator;
@@ -57,10 +72,12 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = this.transform.position;
         m_Animator = gameObject.GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         attackCube = GameObject.FindGameObjectWithTag("AttackCube");
+        swipeCube = GameObject.FindGameObjectWithTag("SwipeCube");
         em = GameObject.FindGameObjectWithTag("GM").GetComponent<EnemyManager>();
         rb = GetComponent<Rigidbody>();
         roarTimer = roarCooldown;
@@ -73,11 +90,14 @@ public class Boss : MonoBehaviour
 
     void FixedUpdate()
     {
+        distanceFromPlayerToStart = Vector3.Distance(player.transform.position, startPosition);
+        distanceToStart = Vector3.Distance(transform.position, startPosition);
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         roarTimer += Time.deltaTime;
         chargeTimer += Time.deltaTime;
         animationTimer += Time.deltaTime;
         smashTimer += Time.deltaTime;
+        swipeTimer += Time.deltaTime;
 
         currentSpeed = Mathf.Lerp(currentSpeed, (transform.position - previousPosition).magnitude / Time.deltaTime, 0.75f);
         previousPosition = transform.position;
@@ -86,7 +106,7 @@ public class Boss : MonoBehaviour
     private bool IsForwardBlocked()
     {
         Ray ray = new Ray(transform.position, transform.forward);
-        if(Physics.Raycast(ray, 1, environmentLayer))
+        if(Physics.Raycast(ray, 4, environmentLayer))
             return true;
         return false;
     }
@@ -165,7 +185,7 @@ public class Boss : MonoBehaviour
             var direction = Vector3.Normalize(player.transform.position - transform.position);
             direction = new Vector3(direction.x, 0f, direction.z);
             chargeDirection = Quaternion.LookRotation(direction);
-            chargeTarget = player.transform.position + (transform.forward * 10);  
+            chargeTarget = player.transform.position + (transform.forward * chargeDistance);  
         }
 
         if(chargeDirection != null)
@@ -180,6 +200,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void Charge()
     {
+        GetComponent<AIChargeAttack>().attacking = true;
         m_Animator.SetBool("Charge", true);
         attacking = true;
         agent.isStopped = true;
@@ -191,6 +212,8 @@ public class Boss : MonoBehaviour
 
         if (IsForwardBlocked())
         {
+            GetComponent<AIChargeAttack>().attacking = false;
+            agent.enabled = true;
             agent.isStopped = false;
             rb.isKinematic = true;
             IsCharging = false;
@@ -201,6 +224,8 @@ public class Boss : MonoBehaviour
 
         if(Vector3.Distance(transform.position, chargeTarget) <= 8f)
         {
+            GetComponent<AIChargeAttack>().attacking = false;
+            agent.enabled = true;
             agent.isStopped = false;
             rb.isKinematic = true;
             IsCharging = false;
@@ -213,7 +238,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void IsInSmashRange()
     {
-        if(distanceToPlayer <= 6)
+        if(distanceToPlayer <= smashRange)
             Task.current.Succeed();
         else
             Task.current.Fail();
@@ -222,7 +247,7 @@ public class Boss : MonoBehaviour
     [Task]
     public void SmashIsNotOnCooldown()
     {
-        if(chargeTimer >= smashCooldown)
+        if(smashTimer >= smashCooldown)
             Task.current.Succeed();
         else
             Task.current.Fail();
@@ -262,12 +287,96 @@ public class Boss : MonoBehaviour
         if (spawnedCube != null)
             if (!spawnedCube.GetComponent<AISmashAttack>().attacking)
             {
+                m_Animator.SetBool("Smash", false);
                 agent.enabled = true;
                 smashAttacking = true;
                 attacking = false;
                 smashTimer = 0f;
                 Task.current.Succeed();
             } 
+    }
+
+    [Task]
+    public void IsInSwipeRange()
+    {
+        if(distanceToPlayer <= swipeRange)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
+    }
+
+    [Task]
+    public void SwipeIsNotOnCooldown()
+    {
+        if(swipeTimer >= swipeCooldown)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
+    }
+
+    [Task]
+    public void Swipe()
+    {
+         m_Animator.SetBool("Swipe", true);
+        if(Task.current.isStarting)
+            swipeAttacking = true;
+
+        attacking = true;
+        agent.enabled = false;
+
+        if (swipeAttacking)
+        {
+            var swipeDir = transform.forward;
+            swipeRot = transform.rotation;
+            float distance = 3;
+            swipePos = transform.position + swipeDir * distance;
+            swipePos.y += 2;
+
+            spawnedSwipeCube = GameObject.Instantiate(swipeCube, swipePos, swipeRot);
+            spawnedSwipeCube.GetComponent<AISwipeAttack>().enabled = true;
+            swipeAttacking = false;
+        }
+
+        if (spawnedSwipeCube == null)
+        {
+                m_Animator.SetBool("Swipe", false);
+                agent.enabled = true;
+                swipeAttacking = true;
+                attacking = false;
+                swipeTimer = 0f;
+                Task.current.Succeed();
+        }
+    }
+
+    [Task]
+    public void IsOutsideOfAggroRange()
+    {
+        if(distanceToStart >= aggroRange)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
+    }
+
+    [Task]
+    public void IsPlayerOutsideOfAggroRange()
+    {
+        if(distanceFromPlayerToStart >= aggroRange)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
+    }
+
+    [Task]
+    public void WalkBackToStart()
+    {
+        agent.enabled = true;
+        agent.isStopped = false;
+
+        if(Vector3.Distance(transform.position, startPosition) > 4)
+            agent.SetDestination(startPosition);
+        else
+            Task.current.Fail();
+        
     }
 
     [Task]

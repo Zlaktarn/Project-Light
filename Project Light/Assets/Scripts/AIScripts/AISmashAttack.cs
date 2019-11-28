@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AISmashAttack : MonoBehaviour
 {
+    public float force = 250;
     private float alpha;
     public float duration;
     private float alphaTime;
@@ -13,6 +14,8 @@ public class AISmashAttack : MonoBehaviour
     private Material mat;
     private GameObject player;
     private MovementScript playerScript;
+    private Vector3 knockBackDir;
+    public GameObject knockBackPos;
 
     void Awake()
     {
@@ -58,6 +61,8 @@ public class AISmashAttack : MonoBehaviour
             if (doDamage)
             {
                 playerScript.health -= 20;
+                knockBackDir = player.transform.position - knockBackPos.transform.position;
+                player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, force);
                 Debug.Log("Health: " + (int)playerScript.health);
                 remove = true;
             } 

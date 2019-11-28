@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3152354438766323879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2468386733266499823}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2468386733266499823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152354438766323879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.68, z: -0.431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1679131086164466429}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5195310875801286569
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,8 +60,9 @@ Transform:
   m_GameObject: {fileID: 5195310875801286569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.778454, y: 3.353892, z: -21.11}
-  m_LocalScale: {x: 3.6395607, y: 0.73401237, z: 3.9202402}
-  m_Children: []
+  m_LocalScale: {x: 3.6395607, y: 3.4138916, z: 3.2933154}
+  m_Children:
+  - {fileID: 2468386733266499823}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +81,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5195310875801286569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -60,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 453eaa89e8d149b46ac47f92087e5ab8, type: 2}
+  - {fileID: 2100000, guid: e82c825d67ec046468cc45941042a34c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,8 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517bbc26478ce794fb44a0513c4cef53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 100
   duration: 0.92
   attacking: 1
+  knockBackPos: {fileID: 3152354438766323879}
 --- !u!114 &1207433999
 MonoBehaviour:
   m_ObjectHideFlags: 0

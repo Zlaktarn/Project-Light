@@ -25,7 +25,7 @@ public class AttackState : BaseState
 
     public override Type Tick()
     {
-        gameObject.GetComponent<AIChargeAttack>().attacking = true;
+        //gameObject.GetComponent<AIChargeAttack>().attacking = true;
 
         if (init)
         {

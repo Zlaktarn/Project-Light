@@ -7,7 +7,7 @@ public class OxygenDegeneration : MonoBehaviour
     private GameObject player;
     private MovementScript playerScript;
     private float minOxygen = 0f;
-    private int degen = 1;
+    public int degen = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,6 @@ public class OxygenDegeneration : MonoBehaviour
         if(playerScript.Oxygen > minOxygen)
         {
             playerScript.Oxygen -= degen * Time.deltaTime;
-            //print("Oxygen: " + (int)playerScript.Oxygen);
         }
             
 

@@ -28,6 +28,8 @@ public class Minion : MonoBehaviour
     private float requiredMinAngle = 5f;
     private float chargeTimer = 0f;
     private float chargeLimit = 1.5f;
+    private float smashTimer = 0f;
+    public float swipeCooldown = 1f;
     private bool attacking;
     private GameObject attackCube;
     private GameObject spawnedCube;
@@ -49,7 +51,7 @@ public class Minion : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
-        attackCube = GameObject.FindGameObjectWithTag("AttackCube");
+        attackCube = GameObject.FindGameObjectWithTag("SwipeCube");
         rb = GetComponent<Rigidbody>();
         if(agent.isStopped)
             agent.isStopped = false;
@@ -66,6 +68,7 @@ public class Minion : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         chargeTimer += Time.deltaTime;
         downTimer += Time.deltaTime;
+        smashTimer += Time.deltaTime;
     }
 
     // Basically acts as the GameObjects vision cone.
@@ -236,7 +239,7 @@ public class Minion : MonoBehaviour
             Task.current.Succeed();
         }
 
-        GetComponent<AIChargeAttack>().attacking = true;
+        // GetComponent<AIChargeAttack>().attacking = true;
         
         if(!agent.isStopped)
             agent.isStopped = true;
@@ -278,31 +281,36 @@ public class Minion : MonoBehaviour
         if(agent.enabled)
             agent.enabled = false;
 
+        if(Task.current.isStarting)
+            attacking = true;
+
         if (attacking)
         {
             var cubeDir = transform.forward;
             cubeRot = transform.rotation;
-            float distance = 3f;
+            float distance = 1f;
             cubePos = transform.position + cubeDir * distance;
 
-            RaycastHit hit;
-            var ray = transform.TransformDirection(Vector3.down);
-            if (Physics.Raycast(player.transform.position, ray, out hit))
-            {
-                cubeRot.x = Quaternion.FromToRotation(Vector3.up, hit.normal).x;
-                cubePos.y = hit.transform.position.y;
-            }
-
             spawnedCube = GameObject.Instantiate(attackCube, cubePos, cubeRot);
-            spawnedCube.GetComponent<AISmashAttack>().enabled = true;
+            spawnedCube.transform.localScale = new Vector3(1f, 0.8f, 1f);
+            spawnedCube.GetComponent<AISwipeAttack>().enabled = true;
+            spawnedCube.GetComponent<AISwipeAttack>().force = 50f;
             attacking = false;
         }
 
-        if (spawnedCube != null)
-            if (!spawnedCube.GetComponent<AISmashAttack>().attacking)
-            {
-                EnableAgent();
-                Task.current.Succeed();
-            } 
+        if (spawnedCube == null)
+        {
+            EnableAgent();
+            Task.current.Succeed();
+        } 
+    }
+
+    [Task]
+    public void SmashIsNotOnCooldown()
+    {
+        if(smashTimer >= swipeCooldown)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
     }
 }

@@ -6,46 +6,59 @@ public class AIChargeAttack : MonoBehaviour
 {
     private GameObject player;
     private MovementScript playerScript;
-    private bool checkOnce = true;
-    public bool attacking = false;
     private Vector3 knockBackDir;
-    public float force = 250;
-    public float smallForce = 100f;
+    private bool checkOnce;
+    public bool attacking = true;
+    public float damage = 10f;
+    public float force = 100f;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<MovementScript>();
     }
+
+    public float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
+    {
+        Vector3 perp = Vector3.Cross(fwd, targetDir);
+        float dir = Vector3.Dot(perp, up);
+ 
+        if (dir > 0.0f) {
+            return 1.0f;
+        } else if (dir < 0.0f) {
+            return -1.0f;
+        } else {
+            return 0.0f;
+        }
+    }  
     
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
             if (attacking)
-            {
                 if (checkOnce)
                 {
-                    playerScript.health -= 10;
-                    knockBackDir = player.transform.position - this.transform.position;
+                    Vector3 temp = player.transform.position - this.transform.position;
+                    if(AngleDir(transform.forward, temp, transform.up) == -1)
+                        temp = this.transform.position + (this.transform.right * 2);
+                    else if(AngleDir(transform.forward, temp, transform.up) == 1)
+                        temp = this.transform.position + (-this.transform.right * 2);
+                    else if(AngleDir(transform.forward, temp, transform.up) == 0)
+                        temp = this.transform.position + (-this.transform.right * 2);
+
+                    playerScript.health -= damage;
+                    knockBackDir = player.transform.position - temp;
                     player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, force);
                     Debug.Log("Health: " + (int)playerScript.health);
                     checkOnce = false;
                 } 
-            }
-            else
-            {
-                knockBackDir = player.transform.position - this.transform.position;
-                player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, smallForce);
-            }
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
         if(collision.collider.tag == "Player")
-        {
             checkOnce = true;
-        }
     }
 }
