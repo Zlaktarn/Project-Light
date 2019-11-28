@@ -7,8 +7,9 @@ public class HeatCubeInfo : MonoBehaviour
     public int score = 0;
     public int deaths = 0;
     private int colorScore = 0;
-    private int maxScore = 30;
+    private int maxScore = 15;
     private Material mat;
+    private GameObject player;
     public Color startColor;
     public Color endColor;
 
@@ -67,6 +68,7 @@ public class HeatCubeInfo : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         mat = GetComponent<Renderer>().material;
         mat.color = startColor;
     }
@@ -76,7 +78,17 @@ public class HeatCubeInfo : MonoBehaviour
         if (other.tag == "Player")
         {
             AddScore(1);
-            Debug.Log(score);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            if(player.GetComponent<MovementScript>().health <= 0)
+            {
+                AddDeaths(15);
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ public class HeatMapManager : MonoBehaviour
     private int currentFile = 0;
     private string path;
     private string firstPath, secondaryPath;
+    public bool on = false;
 
     private int activityType = 0;
     private int deathsType = 1;
@@ -24,7 +25,8 @@ public class HeatMapManager : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        if(on)
+            Cursor.lockState = CursorLockMode.Confined;
         firstPath = Application.dataPath + "/ActivetyValues.txt";
         path = Application.dataPath + "/ActivetyValues.txt";
         secondaryPath = Application.dataPath + "/DeathValues.txt";
@@ -165,7 +167,7 @@ public class HeatMapManager : MonoBehaviour
     private void CreateActivityFile()
     {
         activity.Clear();
-        ResetPath(deathValue);
+        ResetPath(activetyValue);
         ResetCurrentFile();
         cubes = heatMap.GetCubes();
         for(int i = 0; i < cubes.Count; i++)

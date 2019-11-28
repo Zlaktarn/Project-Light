@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     private GameObject[] enemies;
+    public GameObject[] spawnPositions;
+    public GameObject bossSpawnPosition;
     public GameObject slowAI;
     public GameObject fastAI;
     public GameObject bossAI;
@@ -13,11 +15,21 @@ public class EnemyManager : MonoBehaviour
 
     private float currentAmount;
     public float maxAmount;
+    public float spawnInterval = 2f;
+    public bool IsBossDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        InvokeRepeating("SpawnMinions", 1f, spawnInterval);
+    }
+
+    void Update()
+    {
+        if(currentAmount >= maxAmount)
+            if(IsInvoking())
+                CancelInvoke();
     }
 
     public GameObject[] GetEnemies()
@@ -26,19 +38,21 @@ public class EnemyManager : MonoBehaviour
         return enemies;
     }
 
-    public void SpawnSlowAI(Vector3 position)
+    public GameObject SpawnSlowAI(Vector3 position)
     {
-        Instantiate(slowAI, position, Quaternion.identity);
+        var hej = Instantiate(slowAI, position, Quaternion.identity);
+        return hej;
     }
 
-    public void SpawnFastAI(Vector3 position)
+    public GameObject SpawnFastAI(Vector3 position)
     {
-        Instantiate(fastAI, position, Quaternion.identity);
+        var hej = Instantiate(fastAI, position, Quaternion.identity);
+        return hej;
     }
 
-    public void SpawnBossAI(Vector3 position)
+    public void SpawnBossAI()
     {
-        Instantiate(bossAI, position, Quaternion.identity);
+        var hej = Instantiate(bossAI, bossSpawnPosition.transform.position, Quaternion.identity);
     }
 
     public float GetCurrentAmount()
@@ -60,7 +74,20 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnMinions()
     {
-        Debug.Log("Not Implemented!");
+        for(int i = 0; i < spawnPositions.Length; i++)
+        {
+            var rnd = Random.Range(0,2);
+            if(rnd == 0)
+            {
+                SpawnSlowAI(spawnPositions[i].transform.position);
+                currentAmount += 1;
+            }
+            else
+            {
+                SpawnFastAI(spawnPositions[i].transform.position);
+                currentAmount += 1;
+            }
+        }
     }
 
     public void SpawnMinionsInRadius(Vector3 position, float radius, int amount)

@@ -108,10 +108,10 @@ MonoBehaviour:
   startColor: {r: 0, g: 0, b: 0, a: 0}
   colorEnabled: 0
   startIntensity: 0
-  maxIntensity: 1
+  maxIntensity: 2
   intensityEnabled: 1
   startRange: 0
-  maxRange: 10
+  maxRange: 100
   rangeEnabled: 1
   startScale: {x: 0.15, y: 0.15, z: 0.15}
   maxScale: {x: 0.5, y: 0.5, z: 0.5}

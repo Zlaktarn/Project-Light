@@ -29,7 +29,7 @@ public class Minion : MonoBehaviour
     private float chargeTimer = 0f;
     private float chargeLimit = 1.5f;
     private float smashTimer = 0f;
-    public float swipeCooldown = 1f;
+    public float swipeCooldown = 2f;
     private bool attacking;
     private GameObject attackCube;
     private GameObject spawnedCube;
@@ -101,10 +101,10 @@ public class Minion : MonoBehaviour
     {
         GetComponent<AIChargeAttack>().attacking = false;
         rb.isKinematic = true;
-        if(agent.isStopped)
-            agent.isStopped = false;
         if(!agent.enabled)
             agent.enabled = true;
+        if(agent.isStopped)
+            agent.isStopped = false;
     }
 
     [Task]
@@ -169,7 +169,10 @@ public class Minion : MonoBehaviour
     public void ChasePlayer()
     {
         if(distanceToPlayer <= attackRange)
+        {
+            agent.enabled = false;
             Task.current.Succeed();
+        }
 
         if(distanceToPlayer >= aggroRange)
             Task.current.Fail();
@@ -177,6 +180,7 @@ public class Minion : MonoBehaviour
         if(!AgentVision() && distanceToPlayer > soundRange + 10)
             Task.current.Fail();
 
+        agent.enabled = true;
         agent.speed = chaseSpeed;
         agent.SetDestination(player.transform.position);
     }
@@ -227,6 +231,9 @@ public class Minion : MonoBehaviour
     [Task]
     public void Charge()
     {
+        if(!agent.enabled)
+            agent.enabled = true;
+
         if (Task.current.isStarting)
         {
             chargeTarget = transform.position + (transform.forward * 15);
@@ -300,6 +307,7 @@ public class Minion : MonoBehaviour
 
         if (spawnedCube == null)
         {
+            smashTimer = 0;
             EnableAgent();
             Task.current.Succeed();
         } 

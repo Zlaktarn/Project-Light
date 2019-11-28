@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlantSeed : MonoBehaviour
 {
     public GameObjectSearcher search;
+    public PlantManager pm;
     Inventory inventory;
     public GameObject seed;
     private GameObject preSeed;
@@ -13,6 +14,7 @@ public class PlantSeed : MonoBehaviour
     private Rigidbody rb;
     public bool spawned = false;
     private bool triggered = false;
+    public bool Test = false;
 
     void Start()
     {
@@ -28,12 +30,22 @@ public class PlantSeed : MonoBehaviour
                 Debug.Log("worked!");
                 if (Input.GetKeyDown(KeyCode.E) && !spawned)
                 {
-                    spawnedSeed = (GameObject)Instantiate(seed, transform.localPosition + new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedSeed = (GameObject)Instantiate(seed, transform.position, Quaternion.identity);
                     spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
                     Destroy(preSeed);
+                    pm.AddCurrentPlanted(1);
                     spawned = true;
                 }  
             }
+        }
+
+        if (Test && Input.GetKeyDown(KeyCode.E) && !spawned)
+        {
+            Debug.Log("hej");
+            spawnedSeed = (GameObject)Instantiate(seed, transform.position, Quaternion.identity);
+            spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
+            pm.AddCurrentPlanted(5);
+            spawned = true;
         }
     }
 

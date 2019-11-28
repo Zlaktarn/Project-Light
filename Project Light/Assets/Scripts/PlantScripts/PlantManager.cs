@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlantManager : MonoBehaviour
 {
     public PlantSeed[] seeds;
+    public EnemyManager em;
     private int currentPlanted = 0;
     public int maxPlanted = 5;
+    private bool bossSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -14,14 +16,21 @@ public class PlantManager : MonoBehaviour
         
     }
 
+    public void AddCurrentPlanted(int amount)
+    {
+        currentPlanted += amount;
+        if(currentPlanted >= maxPlanted)
+            currentPlanted = maxPlanted;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < seeds.Length; i++)
-            if(seeds[i].spawned)
-                currentPlanted += 1;
-
-        if(currentPlanted >= maxPlanted)
-            currentPlanted = maxPlanted;
+        if(currentPlanted >= maxPlanted && !bossSpawned)
+        {
+            em.SpawnBossAI();
+            bossSpawned = true;
+        }
+            
     }
 }

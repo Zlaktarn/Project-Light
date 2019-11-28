@@ -187,7 +187,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 6
+  m_Speed: 4
   m_Acceleration: 6
   avoidancePriority: 10
   m_AngularSpeed: 999
@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
+  damage: 10
   force: 250
-  smallForce: 50
 --- !u!114 &487995504593033260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderTarget: {x: 0, y: 0, z: 0}
   wanderSpeed: 2
-  chaseSpeed: 6
-  attackRange: 4
+  chaseSpeed: 4
+  attackRange: 2
   attackForce: 6
   downTime: 2
+  swipeCooldown: 1
