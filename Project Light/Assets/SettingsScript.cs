@@ -13,6 +13,7 @@ public class SettingsScript : MonoBehaviour
     public GameObject helpMenu;
 
     public Dropdown resolutionDropdown;
+    public Dropdown graphicsDropdown;
 
     public AudioMixer audioMixer;
 
@@ -20,10 +21,37 @@ public class SettingsScript : MonoBehaviour
     public bool helpShow;
 
     Resolution[] resolutions;
-    QualitySettings[] qualities;
+    string[] qualities;
 
     private void Start()
     {
+        //GRAPHICS ---->
+
+        qualities = QualitySettings.names;
+
+        graphicsDropdown.ClearOptions();
+        
+        List<string> graphicsList = new List<string>();
+
+        int currentGraphicsIndex = 0;
+
+        for (int i = 0; i < qualities.Length; i++)
+        {
+            graphicsList.Add(qualities[i]);
+
+            if(QualitySettings.GetQualityLevel() == i)
+            {
+                currentGraphicsIndex = i;
+                Debug.Log("lend me some sugar");
+            }
+        }
+
+        graphicsDropdown.AddOptions(graphicsList);
+        graphicsDropdown.value = currentGraphicsIndex;
+        graphicsDropdown.RefreshShownValue();
+
+        //RESOLUTION --->
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -51,14 +79,14 @@ public class SettingsScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !settingsShow && !helpShow)
+        if(Input.GetKeyDown(KeyCode.P) && !settingsShow && !helpShow) //check if keyDown 'p' while playing or being in settings or help menu
         {
             if(GameIsPaused)
-            {
+            {                       
                 Resume();
             }
             else
-            {
+            {                       
                 Pause();
             }
         }
@@ -82,7 +110,7 @@ public class SettingsScript : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void LoadMenu()
+    public void LoadMenu() //Insert logic for scene change to main menu
     {
         Debug.Log("Loading Menu...");
     }
@@ -115,7 +143,7 @@ public class SettingsScript : MonoBehaviour
         helpShow = false;
     }
 
-    public void QuitGame()
+    public void QuitGame() //insert logic for exiting the game
     {
         Debug.Log("Quitting Game...");
     }
