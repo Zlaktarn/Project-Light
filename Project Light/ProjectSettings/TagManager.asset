@@ -15,6 +15,7 @@ TagManager:
   - Usable
   - AttackCube
   - Inventory
+  - SwipeCube
   layers:
   - Default
   - TransparentFX
