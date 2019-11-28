@@ -38,8 +38,6 @@ public class LightAdjuster : MonoBehaviour
     {
         lt = GetComponentInChildren<Light>();
         mat = GetComponent<Renderer>().material;
-        endColor = mat.GetColor("_EmissionColor");
-        mat.SetColor("_EmissionColor", startColor);
         lt.intensity = startIntensity;
         colorTime = 0f;
         intensityTime = 0f;
