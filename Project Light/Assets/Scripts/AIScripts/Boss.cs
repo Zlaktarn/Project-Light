@@ -63,7 +63,7 @@ public class Boss : MonoBehaviour
     private Vector3 previousPosition;
     private Rigidbody rb;
     private Vector3 startPosition;
-    private float aggroRange = 50f;
+    private float aggroRange = 80f;
 
     // Animation
     private Animator m_Animator;

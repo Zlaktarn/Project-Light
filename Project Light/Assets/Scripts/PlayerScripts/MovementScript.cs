@@ -11,7 +11,7 @@ public class MovementScript : MonoBehaviour
     public int hDeath;
 
     private Rigidbody rb;
-    private OxygenDegeneration plant;
+    public GameObject plant;
 
     #region General Variables
     CharacterController charController;
@@ -46,7 +46,6 @@ public class MovementScript : MonoBehaviour
 
     private void Awake()
     {
-        plant = GameObject.FindGameObjectWithTag("MainPlant Hitbox").GetComponent<OxygenDegeneration>();
         charController = GetComponent<CharacterController>();
         originalHeight = charController.height;
         oldMovementSpeed = movementSpeed;
@@ -117,19 +116,19 @@ public class MovementScript : MonoBehaviour
         {
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 20f;
-            plant.degen = 4;
+            plant.GetComponent<OxygenDegeneration>().degen = 4;
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             movementSpeed = Mathf.Lerp(movementSpeed, crouchSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 10f;
-            plant.degen = 1;
+            plant.GetComponent<OxygenDegeneration>().degen = 1;
         }
         else
         {
             movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 15f;
-            plant.degen = 1;
+            plant.GetComponent<OxygenDegeneration>().degen = 1;
         }
     }
 
