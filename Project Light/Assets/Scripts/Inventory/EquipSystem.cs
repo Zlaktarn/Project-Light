@@ -24,13 +24,13 @@ public class EquipSystem : MonoBehaviour
 
     private void EquipSlot()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || PlaceHolderPickup.PickedUp)
             equipSlot = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha2) && ammo.crossbow > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && ammo.crossbow > 0 && !PlaceHolderPickup.PickedUp)
             equipSlot = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha3) && ammo.gun > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && ammo.gun > 0 && !PlaceHolderPickup.PickedUp)
             equipSlot = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha4) && ammo.rifle > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha4) && ammo.rifle > 0 && !PlaceHolderPickup.PickedUp)
             equipSlot = 4;
     }
 
@@ -55,5 +55,6 @@ public class EquipSystem : MonoBehaviour
             equippable[3].SetActive(true);
         else
             equippable[3].SetActive(false);
+
     }
 }

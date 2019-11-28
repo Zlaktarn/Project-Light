@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceHolderPickup : MonoBehaviour
 {
     private bool triggered;
-    public bool PickedUp {get; set;}
+    public static bool PickedUp {get; set;}
     private Vector3 onhand = new Vector3(-0.23f, -0.15f, 0.46f);
     public Transform parent;
     public Camera fpsCam;
@@ -58,6 +58,8 @@ public class PlaceHolderPickup : MonoBehaviour
         if (!IsUsable())
         {
             PickedUp = false;
+            item.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
+            item.transform.rotation = new Quaternion(0, 0, 0, 1);
             item.transform.parent = null;
             rb.useGravity = true;
             rb.isKinematic = false;
@@ -89,13 +91,13 @@ public class PlaceHolderPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Lootcube")
+        if(other.gameObject.tag == "Inventory")
             triggered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Lootcube")
+        if(other.gameObject.tag == "Inventory")
             triggered = false;
     }
 }

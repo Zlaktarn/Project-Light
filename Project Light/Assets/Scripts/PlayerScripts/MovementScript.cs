@@ -42,6 +42,8 @@ public class MovementScript : MonoBehaviour
     [SerializeField] float jumpMultiplier = 7;
     [SerializeField] float dodgeMultiplier = 1.5f;
     [SerializeField] float dodgeSpeed = 12f;
+    float dodgeTimer = 0;
+    public float dodgeCooldown = 0.5f;
     #endregion
 
     private void Awake()
@@ -64,6 +66,8 @@ public class MovementScript : MonoBehaviour
 
         if (health <= 0 || transform.position.y < hDeath)
             isDead = true;
+        else
+            isDead = false;
             
     }
 
@@ -183,10 +187,14 @@ public class MovementScript : MonoBehaviour
     {
         float hInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (Time.time > dodgeTimer)
         {
-            isDodging = true;
-            StartCoroutine(DodgeEvent());
+            if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+            {
+                isDodging = true;
+                StartCoroutine(DodgeEvent());
+                dodgeTimer = Time.time + dodgeCooldown;
+            }
         }
     }
 
