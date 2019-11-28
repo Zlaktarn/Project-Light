@@ -66,6 +66,8 @@ public class MovementScript : MonoBehaviour
 
         if (health <= 0 || transform.position.y < hDeath)
             isDead = true;
+        else
+            isDead = false;
             
     }
 

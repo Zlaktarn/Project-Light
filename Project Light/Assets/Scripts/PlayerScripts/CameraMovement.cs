@@ -52,8 +52,10 @@ public class CameraMovement : MonoBehaviour
         if (MovementScript.isDead)
         {
             timer += Time.deltaTime;
-            if(timer <= timeInterval)
+            if (timer <= timeInterval)
                 transform.Rotate(Vector3.right, -30 * Time.deltaTime);
         }
+        else
+            timer = 0;
     }
 }
