@@ -13,11 +13,6 @@ public class Inventory : MonoBehaviour
     public int crossbow = 0;
     public int water = 0;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (gAmmoTotal < 0)
@@ -29,23 +24,4 @@ public class Inventory : MonoBehaviour
         if (cbAmmoTotal < 0)
             cbAmmoTotal = 0;
     }
-
-    void Gun()
-    {
-
-    }
-
-    public void gAddAmmo()
-    {
-
-    }
-    public void rAddAmmo()
-    {
-
-    }
-    public void cbAddAmmo()
-    {
-
-    }
-
 }

@@ -418,7 +418,7 @@ MonoBehaviour:
   health: 100
   Oxygen: 100
   soundRange: 15
-  hDeath: 0
+  hDeath: -1
   plant: {fileID: 0}
   walkSpeed: 4
   runSpeed: 8
@@ -454,6 +454,7 @@ MonoBehaviour:
   jumpMultiplier: 7
   dodgeMultiplier: 1.5
   dodgeSpeed: 12
+  dodgeCooldown: 0.5
 --- !u!143 &1621451483596283663
 CharacterController:
   m_ObjectHideFlags: 0
@@ -662,6 +663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5549741375408678216, guid: 4839691396f9d354b991474a78d6ef0b,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1621451483596283662}
+    - target: {fileID: 5549741375408678216, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 1621451483596283661}
@@ -669,6 +675,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: gun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: rifle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: crossbow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980396932279642837, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: equippable.Array.data[1]
+      value: 
+      objectReference: {fileID: 166822787567290297}
+    - target: {fileID: 297405053482623028, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: weaponType
+      value: Crossbow
       objectReference: {fileID: 0}
     - target: {fileID: 297405053482623028, guid: 4839691396f9d354b991474a78d6ef0b,
         type: 3}
@@ -696,6 +727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: reloadTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385568638569902003, guid: 4839691396f9d354b991474a78d6ef0b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1604696047472231845, guid: 4839691396f9d354b991474a78d6ef0b,
         type: 3}
@@ -782,21 +818,6 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
-        type: 3}
-      propertyPath: gun
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
-        type: 3}
-      propertyPath: rifle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858260836192216190, guid: 4839691396f9d354b991474a78d6ef0b,
-        type: 3}
-      propertyPath: crossbow
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4839691396f9d354b991474a78d6ef0b, type: 3}
 --- !u!4 &8028220984086433471 stripped
@@ -814,6 +835,12 @@ Camera:
 --- !u!4 &6956828865966697699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8121972214362823552, guid: 4839691396f9d354b991474a78d6ef0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169973060830279523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &166822787567290297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1327497828283658458, guid: 4839691396f9d354b991474a78d6ef0b,
     type: 3}
   m_PrefabInstance: {fileID: 1169973060830279523}
   m_PrefabAsset: {fileID: 0}
