@@ -18,7 +18,7 @@ public class GunScript : MonoBehaviour
     public float fireRate;
 
 
-    public AmmoScript ammo;
+    public Inventory ammo;
     public int clipSize = 6;
     public int currentAmmo = -1;
     public float reloadTime = 1f;
@@ -43,7 +43,10 @@ public class GunScript : MonoBehaviour
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 Shoot();
+                muzzleFlash.Play();
+
             }
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -90,7 +93,6 @@ public class GunScript : MonoBehaviour
     {
 
         RaycastHit hit;
-        muzzleFlash.Play();
 
         anim.SetTrigger("RifleShoot");
         if (Physics.Raycast(transform.position, transform.up, out hit, range))

@@ -1,52 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Inventory : Interactable
+public class Inventory : MonoBehaviour
 {
-    #region singleton
-    public static Inventory instance;
+    public int gAmmoTotal;
+    public int rAmmoTotal;
+    public int cbAmmoTotal;
+    public int gun = 0;
+    public int rifle = 0;
+    public int crossbow = 0;
+    public int water = 0;
 
-    private void Awake()
+    void Start()
     {
-        if (instance != null)
-        {
-            print("More than one instance of inventory found");
-            return;
-        }
-
-        instance = this;
-    }
-    #endregion
-
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
-
-
-    public List<Item> items = new List<Item>();
-
-    public override void Interact()
-    {
-        base.Interact();
+        
     }
 
-    public void Add(Item item)
+    void Update()
     {
-        if(!item.isDefaultItem)
-        {
-            items.Add(item);
-        }
+        if (gAmmoTotal < 0)
+            gAmmoTotal = 0;
 
-        if(onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
+        if (rAmmoTotal < 0)
+            rAmmoTotal = 0;
+
+        if (cbAmmoTotal < 0)
+            cbAmmoTotal = 0;
     }
 
-    public void Remove(Item item)
+    void Gun()
     {
-        items.Remove(item);
 
-        if (onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
+    }
+
+    public void gAddAmmo()
+    {
+
+    }
+    public void rAddAmmo()
+    {
+
+    }
+    public void cbAddAmmo()
+    {
+
     }
 
 }
