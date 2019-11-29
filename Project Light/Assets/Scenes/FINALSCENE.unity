@@ -28630,6 +28630,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantSpot
       objectReference: {fileID: 0}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 604043748}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 371184306}
     - target: {fileID: 573707550292443964, guid: 83e2f1ef02435d640a4f0c951c834be1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28685,16 +28695,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: pm
-      value: 
-      objectReference: {fileID: 604043748}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 371184306}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83e2f1ef02435d640a4f0c951c834be1, type: 3}
 --- !u!1 &1280802208 stripped
@@ -30205,6 +30205,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantSpot
       objectReference: {fileID: 0}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 371184306}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 604043748}
     - target: {fileID: 573707550292443964, guid: 83e2f1ef02435d640a4f0c951c834be1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30275,16 +30285,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.36096683
       objectReference: {fileID: 0}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 371184306}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: pm
-      value: 
-      objectReference: {fileID: 604043748}
     - target: {fileID: 573707550292443966, guid: 83e2f1ef02435d640a4f0c951c834be1,
         type: 3}
       propertyPath: m_Enabled
@@ -41871,6 +41871,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4646717216817324460, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: animSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
 --- !u!1 &1852130990
@@ -42671,6 +42676,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantSpot
       objectReference: {fileID: 0}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 371184306}
+    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
+        type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 604043748}
     - target: {fileID: 573707550292443964, guid: 83e2f1ef02435d640a4f0c951c834be1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42741,16 +42756,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3609669
       objectReference: {fileID: 0}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 371184306}
-    - target: {fileID: 573707550292443963, guid: 83e2f1ef02435d640a4f0c951c834be1,
-        type: 3}
-      propertyPath: pm
-      value: 
-      objectReference: {fileID: 604043748}
     - target: {fileID: 573707550292443966, guid: 83e2f1ef02435d640a4f0c951c834be1,
         type: 3}
       propertyPath: m_Enabled

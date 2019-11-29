@@ -71,7 +71,7 @@ MonoBehaviour:
   range: 100
   impactForce: 30
   transform: {fileID: 3723426391971001697}
-  animSpeed: 0
+  animSpeed: 1
   fireRate: 10
   ammo: {fileID: 0}
   clipSize: 6
