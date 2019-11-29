@@ -34,12 +34,12 @@ public class DeathScript : MonoBehaviour
 
     void Death()
     {
-        if (deathColor.a <= 0.5f)
+        if (deathColor.a <= 1)
         {
-            deathColor.a += Time.deltaTime * 0.3f;
+            deathColor.a += Time.deltaTime * 0.4f;
             image.color = deathColor;
 
-            if (deathColor.a >= 0.5f)
+            if (deathColor.a >= 1)
             {
                 Cursor.lockState = CursorLockMode.None;
                 deathMenu.SetActive(true);

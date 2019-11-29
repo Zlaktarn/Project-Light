@@ -5204,18 +5204,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abba6afa63dc85c4eadab5a183906c52, type: 3}
---- !u!114 &315870349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1621451483596283662, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857005982}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466f705016ced014eb881b09a6aa2ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &319623880
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,6 +5553,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc638e3fb1ccd14449032e54e6577e84, type: 3}
+--- !u!1 &652941219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5644747017093233400, guid: 87190f0d6abd14a44b22fff7fe295612,
+    type: 3}
+  m_PrefabInstance: {fileID: 1127590583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &690189345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6715,12 +6709,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7a64587265a7747bc9f83ae5d94450, type: 3}
---- !u!1 &1763823251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166822787567290297, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857005982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1808837616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,14 +6828,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621451483596283662, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
-      propertyPath: hDeath
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6717171810885243435, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: player
+      propertyPath: plant
       value: 
-      objectReference: {fileID: 315870349}
+      objectReference: {fileID: 652941219}
     - target: {fileID: 1621451483596283661, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6903,39 +6886,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 422462371456034820, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 2103039819, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1449046506461747031, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: weaponType
-      value: Crossbow
-      objectReference: {fileID: 0}
-    - target: {fileID: 812720274534145462, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: equippable.Array.data[1]
-      value: 
-      objectReference: {fileID: 1763823251}
-    - target: {fileID: 8784682271246981099, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 2103039819, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6521764663034763472, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
+    - target: {fileID: 2103039820, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8784682271246981096, guid: f7f09b68b2d393e4e9138151e44cbd6d,
-        type: 3}
-      propertyPath: damage
-      value: 20
+    - target: {fileID: 2103039820, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8784682271246981097, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
-    - {fileID: 5584717959459558576, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+    - target: {fileID: 2103039820, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103039820, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5169b2595cfacb5479ebad2675636a03,
+        type: 3}
+    - target: {fileID: 2103039820, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
+      propertyPath: m_Color.a
+      value: 0.38431373
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
 --- !u!1001 &1868099368
 PrefabInstance:
