@@ -25,7 +25,7 @@ public class DeathScript : MonoBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
             deathMenu.SetActive(false);
             deathColor.a = 0;
             image.color = deathColor;

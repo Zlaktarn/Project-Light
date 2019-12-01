@@ -5616,6 +5616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9a21c1c078d0f49ab4e9ae238ecbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lr: {fileID: 0}
 --- !u!120 &529790412
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -6204,6 +6205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9a21c1c078d0f49ab4e9ae238ecbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lr: {fileID: 0}
 --- !u!4 &761327772
 Transform:
   m_ObjectHideFlags: 0
@@ -7327,6 +7329,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750361224923411882, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750361224923411882, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750361224923411882, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750361224923411882, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.226
       objectReference: {fileID: 0}
     - target: {fileID: 166822787567290297, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}

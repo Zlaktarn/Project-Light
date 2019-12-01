@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsScript : MonoBehaviour
 {
@@ -79,15 +80,17 @@ public class SettingsScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !settingsShow && !helpShow) //check if keyDown 'p' while playing or being in settings or help menu
+        if(Input.GetKeyDown(KeyCode.Q)/* && !settingsShow && !helpShow*/) //check if keyDown 'p' while playing or being in settings or help menu
         {
+            if(!GameIsPaused)
+            {                       
+                Pause();
+                return;
+            }
             if(GameIsPaused)
             {                       
                 Resume();
-            }
-            else
-            {                       
-                Pause();
+                return;
             }
         }
 
@@ -96,17 +99,16 @@ public class SettingsScript : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
     }
 
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
@@ -145,7 +147,7 @@ public class SettingsScript : MonoBehaviour
 
     public void QuitGame() //insert logic for exiting the game
     {
-        Debug.Log("Quitting Game...");
+        SceneManager.LoadScene("Menu");
     }
 
     public void SetVolume (float volume)
@@ -162,4 +164,6 @@ public class SettingsScript : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen;
     }
+
+
 }

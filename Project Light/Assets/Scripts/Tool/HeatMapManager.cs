@@ -25,8 +25,8 @@ public class HeatMapManager : MonoBehaviour
 
     void Start()
     {
-        if(on)
-            Cursor.lockState = CursorLockMode.Confined;
+        //if(on)
+        //    Cursor.lockState = CursorLockMode.Confined;
         firstPath = Application.dataPath + "/ActivetyValues.txt";
         path = Application.dataPath + "/ActivetyValues.txt";
         secondaryPath = Application.dataPath + "/DeathValues.txt";
@@ -175,28 +175,10 @@ public class HeatMapManager : MonoBehaviour
         CreateFile(activetyValue);
     }
 
-    public void CreateFiles()
+    public void CreateFiles() //ANVÄND
     {
         CreateDeathsFile();
         CreateActivityFile();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadAllFiles(activetyValue);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            CreateActivityFile();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            CreateDeathsFile();
-        }
     }
 
     //void OnApplicationQuit()
