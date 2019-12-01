@@ -95,7 +95,7 @@ public class GunScript : MonoBehaviour
         RaycastHit hit;
 
         anim.SetTrigger("RifleShoot");
-        if (Physics.Raycast(transform.position, transform.up, out hit, range))
+        if (Physics.Raycast(transform.position, -transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 

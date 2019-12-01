@@ -100,13 +100,13 @@ public class WaterInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Lootcube")
+        if(other.gameObject.tag == "Inventory")
             triggered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Lootcube")
+        if(other.gameObject.tag == "Inventory")
             triggered = false;
     }
 }

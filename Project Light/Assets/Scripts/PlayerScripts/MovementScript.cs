@@ -52,6 +52,7 @@ public class MovementScript : MonoBehaviour
         oldMovementSpeed = movementSpeed;
 
         maxHealth = health;
+        SavePlayer();
     }
 
     void Update()
