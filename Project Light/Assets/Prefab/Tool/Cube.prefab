@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 720250054394924111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 91.44508, y: 1.5599976, z: 15.25824}
-  m_LocalScale: {x: 5, y: 24.17431, z: 5}
+  m_LocalScale: {x: 5, y: 100, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,5 +107,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   deaths: 0
-  startColor: {r: 0.07971394, g: 1, b: 0, a: 0.9019608}
+  startColor: {r: 0.07971394, g: 1, b: 0, a: 0.14509805}
   endColor: {r: 1, g: 0, b: 0, a: 1}

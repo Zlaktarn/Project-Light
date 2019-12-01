@@ -12,6 +12,7 @@ public class HeatMap : MonoBehaviour
     private List<GameObject> cubes = new List<GameObject>();
 
     private int temp = 0;
+    public bool Visible = false;
     
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,8 @@ public class HeatMap : MonoBehaviour
     void PickAndSpawn(Vector3 positionToSpawn, Quaternion rotationToSpawn)
     {
         GameObject clone = Instantiate(item, positionToSpawn, rotationToSpawn);
+        if (Visible)
+            clone.GetComponent<MeshRenderer>().enabled = true; 
         cubes.Add(clone);
     }
 }

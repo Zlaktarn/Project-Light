@@ -35,6 +35,7 @@ public class Minion : MonoBehaviour
     private GameObject spawnedCube;
     private Vector3 cubePos;
     private Vector3 chargeTarget;
+    private Vector3 otherChargeTarget;
     private Quaternion cubeRot;
 
     // Global Variables
@@ -85,7 +86,7 @@ public class Minion : MonoBehaviour
     private bool NoPathForward()
     {
         Ray ray = new Ray(transform.position, transform.forward);
-        if(Physics.Raycast(ray, 1, environmentLayer))
+        if(Physics.Raycast(ray, 4, environmentLayer))
             return true;
         return false;
     }
@@ -168,7 +169,7 @@ public class Minion : MonoBehaviour
     [Task]
     public void ChasePlayer()
     {
-        if(distanceToPlayer <= attackRange)
+        if(distanceToPlayer <= attackRange && agent != null)
         {
             agent.enabled = false;
             Task.current.Succeed();
@@ -223,6 +224,54 @@ public class Minion : MonoBehaviour
 
         if(AgentVision() && distanceToPlayer > soundRange)
             Task.current.Fail();
+    }
+
+    [Task]
+    public void Charge2()
+    {
+        if (Task.current.isStarting)
+        {
+            GetComponent<AIChargeAttack>().attacking = true;
+            attacking = true;
+            chargeTarget = transform.position + (transform.forward * 15);
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(chargeTarget, out hit, 1.0f, NavMesh.AllAreas))
+                chargeTarget = hit.position;
+        }
+
+        if (agent != null)
+        {
+            agent.speed = 25;
+            agent.SetDestination(chargeTarget); 
+        }
+
+        if (Vector3.Distance(transform.position, chargeTarget) <= 3f)
+        {
+            GetComponent<AIChargeAttack>().attacking = false;
+            attacking = false;
+            downTimer = 0f;
+            Task.current.Succeed(); 
+        }
+    }
+
+    [Task]
+    public void WalkOutsideOfAttackRange()
+    {
+        if (Task.current.isStarting)
+        {
+            otherChargeTarget = (transform.position + (transform.forward * attackRange)) +
+                               new Vector3(UnityEngine.Random.Range(-2.5f, 2.5f), 0f,
+                                   UnityEngine.Random.Range(-2.5f, 2.5f));
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(otherChargeTarget, out hit, 1.0f, NavMesh.AllAreas))
+                otherChargeTarget = hit.position;
+        }
+
+        agent.speed = chaseSpeed;
+        agent.SetDestination(otherChargeTarget);
+
+        if(Vector3.Distance(transform.position, otherChargeTarget) <= 3)
+            Task.current.Succeed();
     }
 
     // Charges forward with a velocity change

@@ -7,10 +7,8 @@ tree("Root")
 tree("Attack")
 	sequence
 		IsInAttackRange
-		IsForwardBlocked
-		FixRotation
-		Charge
-		DownTime
+		Charge2
+		WalkOutsideOfAttackRange
 
 tree("Chase")
 	fallback

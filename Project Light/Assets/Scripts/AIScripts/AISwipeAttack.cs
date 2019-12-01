@@ -40,11 +40,14 @@ public class AISwipeAttack : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (playerScript != null)
+            {
                 playerScript.health -= damage;
                 knockBackDir = player.transform.position - transform.position;
                 player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, force);
                 Debug.Log("Health: " + (int)playerScript.health);
-                remove = true;
+                remove = true; 
+            }
         }
     }
 }
