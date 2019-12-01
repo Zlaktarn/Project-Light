@@ -78,7 +78,7 @@ public class PlaceHolderPickup : MonoBehaviour
     private bool FindItem()
     {
         RaycastHit hit;
-        if(Physics.SphereCast(fpsCam.transform.position, 0.5f, fpsCam.transform.forward, out hit, 8f, itemLayer))
+        if(Physics.SphereCast(fpsCam.transform.position, 2f, fpsCam.transform.forward, out hit, 8f, itemLayer))
         {
             rb = hit.transform.gameObject.GetComponent<Rigidbody>();
             item = hit.transform.gameObject;

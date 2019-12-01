@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 573707550292443968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.58, y: 0.64, z: 5.719}
-  m_LocalScale: {x: 0.38019815, y: 0.04352889, z: 0.3609669}
+  m_LocalScale: {x: 0.38019806, y: 0.04352889, z: 0.36096683}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   pm: {fileID: 0}
   seed: {fileID: 5415394869858223549, guid: 104aba8183970f2458a110399c39f9de, type: 3}
   parent: {fileID: 0}
+  cam: {fileID: 0}
   spawned: 0
   Test: 0
 --- !u!114 &3728502567922617287

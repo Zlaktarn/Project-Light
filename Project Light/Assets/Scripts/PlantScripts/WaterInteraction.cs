@@ -88,7 +88,7 @@ public class WaterInteraction : MonoBehaviour
     {
         if(currentWater + 20 > MaxWater)
         {
-            var tempWater = currentWater - 100;
+            var tempWater = currentWater - MaxWater;
             currentWater = minWater + tempWater;
             if(grade < 3)
             {

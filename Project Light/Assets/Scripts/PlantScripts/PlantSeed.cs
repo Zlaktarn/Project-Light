@@ -11,6 +11,7 @@ public class PlantSeed : MonoBehaviour
     private GameObject preSeed;
     private GameObject spawnedSeed;
     public GameObject parent;
+    public Camera cam;
     private Rigidbody rb;
     public bool spawned = false;
     private bool triggered = false;
@@ -23,7 +24,7 @@ public class PlantSeed : MonoBehaviour
 
     void Update()
     {
-        if (triggered)
+        if (IsLookingAtSpot())
         {
             if (IsSeedHeld())
             {
@@ -34,6 +35,7 @@ public class PlantSeed : MonoBehaviour
                     spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
                     Destroy(preSeed);
                     pm.AddCurrentPlanted(1);
+                    PlaceHolderPickup.PickedUp = false;
                     spawned = true;
                 }  
             }
@@ -57,15 +59,16 @@ public class PlantSeed : MonoBehaviour
         return false;
     }
 
-    void OnTriggerEnter(Collider other)
+    private bool IsLookingAtSpot()
     {
-        if(other.gameObject.tag == "Lootcube")
-            triggered = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag == "Lootcube")
-            triggered = false;
+        if (cam != null)
+        {
+            Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 4))
+                if (hit.collider.gameObject == gameObject)
+                    return true; 
+        }
+        return false;
     }
 }

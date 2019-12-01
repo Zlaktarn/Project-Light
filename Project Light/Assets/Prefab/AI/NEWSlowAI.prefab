@@ -271,3 +271,4 @@ MonoBehaviour:
   attackForce: 6
   downTime: 2
   swipeCooldown: 1
+  agent: {fileID: 1120829794484699027}

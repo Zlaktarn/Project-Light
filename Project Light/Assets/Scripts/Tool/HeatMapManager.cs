@@ -4,11 +4,13 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public class HeatMapManager : MonoBehaviour
 {
     private List<string> paths = new List<string>();
     public List<GameObject> cubes = new List<GameObject>();
+    private List<HeatCubeInfo> infos = new List<HeatCubeInfo>();
     public List<int> activity = new List<int>();
     public List<int> newActivity = new List<int>();
     public HeatMap heatMap;
@@ -18,6 +20,7 @@ public class HeatMapManager : MonoBehaviour
     private string firstPath, secondaryPath;
     public bool on = false;
 
+    private string activityString, deathstring;
     private int activityType = 0;
     private int deathsType = 1;
     public string activetyValue = "/ActivetyValues";
@@ -25,8 +28,8 @@ public class HeatMapManager : MonoBehaviour
 
     void Start()
     {
-        //if(on)
-        //    Cursor.lockState = CursorLockMode.Confined;
+        if(on)
+            Cursor.lockState = CursorLockMode.Confined;
         firstPath = Application.dataPath + "/ActivetyValues.txt";
         path = Application.dataPath + "/ActivetyValues.txt";
         secondaryPath = Application.dataPath + "/DeathValues.txt";
@@ -35,8 +38,10 @@ public class HeatMapManager : MonoBehaviour
     void CreateFile(string type)
     {
         path = CheckIfFileExists(type);
-        foreach(int i in activity)
-                File.AppendAllText(path, i.ToString() + "\n");
+        if(type == activetyValue)
+            File.WriteAllText(path, activityString);
+        else if(type == deathValue)
+            File.WriteAllText(path, deathstring);
     }
 
     string CheckIfFileExists(string type)
@@ -114,8 +119,9 @@ public class HeatMapManager : MonoBehaviour
     void LoadAllActivetyValuesFromFile(string path, int typeOfValue)
     {
         List<int> temp = new List<int>();
+        string tempString = File.ReadAllText(path);
 
-        string[] lines = File.ReadAllLines(path);
+        string[] lines = Regex.Split(tempString, ",");
         for(int i = 0; i < lines.Length; i++)
             temp.Add(Int32.Parse(lines[i]));
 
@@ -128,8 +134,9 @@ public class HeatMapManager : MonoBehaviour
     List<int> GetAllActivityValuesFromFile(string path)
     {
         List<int> temp = new List<int>();
+        string tempString = File.ReadAllText(path);
 
-        string[] lines = File.ReadAllLines(path);
+        string[] lines = Regex.Split(tempString, ",");
         for(int i = 0; i < lines.Length; i++)
             temp.Add(Int32.Parse(lines[i]));
 
@@ -139,6 +146,7 @@ public class HeatMapManager : MonoBehaviour
     public void LoadAllFiles(string type)
     {
         heatMap.ResetActivety();
+        heatMap.ResetDeaths();
         ResetCurrentFile();
         newActivity.Clear();
         PreFillActivetyList();
@@ -149,6 +157,7 @@ public class HeatMapManager : MonoBehaviour
     public void LoadSpecificFile(string path, int typeOfValue)
     {
         heatMap.ResetActivety();
+        heatMap.ResetDeaths();
         ResetCurrentFile();
         LoadAllActivetyValuesFromFile(path, typeOfValue);
     }
@@ -158,9 +167,8 @@ public class HeatMapManager : MonoBehaviour
         activity.Clear();
         ResetPath(deathValue);
         ResetCurrentFile();
-        cubes = heatMap.GetCubes();
-        for(int i = 0; i < cubes.Count; i++)
-            activity.Add(cubes[i].GetComponent<HeatCubeInfo>().GetDeaths());
+        activity = heatMap.GetDeaths();
+        deathstring = String.Join(",", activity.Select(p=>p.ToString()).ToArray());
         CreateFile(deathValue);  
     }
 
@@ -169,13 +177,12 @@ public class HeatMapManager : MonoBehaviour
         activity.Clear();
         ResetPath(activetyValue);
         ResetCurrentFile();
-        cubes = heatMap.GetCubes();
-        for(int i = 0; i < cubes.Count; i++)
-            activity.Add(cubes[i].GetComponent<HeatCubeInfo>().GetScore());
+        activity = heatMap.GetScores();
+        activityString = String.Join(",", activity.Select(p=>p.ToString()).ToArray());
         CreateFile(activetyValue);
     }
 
-    public void CreateFiles() //ANVÄND
+    public void CreateFiles()
     {
         CreateDeathsFile();
         CreateActivityFile();

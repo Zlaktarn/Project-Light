@@ -16,7 +16,7 @@ public class Minion : MonoBehaviour
     private float soundRange = 15f;
     private float sightRange = 20f;
     private float aggroRange = 30f;
-    public float chaseSpeed = 6f;
+    public float chaseSpeed = 4f;
     private float aggroRadius = 3f;
 
     // Attack Variables
@@ -25,7 +25,7 @@ public class Minion : MonoBehaviour
     public float downTime = 2f;
     private float downTimer = 0f;
     private float extraRotationSpeed = 7f;
-    private float requiredMinAngle = 5f;
+    private float requiredMinAngle = 3f;
     private float chargeTimer = 0f;
     private float chargeLimit = 1.5f;
     private float smashTimer = 0f;
@@ -43,14 +43,13 @@ public class Minion : MonoBehaviour
     private int environmentLayer = 1 << 10;
     private int playerLayer = 1 << 9;
     private float distanceToPlayer;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private GameObject player;
     private Vector3 directionToPlayer;
     private Rigidbody rb;
 
-    void Start()
+    void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         attackCube = GameObject.FindGameObjectWithTag("SwipeCube");
         rb = GetComponent<Rigidbody>();
@@ -245,6 +244,12 @@ public class Minion : MonoBehaviour
             agent.SetDestination(chargeTarget); 
         }
 
+        if(distanceToPlayer >= aggroRange)
+            Task.current.Fail();
+
+        if(AgentVision() && distanceToPlayer > soundRange)
+            Task.current.Fail();
+
         if (Vector3.Distance(transform.position, chargeTarget) <= 3f)
         {
             GetComponent<AIChargeAttack>().attacking = false;
@@ -269,6 +274,12 @@ public class Minion : MonoBehaviour
 
         agent.speed = chaseSpeed;
         agent.SetDestination(otherChargeTarget);
+
+        if(distanceToPlayer >= aggroRange)
+            Task.current.Fail();
+
+        if(AgentVision() && distanceToPlayer > soundRange)
+            Task.current.Fail();
 
         if(Vector3.Distance(transform.position, otherChargeTarget) <= 3)
             Task.current.Succeed();

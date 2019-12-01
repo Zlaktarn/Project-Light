@@ -162,6 +162,7 @@ MonoBehaviour:
   attackForce: 0.4
   downTime: 1.5
   swipeCooldown: 2
+  agent: {fileID: 1637060104027425116}
 --- !u!54 &1637060104027425123
 Rigidbody:
   m_ObjectHideFlags: 0

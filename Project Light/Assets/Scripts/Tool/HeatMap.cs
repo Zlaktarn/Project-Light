@@ -10,6 +10,8 @@ public class HeatMap : MonoBehaviour
     public float gridSpacingOffset = 1f;
     public Vector3 gridOrigin = Vector3.zero;
     private List<GameObject> cubes = new List<GameObject>();
+    private List<HeatCubeInfo> infos = new List<HeatCubeInfo>();
+    private List<int> values = new List<int>();
 
     private int temp = 0;
     public bool Visible = false;
@@ -18,6 +20,32 @@ public class HeatMap : MonoBehaviour
     void Start()
     {
         SpawnGrid();
+    }
+
+    public GameObject GetCube()
+    {
+        return item;
+    }
+
+    public List<HeatCubeInfo> GetInfos()
+    {
+        return infos;
+    }
+
+    public List<int> GetScores()
+    {
+        values.Clear();
+        foreach(HeatCubeInfo i in infos)
+            values.Add(i.GetScore());
+        return values;
+    }
+
+    public List<int> GetDeaths()
+    {
+        values.Clear();
+        foreach(HeatCubeInfo i in infos)
+            values.Add(i.GetDeaths());
+        return values;
     }
 
     public List<GameObject> GetCubes()
@@ -67,5 +95,6 @@ public class HeatMap : MonoBehaviour
         if (Visible)
             clone.GetComponent<MeshRenderer>().enabled = true; 
         cubes.Add(clone);
+        infos.Add(clone.GetComponent<HeatCubeInfo>());
     }
 }

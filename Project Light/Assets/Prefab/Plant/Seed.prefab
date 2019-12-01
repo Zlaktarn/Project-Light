@@ -111,7 +111,7 @@ MonoBehaviour:
   maxIntensity: 2
   intensityEnabled: 1
   startRange: 0
-  maxRange: 100
+  maxRange: 50
   rangeEnabled: 1
   startScale: {x: 0.15, y: 0.15, z: 0.15}
   maxScale: {x: 0.5, y: 0.5, z: 0.5}
@@ -205,6 +205,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864804334880225449, guid: 376dfa57f81903441bd9a6d17236515c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7792666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864804334880225449, guid: 376dfa57f81903441bd9a6d17236515c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864804334880225449, guid: 376dfa57f81903441bd9a6d17236515c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6541474
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376dfa57f81903441bd9a6d17236515c, type: 3}

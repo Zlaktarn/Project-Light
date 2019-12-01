@@ -30,19 +30,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -8517725900640002782, guid: ab0621088e31e164e851ec45d98a7244, type: 3}
---- !u!114 &249303614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644747017093233400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16bb29112242e543b27ca77cf6a5e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degen: 1
 --- !u!114 &6493015678469260305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,11 +57,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7340341584303584697}
     m_Modifications:
-    - target: {fileID: 2695121259224944972, guid: d21364aef17e089499c13f392a0dee44,
-        type: 3}
-      propertyPath: m_Name
-      value: Plant hitbox
-      objectReference: {fileID: 0}
     - target: {fileID: 2912252654039029626, guid: d21364aef17e089499c13f392a0dee44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -144,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 6.399761
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695121259224944972, guid: d21364aef17e089499c13f392a0dee44,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant hitbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d21364aef17e089499c13f392a0dee44, type: 3}
@@ -154,16 +141,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7340341584303584697}
     m_Modifications:
-    - target: {fileID: 8717999578843991683, guid: 6235fb5eafa68c940a1b32c11e356a5b,
-        type: 3}
-      propertyPath: m_Name
-      value: Plant Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 8717999578843991683, guid: 6235fb5eafa68c940a1b32c11e356a5b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7372475983428185037, guid: 6235fb5eafa68c940a1b32c11e356a5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,6 +210,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 6.399761
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717999578843991683, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717999578843991683, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603994050265526193, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7792666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603994050265526193, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603994050265526193, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6541474
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603994050265526193, guid: 6235fb5eafa68c940a1b32c11e356a5b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6235fb5eafa68c940a1b32c11e356a5b, type: 3}
@@ -349,11 +356,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8650696188768504043}
     m_Modifications:
-    - target: {fileID: 6515856303399623342, guid: 11bbd2da0d33fc34b8db9b3bec705b50,
-        type: 3}
-      propertyPath: m_Name
-      value: Plant
-      objectReference: {fileID: 0}
     - target: {fileID: 1725006079406490576, guid: 11bbd2da0d33fc34b8db9b3bec705b50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,8 +411,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8622480059822618782, guid: 11bbd2da0d33fc34b8db9b3bec705b50, type: 3}
+    - target: {fileID: 6515856303399623342, guid: 11bbd2da0d33fc34b8db9b3bec705b50,
+        type: 3}
+      propertyPath: m_Name
+      value: Plant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11bbd2da0d33fc34b8db9b3bec705b50, type: 3}
 --- !u!4 &7340341584303584697 stripped
 Transform:

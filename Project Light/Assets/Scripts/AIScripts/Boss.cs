@@ -30,7 +30,7 @@ public class Boss : MonoBehaviour
 
     // Smash Variables
     private bool smashAttacking = true;
-    private float smashRange = 7f;
+    private float smashRange = 5f;
     private float smashScale = 3f;
     private float smashTimer = 0f;
     private float smashCooldown = 10f;
@@ -275,7 +275,7 @@ public class Boss : MonoBehaviour
             if (Physics.Raycast(player.transform.position, ray, out hit))
             {
                 cubeRot.x = Quaternion.FromToRotation(Vector3.up, hit.normal).x;
-                cubePos.y = hit.transform.position.y;
+                cubePos.y = player.transform.position.y;
             }
 
             spawnedCube = GameObject.Instantiate(attackCube, cubePos, cubeRot);

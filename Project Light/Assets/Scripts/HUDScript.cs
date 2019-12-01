@@ -22,6 +22,7 @@ public class HUDScript : MonoBehaviour
     private void Update()
     {
         healthSlider.value = playerScript.health;
+        oxygenSlider.value = playerScript.Oxygen;
 
         OxygenColor();
     }
@@ -32,7 +33,7 @@ public class HUDScript : MonoBehaviour
         green = playerScript.Oxygen * 2.55f;
         red = rest * 2.55f;
 
-        Debug.Log("Oxygen: " + playerScript.Oxygen + ". RGB = " + red + ", " + green + ", " + "0");
+
 
         fillImage.color = new Color32((byte)red, (byte)green, 0, 255);
     }
