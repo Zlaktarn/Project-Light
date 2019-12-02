@@ -9,7 +9,7 @@ public class PlantSeed : MonoBehaviour
     Inventory inventory;
     public GameObject seed;
     private GameObject preSeed;
-    private GameObject spawnedSeed;
+    public GameObject spawnedSeed;
     public GameObject parent;
     public Camera cam;
     private Rigidbody rb;

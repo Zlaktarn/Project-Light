@@ -6,7 +6,7 @@ public class PlantManager : MonoBehaviour
 {
     public PlantSeed[] seeds;
     public EnemyManager em;
-    private int currentPlanted = 0;
+    public int currentPlanted = 0;
     public int maxPlanted = 5;
     private bool bossSpawned = false;
 

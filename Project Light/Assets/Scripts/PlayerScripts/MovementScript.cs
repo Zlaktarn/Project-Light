@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementScript : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class MovementScript : MonoBehaviour
     public float health = 100;
     public float Oxygen = 100;
     public float soundRange = 15;
-
+    PlantManager pm;
+    PlantSeed ps;
     public int hDeath;
 
     private Rigidbody rb;
@@ -52,7 +54,7 @@ public class MovementScript : MonoBehaviour
         oldMovementSpeed = movementSpeed;
 
         maxHealth = health;
-        SavePlayer();
+        //SavePlayer();
     }
 
     void Update()
@@ -232,19 +234,27 @@ public class MovementScript : MonoBehaviour
     #region Save&Load
     public void SavePlayer()
     {
-        SaveSystem.SavePlayer(this);
+            SaveSystem.SavePlayer(this);          
     }
 
     public void LoadPlayer()
     {
+        //SceneManager.LoadScene("FINALSCENE");
+
         PlayerData data = SaveSystem.LoadPlayer();
+
+        //pm.currentPlanted = data.Pamount; // MÅSTE TESTAS     
+        //ps.spawned = data.savedSpawn;
+        //ps.spawnedSeed = data.savedSpawnedSeed;
         health = data.health;
 
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        transform.position = position;
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            transform.position = position;
+
+
     }
     #endregion
 }
