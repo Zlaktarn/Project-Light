@@ -16,6 +16,14 @@ public class DialogueScript : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+        {
+            EndDialogue();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
