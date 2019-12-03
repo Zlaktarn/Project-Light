@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public int gun = 0;
     public int rifle = 0;
     public int crossbow = 0;
-    public int water = 0;
+    public static int water = 0;
 
     void Update()
     {
