@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipSystem : MonoBehaviour
 {
@@ -47,14 +48,23 @@ public class EquipSystem : MonoBehaviour
         if (equipSlot == 3)
         {
             equippable[2].SetActive(true);
+
         }
         else
+        {
             equippable[2].SetActive(false);
+        }
 
         if (equipSlot == 4)
+        {
             equippable[3].SetActive(true);
+
+        }
         else
+        {
             equippable[3].SetActive(false);
+
+        }
 
     }
 }

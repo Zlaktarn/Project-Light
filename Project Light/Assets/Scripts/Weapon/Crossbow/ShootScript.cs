@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootScript : MonoBehaviour
 {
@@ -12,16 +13,19 @@ public class ShootScript : MonoBehaviour
     [SerializeField] float shootForce;
 
     public Inventory ammo;
+    private int remAmmo;
 
     bool isReloading = false;
 
     private int reloadTime = 1;
 
-    [SerializeField] int currentAmmo = -1;
+    [SerializeField] public int currentAmmo = -1;
     [SerializeField] int clipSize = 1;
     [SerializeField] float fireRate = 1;
 
     private float nextTimeToFire = 0f;
+
+    public Text ammoText;
 
     private void Start()
     {
@@ -56,11 +60,13 @@ public class ShootScript : MonoBehaviour
                 StartCoroutine(Reload());
                 return;
             }
+
+        ammoText.text = currentAmmo.ToString() + " / " + ammo.cbAmmoTotal;
     }
 
     IEnumerator Reload()
     {
-        int remAmmo = currentAmmo;
+        remAmmo = currentAmmo;
 
         isReloading = true;
         print("reloading");

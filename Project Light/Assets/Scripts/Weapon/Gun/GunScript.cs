@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GunScript : MonoBehaviour
@@ -16,7 +17,7 @@ public class GunScript : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     public float fireRate;
-
+    public Text ammoText;
 
     public Inventory ammo;
     public int clipSize = 6;
@@ -52,6 +53,16 @@ public class GunScript : MonoBehaviour
         {
             StartCoroutine(Reload());
             return;
+        }
+
+        if (WeaponType == "Revolver")
+        {
+            ammoText.text = currentAmmo + " / " + ammo.gAmmoTotal.ToString();
+        }
+
+        if (WeaponType == "Rifle")
+        {
+            ammoText.text = currentAmmo + " / " + ammo.rAmmoTotal.ToString();
         }
     }
 
