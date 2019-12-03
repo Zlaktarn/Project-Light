@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_Name
-      value: Bone Charger Variant
+      value: Bone Charger
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
@@ -72,10 +72,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 42e0adfce44e7ae4fa5767e4dadcacf1, type: 2}
-    - target: {fileID: -6057140222963153312, guid: 3c394809017ad0e499f40e666899bc44,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 26c14fc51f399f340a8d361652eaddd8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c394809017ad0e499f40e666899bc44, type: 3}
