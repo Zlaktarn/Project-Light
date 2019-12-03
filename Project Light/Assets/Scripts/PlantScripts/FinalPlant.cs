@@ -9,14 +9,13 @@ public class FinalPlant : MonoBehaviour
     public GameObject mainPlant;
     public GameObject hand;
     public Camera cam;
+    private bool triggered = false;
 
     void Update()
     {
         if(em.IsBossDead)
-            if(IsMainPlantHeld())
-                if(IsLookingAtSpot())
-                    if(Input.GetKeyDown(KeyCode.E))
-                        wm.HasWon = true;
+            if(triggered)
+                wm.HasWon = true;
                 
     }
 
@@ -35,5 +34,11 @@ public class FinalPlant : MonoBehaviour
             if(hit.collider.gameObject == gameObject)
                 return true;
         return false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Lootcube")
+            triggered = true;
     }
 }

@@ -108,5 +108,5 @@ MonoBehaviour:
   duration: 2
   distance: 2
   damage: 10
-  force: 100
+  force: 50
   attacking: 1

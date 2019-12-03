@@ -47,9 +47,11 @@ public class Minion : MonoBehaviour
     private GameObject player;
     private Vector3 directionToPlayer;
     private Rigidbody rb;
+    private Animator m_Animator;
 
     void Awake()
     {
+        m_Animator = gameObject.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         attackCube = GameObject.FindGameObjectWithTag("SwipeCube");
         rb = GetComponent<Rigidbody>();
@@ -143,6 +145,9 @@ public class Minion : MonoBehaviour
     [Task]
     public void WalkToWanderTarget()
     {
+        if (m_Animator != null)
+                m_Animator.SetBool("Charge", false);
+
         if(AgentVision() || distanceToPlayer <= soundRange)
             Task.current.Succeed();
 
@@ -168,17 +173,30 @@ public class Minion : MonoBehaviour
     [Task]
     public void ChasePlayer()
     {
-        if(distanceToPlayer <= attackRange && agent != null)
+        if (m_Animator != null)
         {
-            agent.enabled = false;
+            m_Animator.SetBool("Charge", true);
+        }
+
+        if (distanceToPlayer <= attackRange && agent != null)
+        {
+            //agent.enabled = false;
             Task.current.Succeed();
         }
 
         if(distanceToPlayer >= aggroRange)
+        {
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge", false);
             Task.current.Fail();
+        }
 
         if(!AgentVision() && distanceToPlayer > soundRange + 10)
+        {
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge", false);
             Task.current.Fail();
+        }
 
         agent.enabled = true;
         agent.speed = chaseSpeed;
@@ -228,8 +246,12 @@ public class Minion : MonoBehaviour
     [Task]
     public void Charge2()
     {
+        
         if (Task.current.isStarting)
         {
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge2", true);
+
             GetComponent<AIChargeAttack>().attacking = true;
             attacking = true;
             chargeTarget = transform.position + (transform.forward * 15);
@@ -245,16 +267,26 @@ public class Minion : MonoBehaviour
         }
 
         if(distanceToPlayer >= aggroRange)
+        {
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge2", false);
             Task.current.Fail();
+        }
 
         if(AgentVision() && distanceToPlayer > soundRange)
+        {
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge2", false);
             Task.current.Fail();
+        }
 
-        if (Vector3.Distance(transform.position, chargeTarget) <= 3f)
+        if (Vector3.Distance(transform.position, chargeTarget) <= 5f)
         {
             GetComponent<AIChargeAttack>().attacking = false;
             attacking = false;
             downTimer = 0f;
+            if (m_Animator != null)
+                m_Animator.SetBool("Charge2", false);
             Task.current.Succeed(); 
         }
     }
@@ -262,6 +294,9 @@ public class Minion : MonoBehaviour
     [Task]
     public void WalkOutsideOfAttackRange()
     {
+        if (m_Animator != null)
+                m_Animator.SetBool("Charge", true);
+
         if (Task.current.isStarting)
         {
             otherChargeTarget = (transform.position + (transform.forward * attackRange)) +
@@ -345,6 +380,7 @@ public class Minion : MonoBehaviour
     [Task]
     public void Slam()
     {
+
         if(agent.enabled)
             agent.enabled = false;
 
@@ -359,7 +395,8 @@ public class Minion : MonoBehaviour
             cubePos = transform.position + cubeDir * distance;
 
             spawnedCube = GameObject.Instantiate(attackCube, cubePos, cubeRot);
-            spawnedCube.transform.localScale = new Vector3(1f, 0.8f, 1f);
+            spawnedCube.transform.localScale = new Vector3(3f, 3f, 3f);
+            spawnedCube.GetComponent<AISwipeAttack>().duration = 0.35f;
             spawnedCube.GetComponent<AISwipeAttack>().enabled = true;
             spawnedCube.GetComponent<AISwipeAttack>().force = 50f;
             attacking = false;
@@ -369,6 +406,8 @@ public class Minion : MonoBehaviour
         {
             smashTimer = 0;
             EnableAgent();
+            if (m_Animator != null)
+                m_Animator.SetBool("Swipe", false);
             Task.current.Succeed();
         } 
     }
@@ -377,7 +416,11 @@ public class Minion : MonoBehaviour
     public void SmashIsNotOnCooldown()
     {
         if(smashTimer >= swipeCooldown)
+        {
+            if (m_Animator != null)
+                m_Animator.SetBool("Swipe", true);
             Task.current.Succeed();
+        }
         else
             Task.current.Fail();
     }

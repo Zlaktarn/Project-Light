@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class WinManager : MonoBehaviour
 {
     public bool HasWon = false;
+    public bool TestKillBoss = false;
     private bool lerpColor = true;
     private bool finished = false;
+    public EnemyManager em;
     public Image image;
     public GameObject tCamera;
     public GameObject mainCamera;
@@ -21,6 +23,9 @@ public class WinManager : MonoBehaviour
 
     void Update()
     {
+        if(TestKillBoss)
+            em.IsBossDead = true;
+
         if (HasWon)
         {
             timer += Time.deltaTime/duration;

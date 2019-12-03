@@ -8,7 +8,6 @@ tree("Attack")
 	sequence
 		IsInAttackRange
 		SmashIsNotOnCooldown
-		FixRotation
 		Slam
 
 tree("Chase")

@@ -46,7 +46,6 @@ public class AISwipeAttack : MonoBehaviour
                 knockBackDir = player.transform.position - transform.position;
                 player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, force);
                 Debug.Log("Health: " + (int)playerScript.health);
-                remove = true; 
             }
         }
     }
