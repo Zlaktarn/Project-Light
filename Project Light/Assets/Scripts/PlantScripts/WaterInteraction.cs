@@ -45,9 +45,10 @@ public class WaterInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                if (hasWater && currentWater <= 100)
+                if (Inventory.water > 0 && currentWater <= 100)
                 {
                     currentWater += 20;
+                    Inventory.water -= 1;
                     GradeAndSeedSpawn();
                 }
                 Debug.Log("Water level: " + currentWater + "%");

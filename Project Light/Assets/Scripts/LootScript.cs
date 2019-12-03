@@ -76,7 +76,7 @@ public class LootScript : MonoBehaviour
         }
         if (itemName == "Water")
         {
-            inventory.water += 1;
+            Inventory.water += 1;
             Destroy(gameObject);
         }
     }
