@@ -38,7 +38,7 @@ ModelImporter:
       name: Revolver_Shoot
       takeName: Take 001
       internalID: 0
-      firstFrame: 8
+      firstFrame: 12
       lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
