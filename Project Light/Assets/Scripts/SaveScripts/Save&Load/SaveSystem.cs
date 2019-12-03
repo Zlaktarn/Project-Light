@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -17,7 +14,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
-
+        Debug.LogError("Save file CREATED " + path);
         formatter.Serialize(stream, data);
 
         stream.Close();
@@ -27,16 +24,16 @@ public static class SaveSystem
     {
         string path = Application.persistentDataPath + "/player.aml";
 
-        if(File.Exists(path))
+        if (File.Exists(path))
         {
-            
+
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
-
+            Debug.LogError("Save file FOUND " + path);
             stream.Close();
-            
+
             return data;
 
         }
@@ -45,6 +42,7 @@ public static class SaveSystem
             Debug.LogError("Save file not found in " + path);
             return null;
         }
-    }
 
+
+    }
 }

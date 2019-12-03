@@ -8,8 +8,6 @@ public class MovementScript : MonoBehaviour
     public float health = 100;
     public float Oxygen = 100;
     public float soundRange = 15;
-    PlantManager pm;
-    PlantSeed ps;
     public int hDeath;
 
     private Rigidbody rb;
@@ -53,18 +51,16 @@ public class MovementScript : MonoBehaviour
         originalHeight = charController.height;
         oldMovementSpeed = movementSpeed;
 
-        maxHealth = health;
-        //SavePlayer();
+        maxHealth = health;       
     }
 
     void Update()
     {
         PlayerControls();
-
-        if (Input.GetKeyDown(KeyCode.N))
-            SavePlayer();
-        if (Input.GetKeyDown(KeyCode.M))
-            LoadPlayer();
+        //if (Input.GetKeyDown(KeyCode.N))
+        SavePlayer();
+        //if (Input.GetKeyDown(KeyCode.M))
+        LoadPlayer();
 
         if (health <= 0 || transform.position.y < hDeath)
             isDead = true;
@@ -234,26 +230,26 @@ public class MovementScript : MonoBehaviour
     #region Save&Load
     public void SavePlayer()
     {
-            SaveSystem.SavePlayer(this);          
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            SaveSystem.SavePlayer(this);
+
+        }
     }
 
     public void LoadPlayer()
     {
-        //SceneManager.LoadScene("FINALSCENE");
-
-        PlayerData data = SaveSystem.LoadPlayer();
-
-        //pm.currentPlanted = data.Pamount; // MÅSTE TESTAS     
-        //ps.spawned = data.savedSpawn;
-        //ps.spawnedSeed = data.savedSpawnedSeed;
-        health = data.health;
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            health = data.health;
 
             Vector3 position;
             position.x = data.position[0];
             position.y = data.position[1];
             position.z = data.position[2];
             transform.position = position;
-
+        }
 
     }
     #endregion

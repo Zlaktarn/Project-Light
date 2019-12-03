@@ -16,6 +16,8 @@ public class PlantManager : MonoBehaviour
         
     }
 
+
+
     public void AddCurrentPlanted(int amount)
     {
         currentPlanted += amount;
