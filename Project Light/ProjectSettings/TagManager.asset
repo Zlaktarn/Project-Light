@@ -16,6 +16,7 @@ TagManager:
   - AttackCube
   - Inventory
   - SwipeCube
+  - BoneCharger
   layers:
   - Default
   - TransparentFX
