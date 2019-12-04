@@ -13,7 +13,7 @@ public class Minion : MonoBehaviour
     public float wanderSpeed = 2f;
 
     // Chase Variables
-    private float soundRange = 15f;
+    private float soundRange = 10f;
     private float sightRange = 20f;
     private float aggroRange = 30f;
     public float chaseSpeed = 4f;
@@ -280,7 +280,7 @@ public class Minion : MonoBehaviour
             Task.current.Fail();
         }
 
-        if (Vector3.Distance(transform.position, chargeTarget) <= 5f)
+        if (Vector3.Distance(transform.position, chargeTarget) <= 6f)
         {
             GetComponent<AIChargeAttack>().attacking = false;
             attacking = false;
@@ -316,7 +316,7 @@ public class Minion : MonoBehaviour
         if(AgentVision() && distanceToPlayer > soundRange)
             Task.current.Fail();
 
-        if(Vector3.Distance(transform.position, otherChargeTarget) <= 3)
+        if(Vector3.Distance(transform.position, otherChargeTarget) <= 6)
             Task.current.Succeed();
     }
 
@@ -348,7 +348,7 @@ public class Minion : MonoBehaviour
 
         rb.isKinematic = false;
         rb.AddForce(transform.forward * (attackForce - Time.deltaTime), ForceMode.VelocityChange);
-        if (Vector3.Distance(transform.position, chargeTarget) <= 3f)
+        if (Vector3.Distance(transform.position, chargeTarget) <= 6f)
         {
             EnableAgent();
             downTimer = 0f;
@@ -398,7 +398,7 @@ public class Minion : MonoBehaviour
             spawnedCube.transform.localScale = new Vector3(3f, 3f, 3f);
             spawnedCube.GetComponent<AISwipeAttack>().duration = 0.35f;
             spawnedCube.GetComponent<AISwipeAttack>().enabled = true;
-            spawnedCube.GetComponent<AISwipeAttack>().force = 50f;
+            spawnedCube.GetComponent<AISwipeAttack>().force = 20f;
             attacking = false;
         }
 

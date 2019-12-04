@@ -29,6 +29,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.62, y: 4.5, z: 6.38}
   m_Center: {x: 0, y: 2.3, z: 0}
+--- !u!114 &933222982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047042239727315203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84958b02526ecae47a8645627e5d8219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &1607024713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +57,7 @@ MonoBehaviour:
   attacking: 0
   damage: 10
   force: 450
+  passiveForce: 15
 --- !u!114 &264096301158480595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +115,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &933222982
+--- !u!114 &7677247840407723084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  bolt: {fileID: 0}
 --- !u!1001 &9053988185910669322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +200,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bef23ed00e51ed44d9a934ddf658304c, type: 2}
+    - target: {fileID: 7325920480959777107, guid: 3036fa9907f16d747b2c044eb12adf37,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b49cbceffd3090d4b95287dcb70df78c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3036fa9907f16d747b2c044eb12adf37, type: 3}
 --- !u!1 &1047042239727315203 stripped

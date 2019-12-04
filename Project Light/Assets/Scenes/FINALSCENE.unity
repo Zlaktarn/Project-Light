@@ -5232,10 +5232,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249032746}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b7a3ceb97a948b042a84642c95c60bf6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5328,10 +5328,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249032746}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 36cbd07a93b090a4d99ada9c27d32864, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5424,7 +5424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249032746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46bcf81df3f47b64ab405e52ede1aff0, type: 3}
   m_Name: 
@@ -5449,7 +5449,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4ccb714c02876b740b56c3514f344246, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.248
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -17173,6 +17173,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 813618647}
+    - target: {fileID: 4981781844459679247, guid: 2da0532d635c1974ba382092225a6264,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981781844754797347, guid: 2da0532d635c1974ba382092225a6264,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da0532d635c1974ba382092225a6264, type: 3}
 --- !u!4 &801878750 stripped
@@ -24375,6 +24385,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 6.667597
       objectReference: {fileID: 0}
+    - target: {fileID: 5992627484627450846, guid: d2dcc07e1c0c75745831bbce281377a6,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2dcc07e1c0c75745831bbce281377a6, type: 3}
 --- !u!4 &1169799688 stripped
@@ -24775,6 +24790,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2193
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088159358, guid: e28f7cd9e619df546b8973e292ed13b4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28f7cd9e619df546b8973e292ed13b4, type: 3}
@@ -33037,7 +33056,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.47588e+27, y: 2.3509887e-38, z: 1.8e-43, w: 0}
+  m_BoundingSphereOverride: {x: 2.421998e+24, y: 9.592282e-39, z: 7.2156034e+22, w: 7.942423e+17}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -38382,6 +38401,36 @@ PrefabInstance:
     - target: {fileID: 4723677844288723299, guid: f7f09b68b2d393e4e9138151e44cbd6d,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396044665948704143, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216974962595939186, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cefc4df073de3c9498be9c6f13879eb9, type: 3}
+    - target: {fileID: 2216974962595939186, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2216974962595939186, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513125780850677441, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f618d8f171a409447a4993ced6305e28, type: 3}
+    - target: {fileID: 1513125780850677441, guid: f7f09b68b2d393e4e9138151e44cbd6d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1764226644, guid: f7f09b68b2d393e4e9138151e44cbd6d, type: 3}
@@ -44299,6 +44348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555099406486507743, guid: 69deb6c3e93078645a2f600f350eedd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3555099406486507742, guid: 69deb6c3e93078645a2f600f350eedd8,
         type: 3}

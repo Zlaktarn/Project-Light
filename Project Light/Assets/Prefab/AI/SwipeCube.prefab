@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   distance: 2
-  damage: 10
-  force: 50
+  shieldDuration: 0.6
+  damage: 20
+  force: 600
   attacking: 1

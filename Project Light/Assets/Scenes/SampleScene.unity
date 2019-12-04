@@ -701,25 +701,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &933222973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1047042239727315203, guid: 374e8ef524911364ca0e05406f362bfd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1561751361}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &933222982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933222973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84958b02526ecae47a8645627e5d8219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &933407557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,11 +996,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 1047042239727315203, guid: 374e8ef524911364ca0e05406f362bfd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4097306469128493840, guid: 374e8ef524911364ca0e05406f362bfd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1074,16 +1050,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7938388336570474517, guid: 374e8ef524911364ca0e05406f362bfd,
-        type: 3}
-      propertyPath: m_Speed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5358049610665999243, guid: 374e8ef524911364ca0e05406f362bfd,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftChargebox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374e8ef524911364ca0e05406f362bfd, type: 3}
@@ -1428,6 +1394,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlowAI
       objectReference: {fileID: 0}
+    - target: {fileID: 305031092637350287, guid: 71dce76bc4cb09547ae35b1f553ab8b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2011370675983496106, guid: 71dce76bc4cb09547ae35b1f553ab8b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1496,6 +1467,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bone Charger Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 698097572015764658, guid: ddef5454e85ddb641aa49611da6ca675,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605913393018767009, guid: ddef5454e85ddb641aa49611da6ca675,
         type: 3}

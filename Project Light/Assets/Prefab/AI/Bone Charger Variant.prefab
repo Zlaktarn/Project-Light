@@ -27,8 +27,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021217331, y: 0.024135506, z: 0.030997394}
-  m_Center: {x: -0.000783903, y: 0.011344199, z: 0.0048645115}
+  m_Size: {x: 0.02070162, y: 0.023463026, z: 0.033263143}
+  m_Center: {x: -0.00052604603, y: 0.011680438, z: 0.0033750879}
 --- !u!114 &1976367763945251849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,8 +64,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
-  damage: 10
+  damage: 35
   force: 250
+  passiveForce: 15
 --- !u!195 &4227656789922302935
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -196,17 +197,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 80.740685
+      value: 80.74068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 80.367004
+      value: 80.367
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 85.699425
+      value: 85.69942
       objectReference: {fileID: 0}
     - target: {fileID: 9082241658641345700, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}

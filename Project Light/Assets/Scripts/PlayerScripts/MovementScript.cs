@@ -122,19 +122,22 @@ public class MovementScript : MonoBehaviour
         {
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 20f;
-            GetComponent<OxygenDegeneration>().degen = 4;
+            if(GetComponent<OxygenDegeneration>() != null)
+                GetComponent<OxygenDegeneration>().degen = 3;
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             movementSpeed = Mathf.Lerp(movementSpeed, crouchSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 10f;
-            GetComponent<OxygenDegeneration>().degen = 1;
+            if(GetComponent<OxygenDegeneration>() != null)
+                GetComponent<OxygenDegeneration>().degen = 1;
         }
         else
         {
             movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 15f;
-            GetComponent<OxygenDegeneration>().degen = 1;
+            if(GetComponent<OxygenDegeneration>() != null)
+                GetComponent<OxygenDegeneration>().degen = 1;
         }
     }
 

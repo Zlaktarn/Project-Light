@@ -146,6 +146,7 @@ public class Boss : MonoBehaviour
         if(animationTimer >= animationDuration)
         {
             attacking = false;
+            m_Animator.SetBool("Roar", false);
             Task.current.Succeed();
         }
     }
@@ -212,6 +213,7 @@ public class Boss : MonoBehaviour
 
         if (IsForwardBlocked())
         {
+            m_Animator.SetBool("Charge", false);
             GetComponent<AIChargeAttack>().attacking = false;
             agent.enabled = true;
             agent.isStopped = false;
@@ -224,6 +226,7 @@ public class Boss : MonoBehaviour
 
         if(Vector3.Distance(transform.position, chargeTarget) <= 8f)
         {
+            m_Animator.SetBool("Charge", false);
             GetComponent<AIChargeAttack>().attacking = false;
             agent.enabled = true;
             agent.isStopped = false;
@@ -330,9 +333,12 @@ public class Boss : MonoBehaviour
             swipeRot = transform.rotation;
             float distance = 3;
             swipePos = transform.position + swipeDir * distance;
-            swipePos.y += 2;
 
             spawnedSwipeCube = GameObject.Instantiate(swipeCube, swipePos, swipeRot);
+            spawnedSwipeCube.transform.localScale = new Vector3(2,2,2);
+            spawnedSwipeCube.GetComponent<AISwipeAttack>().force = 70f;
+            spawnedSwipeCube.GetComponent<AISwipeAttack>().duration = 1f;
+            spawnedSwipeCube.GetComponent<AISwipeAttack>().shieldDuration = 0.4f;
             spawnedSwipeCube.GetComponent<AISwipeAttack>().enabled = true;
             swipeAttacking = false;
         }
