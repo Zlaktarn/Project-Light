@@ -12,6 +12,7 @@ public class GunScript : MonoBehaviour
 
 
     new public Transform transform;
+    public Camera cam;
     Animator anim;
     public float animSpeed = 1;
 
@@ -24,6 +25,7 @@ public class GunScript : MonoBehaviour
     public int currentAmmo = -1;
     public float reloadTime = 1f;
     private bool isReloading = false;
+    private int enemyLayer = 1<<13;
 
     public ParticleSystem muzzleFlash;
     //public GameObject impactEffect;
@@ -106,11 +108,13 @@ public class GunScript : MonoBehaviour
         RaycastHit hit;
 
         anim.SetTrigger("RifleShoot");
-        if (Physics.Raycast(transform.position, -transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            TargetScript target = null;
 
-            TargetScript target = hit.transform.GetComponent<TargetScript>();
+            if (hit.transform.GetComponent<TargetScript>() != null)
+                target = hit.transform.GetComponent<TargetScript>(); 
 
             if (target != null)
             {
