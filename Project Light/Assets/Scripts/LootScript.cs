@@ -5,6 +5,7 @@ using UnityEngine;
 public class LootScript : MonoBehaviour
 {
     bool Triggered = false;
+    public bool pickedUp = false;
     Color startColor = Color.white;
     Color oldColor;
     Renderer render;
@@ -31,9 +32,7 @@ public class LootScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //Interact();
-
                 render.material.color = Color.green;
-
                 AmmoAdd();
             }
             else
