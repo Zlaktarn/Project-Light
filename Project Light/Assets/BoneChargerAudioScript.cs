@@ -7,48 +7,68 @@ public class BoneChargerAudioScript : MonoBehaviour
     public AudioClip mediumBoiWalk;
     public AudioClip mediumBoiCharge;
 
-    public AudioSource mediumBoiWalkAudio;
-    public AudioSource mediumBoiChargeAudio;
+    //public AudioSource mediumBoiWalkAudio;
+    //public AudioSource mediumBoiChargeAudio;
 
-    public bool charging;
+    public bool[] charging;
 
-    public bool hostile = false;
+    public bool[] hostile;
+    
 
-    private GameObject BoneCharger;
-    private AIChargeAttack BoneScript;
+    private GameObject[] BoneChargers;
+    private AIChargeAttack[] BoneScripts;
+    private AudioSource[] AudioSources;
 
     void Start()
     {
-        mediumBoiWalkAudio.clip = mediumBoiWalk;
-        mediumBoiChargeAudio.clip = mediumBoiCharge;
-        mediumBoiChargeAudio.loop = true;
-        mediumBoiWalkAudio.loop = true;
+        //mediumBoiWalkAudio.clip = mediumBoiWalk;
+        //mediumBoiChargeAudio.clip = mediumBoiCharge;
+        //mediumBoiChargeAudio.loop = true;
+        //mediumBoiWalkAudio.loop = true;
+        
+        
+        BoneChargers = GameObject.FindGameObjectsWithTag("BoneCharger");
+        
 
-        BoneCharger = GameObject.FindWithTag("BoneCharger");
-        BoneScript = BoneCharger.GetComponent<AIChargeAttack>();
+        for(int i = 0; i < BoneChargers.Length; i++)
+        {
+            BoneScripts[i] = BoneChargers[i].GetComponent<AIChargeAttack>();
+        }
+
+        for(int i = 0; i > hostile.Length; i++)
+        {
+            hostile[i] = false;
+        }
     }
     
     void Update()
     {
-        charging = BoneScript.attacking;
+        for(int i = 0; i > BoneChargers.Length; i++)
+        {
+            charging[i] = BoneScripts[i].attacking;
+        }
 
-        if(charging && hostile)
+        for(int i = 0; i > BoneChargers.Length; i++)
         {
-            mediumBoiChargeAudio.Play();
-            mediumBoiWalkAudio.Stop();
-            hostile = false;
+            if (charging[i] && hostile[i])
+            {
+                mediumBoiChargeAudio.Play();
+                mediumBoiWalkAudio.Stop();
+                hostile[i] = false;
 
+            }
+            else if (!charging[i] && !hostile[i])
+            {
+                mediumBoiWalkAudio.Play();
+                mediumBoiChargeAudio.Stop();
+                hostile[i] = true;
+            }
+            else
+            {
+                Debug.Log("Something went wrong here!");
+            }
         }
-        else if(!charging && !hostile)
-        {
-            mediumBoiWalkAudio.Play();
-            mediumBoiChargeAudio.Stop();
-            hostile = true;
-        }
-        else
-        {
-            Debug.Log("Something went wrong here!");
-        }
+        
         
 
     }
