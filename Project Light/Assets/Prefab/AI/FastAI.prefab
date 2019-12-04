@@ -44,6 +44,7 @@ MonoBehaviour:
   attacking: 0
   damage: 10
   force: 250
+  passiveForce: 15
 --- !u!114 &1901972199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84958b02526ecae47a8645627e5d8219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 20
 --- !u!1001 &3083009094076970624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,11 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastAI
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 3c394809017ad0e499f40e666899bc44,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 837e63077d19cdf4d9f27b6491689621, type: 2}
     - target: {fileID: -4216859302048453862, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,6 +189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 3c394809017ad0e499f40e666899bc44,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 837e63077d19cdf4d9f27b6491689621, type: 2}
     - target: {fileID: 9082241658641345700, guid: 3c394809017ad0e499f40e666899bc44,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
