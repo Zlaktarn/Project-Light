@@ -17,14 +17,18 @@ public class HeatMapManager : MonoBehaviour
     public bool updateTheMap = false;
     private int currentFile = 0;
     private string path;
-    private string firstPath, secondaryPath;
+    private string firstPath, secondaryPath, thirdPath, fourthPath;
     public bool on = false;
 
-    private string activityString, deathstring;
+    private string activityString, deathstring, itemstring, aistring;
     private int activityType = 0;
     private int deathsType = 1;
+    private int itemType = 2;
+    private int aiType = 3;
     public string activetyValue = "/ActivetyValues";
     public string deathValue = "/DeathValues";
+    public string itemValue = "/ItemValues";
+    public string aiValue = "/AiValues";
 
     void Start()
     {
@@ -33,6 +37,8 @@ public class HeatMapManager : MonoBehaviour
         firstPath = Application.dataPath + "/ActivetyValues.txt";
         path = Application.dataPath + "/ActivetyValues.txt";
         secondaryPath = Application.dataPath + "/DeathValues.txt";
+        thirdPath = Application.dataPath + "/ItemValues.txt";
+        fourthPath = Application.dataPath + "/AiValues.txt";
     }
 
     void CreateFile(string type)
@@ -42,6 +48,10 @@ public class HeatMapManager : MonoBehaviour
             File.WriteAllText(path, activityString);
         else if(type == deathValue)
             File.WriteAllText(path, deathstring);
+        else if(type == itemValue)
+            File.WriteAllText(path, itemstring);
+        else if(type == aiValue)
+            File.WriteAllText(path, aistring);
     }
 
     string CheckIfFileExists(string type)
@@ -61,6 +71,10 @@ public class HeatMapManager : MonoBehaviour
         FindActivityPaths();
         ResetCurrentFile();
         FindDeathsPaths();
+        ResetCurrentFile();
+        FindItemPaths();
+        ResetCurrentFile();
+        FindAiPaths();
         return paths;
     }
 
@@ -83,6 +97,28 @@ public class HeatMapManager : MonoBehaviour
             currentFile += 1;
             path = Application.dataPath + "/ActivetyValues" + currentFile.ToString() + ".txt";
             FindActivityPaths();
+        }
+    }
+
+    private void FindItemPaths()
+    {
+        if (File.Exists(thirdPath))
+        {
+            paths.Add(thirdPath);
+            currentFile += 1;
+            thirdPath = Application.dataPath + "/ItemValues" + currentFile.ToString() + ".txt";
+            FindItemPaths();
+        }
+    }
+
+    private void FindAiPaths()
+    {
+        if (File.Exists(fourthPath))
+        {
+            paths.Add(fourthPath);
+            currentFile += 1;
+            fourthPath = Application.dataPath + "/AiValues" + currentFile.ToString() + ".txt";
+            FindAiPaths();
         }
     }
 
@@ -129,6 +165,10 @@ public class HeatMapManager : MonoBehaviour
             heatMap.SetActivety(temp);
         if(typeOfValue == deathsType)
             heatMap.SetDeaths(temp);
+        if(typeOfValue == itemType)
+            heatMap.SetItems(temp);
+        if(typeOfValue == aiType)
+            heatMap.SetAIScore(temp);
     }
     
     List<int> GetAllActivityValuesFromFile(string path)
@@ -147,6 +187,8 @@ public class HeatMapManager : MonoBehaviour
     {
         heatMap.ResetActivety();
         heatMap.ResetDeaths();
+        heatMap.ResetAIScore();
+        heatMap.ResetItems();
         ResetCurrentFile();
         newActivity.Clear();
         PreFillActivetyList();
@@ -158,6 +200,8 @@ public class HeatMapManager : MonoBehaviour
     {
         heatMap.ResetActivety();
         heatMap.ResetDeaths();
+        heatMap.ResetAIScore();
+        heatMap.ResetItems();
         ResetCurrentFile();
         LoadAllActivetyValuesFromFile(path, typeOfValue);
     }
@@ -182,10 +226,38 @@ public class HeatMapManager : MonoBehaviour
         CreateFile(activetyValue);
     }
 
+    private void CreateAIFile()
+    {
+        activity.Clear();
+        ResetPath(aiValue);
+        ResetCurrentFile();
+        activity = heatMap.GetAiScore();
+        aistring = String.Join(",", activity.Select(p=>p.ToString()).ToArray());
+        CreateFile(aiValue);
+    }
+
+    private void CreateItemFile()
+    {
+        activity.Clear();
+        ResetPath(itemValue);
+        ResetCurrentFile();
+        activity = heatMap.GetItems();
+        itemstring = String.Join(",", activity.Select(p=>p.ToString()).ToArray());
+        CreateFile(itemValue);
+    }
+
     public void CreateFiles()
     {
         CreateDeathsFile();
         CreateActivityFile();
+        CreateAIFile();
+        CreateItemFile();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+            CreateFiles();
     }
 
     //void OnApplicationQuit()
