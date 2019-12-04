@@ -17,6 +17,8 @@ public class PlantSeed : MonoBehaviour
     private bool triggered = false;
     public bool Test = false;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,12 +33,7 @@ public class PlantSeed : MonoBehaviour
                 Debug.Log("worked!");
                 if (Input.GetKeyDown(KeyCode.E) && !spawned)
                 {
-                    spawnedSeed = (GameObject)Instantiate(seed, transform.position, Quaternion.identity);
-                    spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
-                    Destroy(preSeed);
-                    pm.AddCurrentPlanted(1);
-                    PlaceHolderPickup.PickedUp = false;
-                    spawned = true;
+                    IsSpawned();
                 }  
             }
         }
@@ -49,6 +46,18 @@ public class PlantSeed : MonoBehaviour
             pm.AddCurrentPlanted(5);
             spawned = true;
         }
+    }
+
+    public bool IsSpawned()
+    {
+        spawnedSeed = (GameObject)Instantiate(seed, transform.position, Quaternion.identity);
+        spawnedSeed.GetComponent<LightAdjuster>().isPlanted = true;
+        Destroy(preSeed);
+        pm.AddCurrentPlanted(1);
+        PlaceHolderPickup.PickedUp = false;
+        spawned = true;
+
+        return true;
     }
 
     private bool IsSeedHeld()

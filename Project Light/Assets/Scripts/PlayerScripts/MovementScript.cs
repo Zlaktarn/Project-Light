@@ -10,6 +10,9 @@ public class MovementScript : MonoBehaviour
     public float soundRange = 15;
     public int hDeath;
 
+    PlantManager pm;
+    PlantSeed ps;
+
     private Rigidbody rb;
 
     #region General Variables
@@ -58,9 +61,9 @@ public class MovementScript : MonoBehaviour
     {
         PlayerControls();
         //if (Input.GetKeyDown(KeyCode.N))
-        SavePlayer();
-        //if (Input.GetKeyDown(KeyCode.M))
-        LoadPlayer();
+        //SavePlayer();
+        ////if (Input.GetKeyDown(KeyCode.M))
+        //LoadPlayer();
 
         if (health <= 0 || transform.position.y < hDeath)
             isDead = true;
@@ -241,6 +244,7 @@ public class MovementScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.M))
         {
+            //SceneManager.LoadScene("FINALSCENE");
             PlayerData data = SaveSystem.LoadPlayer();
             health = data.health;
 
@@ -249,6 +253,8 @@ public class MovementScript : MonoBehaviour
             position.y = data.position[1];
             position.z = data.position[2];
             transform.position = position;
+
+
         }
 
     }
