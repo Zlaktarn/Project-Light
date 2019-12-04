@@ -48,22 +48,6 @@ public class HeatMap : MonoBehaviour
         return values;
     }
 
-    public List<int> GetItems()
-    {
-        values.Clear();
-        foreach(HeatCubeInfo i in infos)
-            values.Add(i.GetItems());
-        return values;
-    }
-
-    public List<int> GetAiScore()
-    {
-        values.Clear();
-        foreach(HeatCubeInfo i in infos)
-            values.Add(i.GetAIScore());
-        return values;
-    }
-
     public List<GameObject> GetCubes()
     {
         return cubes;
@@ -81,18 +65,6 @@ public class HeatMap : MonoBehaviour
             cubes[j].GetComponent<HeatCubeInfo>().SetDeaths(values[j]);
     }
 
-    public void SetItems(List<int> values)
-    {
-        for(int j = 0; j < cubes.Count; j++)
-            cubes[j].GetComponent<HeatCubeInfo>().SetItems(values[j]);
-    }
-
-    public void SetAIScore(List<int> values)
-    {
-        for(int j = 0; j < cubes.Count; j++)
-            cubes[j].GetComponent<HeatCubeInfo>().SetAIScore(values[j]);
-    }
-
     public void ResetActivety()
     {
         for(int j = 0; j < cubes.Count; j++)
@@ -103,18 +75,6 @@ public class HeatMap : MonoBehaviour
     {
         for(int j = 0; j < cubes.Count; j++)
             cubes[j].GetComponent<HeatCubeInfo>().ResetDeaths();
-    }
-
-    public void ResetItems()
-    {
-        for(int j = 0; j < cubes.Count; j++)
-            cubes[j].GetComponent<HeatCubeInfo>().ResetItems();
-    }
-
-    public void ResetAIScore()
-    {
-        for(int j = 0; j < cubes.Count; j++)
-            cubes[j].GetComponent<HeatCubeInfo>().ResetAIScore();
     }
 
     void SpawnGrid()

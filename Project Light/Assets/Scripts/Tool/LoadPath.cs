@@ -11,8 +11,6 @@ public class LoadPath : MonoBehaviour
 
     private int activityType = 0;
     private int deathsType = 1;
-    private int itemType = 2;
-    private int aiType = 3;
 
     void Start()
     {
@@ -25,9 +23,5 @@ public class LoadPath : MonoBehaviour
             hm.LoadSpecificFile(dropdown.selectedPath, activityType);
         else if(dropdown.selectedPath.Contains(hm.deathValue))
             hm.LoadSpecificFile(dropdown.selectedPath, deathsType);
-        else if(dropdown.selectedPath.Contains(hm.itemValue))
-            hm.LoadSpecificFile(dropdown.selectedPath, itemType);
-        else if(dropdown.selectedPath.Contains(hm.aiValue))
-            hm.LoadSpecificFile(dropdown.selectedPath, aiType);
     }
 }
