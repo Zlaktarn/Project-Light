@@ -33,8 +33,13 @@ public class TargetScript : MonoBehaviour
         if (collision.collider.tag == "Bolt")
         {
             if (collision.gameObject.GetComponent<BoltScript>() != null)
+            {
                 health -= collision.gameObject.GetComponent<BoltScript>().damage; 
-            GetComponent<Enemy>().SetHit(true);
+                print(health);
+            }
+            
+            if(collision.gameObject.GetComponent<Minion>() != null)
+                collision.gameObject.GetComponent<Minion>().IsShot = true;
         }
     }
 }

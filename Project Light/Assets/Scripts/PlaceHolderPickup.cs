@@ -10,6 +10,8 @@ public class PlaceHolderPickup : MonoBehaviour
     public Transform parent;
     public Camera fpsCam;
     private GameObject item;
+    private Quaternion rot;
+    private Vector3 pos;
     private Rigidbody rb;
     private int held = 0;
     private int itemLayer = 1<<11;
@@ -22,55 +24,54 @@ public class PlaceHolderPickup : MonoBehaviour
 
     void Update()
     {
-
-        if (triggered)
+        if (Input.GetKeyDown(KeyCode.E) && !PickedUp)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !PickedUp)
+            if (FindItem())
             {
-                if (FindItem())
-                {
-                    HoldItem(); 
-                }
+                HoldItem(); 
             }
-            else if(Input.GetKeyDown(KeyCode.E) && PickedUp)
+        }
+        else if(Input.GetKeyDown(KeyCode.E) && PickedUp)
+        {
+            if (rb != null)
             {
-                if (rb != null)
-                {
-                    ReleaseItem(); 
-                }
+                ReleaseItem(); 
             }
         }
     }
 
     private void HoldItem()
     {
-        PickedUp = true;
         rb.useGravity = false;
         rb.isKinematic = true;
         item.GetComponent<MeshCollider>().enabled = false;
         item.transform.parent = parent;
         item.transform.localPosition = onhand;
         item.transform.localRotation = parent.localRotation;
+        PickedUp = true;
     }
 
     private void ReleaseItem()
     {
         if (!IsUsable())
         {
-            PickedUp = false;
-            item.transform.localPosition = new Vector3(0, 0.1f, 1.5f);
-            item.transform.rotation = new Quaternion(0, 0, 0, 1);
+            item.transform.position += fpsCam.transform.forward * 2;
+            pos = item.transform.position;
+            pos.y += 2;
+            if(item.transform.position.y <= transform.position.y)
+                item.transform.position = pos;
             item.transform.parent = null;
             rb.useGravity = true;
             rb.isKinematic = false;
             item.GetComponent<MeshCollider>().enabled = true;
+            PickedUp = false;
         }
     }
 
     private bool IsUsable()
     {
         RaycastHit hit;
-        if(item.tag == "Usable" && Physics.SphereCast(fpsCam.transform.position, 0.5f, fpsCam.transform.forward, out hit, 4f, usableLayer))
+        if(item.tag == "Usable" && Physics.SphereCast(fpsCam.transform.position - fpsCam.transform.forward * 2, 2f, fpsCam.transform.forward, out hit, 10f, usableLayer))
             return true;
         return false;
     }
@@ -78,7 +79,7 @@ public class PlaceHolderPickup : MonoBehaviour
     private bool FindItem()
     {
         RaycastHit hit;
-        if(Physics.SphereCast(fpsCam.transform.position - fpsCam.transform.forward * 2, 2f, fpsCam.transform.forward, out hit, 8f, itemLayer))
+        if(Physics.SphereCast(fpsCam.transform.position - fpsCam.transform.forward * 2, 2f, fpsCam.transform.forward, out hit, 10f, itemLayer))
         {
             rb = hit.transform.gameObject.GetComponent<Rigidbody>();
             item = hit.transform.gameObject;

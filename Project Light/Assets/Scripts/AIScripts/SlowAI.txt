@@ -14,6 +14,12 @@ tree("Chase")
 	fallback
 		tree "Hearing"
 		tree "Seeing"
+		tree "Hit"
+
+tree("Hit")
+	sequence
+		IsHit
+		ChasePlayer
 
 tree("Seeing")
 	sequence

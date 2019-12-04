@@ -14,8 +14,8 @@ public class Minion : MonoBehaviour
 
     // Chase Variables
     private float soundRange = 10f;
-    private float sightRange = 20f;
-    private float aggroRange = 30f;
+    private float sightRange = 15f;
+    private float aggroRange = 20f;
     public float chaseSpeed = 4f;
     private float aggroRadius = 3f;
 
@@ -48,6 +48,7 @@ public class Minion : MonoBehaviour
     private Vector3 directionToPlayer;
     private Rigidbody rb;
     private Animator m_Animator;
+    public bool IsShot = false;
 
     void Awake()
     {
@@ -160,6 +161,16 @@ public class Minion : MonoBehaviour
     }
 
     [Task]
+    public void IsHit()
+    {
+        if(IsShot)
+            Task.current.Succeed();
+        else
+            Task.current.Fail();
+
+    }
+
+    [Task]
     public void CanHearPlayer()
     {
         if(distanceToPlayer <= soundRange)
@@ -173,6 +184,8 @@ public class Minion : MonoBehaviour
     [Task]
     public void ChasePlayer()
     {
+        IsShot = false;
+
         if (m_Animator != null)
         {
             m_Animator.SetBool("Charge", true);
