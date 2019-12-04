@@ -13,12 +13,16 @@ public class LootScript : MonoBehaviour
     string name;
     Inventory inventory;
     GameObject player;
+    GameObject health;
+    MovementScript healthS;
 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Inventory");
         inventory = player.GetComponent<Inventory>();
+        health = GameObject.FindGameObjectWithTag("Player");
+        healthS = health.GetComponent<MovementScript>();
         render = GetComponent<Renderer>();
         oldColor = startColor;
         render.material.color = oldColor;
@@ -77,6 +81,11 @@ public class LootScript : MonoBehaviour
         if (itemName == "Water")
         {
             Inventory.water += 1;
+            Destroy(gameObject);
+        }
+        if (itemName == "Health")
+        {
+            healthS.health += 50;
             Destroy(gameObject);
         }
     }

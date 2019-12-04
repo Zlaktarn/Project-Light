@@ -63,6 +63,8 @@ public class MovementScript : MonoBehaviour
 
         if (health <= 0)
             health = 0;
+        if (health >= 100)
+            health = 100;
 
         if (Input.GetKeyDown(KeyCode.N))
             SavePlayer();
@@ -73,6 +75,7 @@ public class MovementScript : MonoBehaviour
             isDead = true;
         else
             isDead = false;
+
             
     }
 
