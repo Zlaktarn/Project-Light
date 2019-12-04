@@ -46,9 +46,11 @@ public class AISwipeAttack : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            knockBackDir = player.transform.position - transform.position;
-            if (!shield)
+            if (!shield && playerScript != null)
+            {
+                knockBackDir = player.transform.position - transform.position;
                 player.GetComponent<ImpactReceiver>().AddImpact(knockBackDir, force); 
+            }
 
             if (playerScript != null && !shield && !onlyOnce)
             {

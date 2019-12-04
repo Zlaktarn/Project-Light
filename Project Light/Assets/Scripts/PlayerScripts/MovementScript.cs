@@ -61,6 +61,9 @@ public class MovementScript : MonoBehaviour
     {
         PlayerControls();
 
+        if (health <= 0)
+            health = 0;
+
         if (Input.GetKeyDown(KeyCode.N))
             SavePlayer();
         if (Input.GetKeyDown(KeyCode.M))
@@ -118,7 +121,7 @@ public class MovementScript : MonoBehaviour
 
     private void SetMovementSpeed()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && Oxygen > 10)
         {
             movementSpeed = Mathf.Lerp(movementSpeed, runSpeed, Time.deltaTime * runBuildUpSpeed);
             soundRange = 20f;

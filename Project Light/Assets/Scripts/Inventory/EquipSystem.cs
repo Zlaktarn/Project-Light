@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EquipSystem : MonoBehaviour
 {
     public List<GameObject> equippable;
+
+    public PlaceHolderPickup plant;
     Inventory ammo;
 
     private int equipSlot = 1;
@@ -14,7 +16,6 @@ public class EquipSystem : MonoBehaviour
     {
         ammo = gameObject.GetComponent<Inventory>();
         equippable[0] = null;
-
     }
 
     void Update()
@@ -27,12 +28,27 @@ public class EquipSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) || PlaceHolderPickup.PickedUp)
             equipSlot = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha2) && ammo.crossbow > 0 && !PlaceHolderPickup.PickedUp)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && ammo.crossbow > 0)
+        {
+            if (PlaceHolderPickup.PickedUp)
+                plant.ReleaseItem();
+
             equipSlot = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha3) && ammo.gun > 0 && !PlaceHolderPickup.PickedUp)
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && ammo.gun > 0)
+        {
+            if (PlaceHolderPickup.PickedUp)
+                plant.ReleaseItem();
+
             equipSlot = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha4) && ammo.rifle > 0 && !PlaceHolderPickup.PickedUp)
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && ammo.rifle > 0)
+        {
+            if(PlaceHolderPickup.PickedUp)
+                plant.ReleaseItem();
+
             equipSlot = 4;
+        }
     }
 
     private void Equipped()

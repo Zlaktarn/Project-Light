@@ -24,14 +24,14 @@ public class PlaceHolderPickup : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !PickedUp)
+        if (Input.GetKeyDown(KeyCode.Q) && !PickedUp)
         {
             if (FindItem())
             {
                 HoldItem(); 
             }
         }
-        else if(Input.GetKeyDown(KeyCode.E) && PickedUp)
+        else if(Input.GetKeyDown(KeyCode.Q) && PickedUp)
         {
             if (rb != null)
             {
@@ -40,7 +40,7 @@ public class PlaceHolderPickup : MonoBehaviour
         }
     }
 
-    private void HoldItem()
+    public void HoldItem()
     {
         rb.useGravity = false;
         rb.isKinematic = true;
@@ -51,7 +51,7 @@ public class PlaceHolderPickup : MonoBehaviour
         PickedUp = true;
     }
 
-    private void ReleaseItem()
+    public void ReleaseItem()
     {
         if (!IsUsable())
         {

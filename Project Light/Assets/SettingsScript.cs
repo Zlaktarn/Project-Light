@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SettingsScript : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
@@ -80,15 +80,15 @@ public class SettingsScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q)/* && !settingsShow && !helpShow*/) //check if keyDown 'p' while playing or being in settings or help menu
+        if(Input.GetKeyDown(KeyCode.P)/* && !settingsShow && !helpShow*/) //check if keyDown 'p' while playing or being in settings or help menu
         {
             if(!GameIsPaused)
-            {                       
+            {
                 Pause();
                 return;
             }
-            if(GameIsPaused)
-            {                       
+            else if (GameIsPaused)
+            {
                 Resume();
                 return;
             }
