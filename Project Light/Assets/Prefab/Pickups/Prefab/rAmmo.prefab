@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: rAmmo
       objectReference: {fileID: 0}
-    - target: {fileID: 8511711584888013082, guid: 0b7a64587265a7747bc9f83ae5d94450,
-        type: 3}
-      propertyPath: m_TagString
-      value: Usable
-      objectReference: {fileID: 0}
     - target: {fileID: 2892517984538023388, guid: 0b7a64587265a7747bc9f83ae5d94450,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

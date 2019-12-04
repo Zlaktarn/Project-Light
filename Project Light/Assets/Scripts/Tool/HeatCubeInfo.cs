@@ -6,8 +6,6 @@ public class HeatCubeInfo : MonoBehaviour
 {
     public int score = 0;
     public int deaths = 0;
-    public int aiScore = 0;
-    public int items = 0;
     private int colorScore = 0;
     private int maxScore = 15;
     private Material mat;
@@ -27,60 +25,6 @@ public class HeatCubeInfo : MonoBehaviour
     public int GetDeaths()
     {
         return deaths;
-    }
-
-    public int GetItems()
-    {
-        return items;
-    }
-
-    public int GetAIScore()
-    {
-        return aiScore;
-    }
-
-    public void ResetItems()
-    {
-        items = 0;
-        mat.color = Color.Lerp(startColor, endColor, (float)items/maxScore);
-    }
-
-    public void ResetAIScore()
-    {
-        aiScore = 0;
-        mat.color = Color.Lerp(startColor, endColor, (float)aiScore/maxScore);
-    }
-
-    public void SetItems(int i)
-    {
-        items = i;
-        mat.color = Color.Lerp(startColor, endColor, (float)items/maxScore);
-        if(items >= maxScore)
-            items = maxScore;
-    }
-
-    public void SetAIScore(int i)
-    {
-        aiScore = i;
-        mat.color = Color.Lerp(startColor, endColor, (float)aiScore/maxScore);
-        if(aiScore >= maxScore)
-            aiScore = maxScore;
-    }
-
-    public void AddItems(int i)
-    {
-        items += i;
-        mat.color = Color.Lerp(startColor, endColor, (float)items/maxScore);
-        if(items >= maxScore)
-            items = maxScore;
-    }
-
-    public void AddAIScore(int i)
-    {
-        aiScore += i;
-        mat.color = Color.Lerp(startColor, endColor, (float)aiScore/maxScore);
-        if(aiScore >= maxScore)
-            aiScore = maxScore;
     }
 
     public void ResetDeaths()
@@ -150,15 +94,9 @@ public class HeatCubeInfo : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
+        {
             AddScore(1);
-        if(other.tag == "Enemy")
-            AddAIScore(1);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "Usable")
-                AddItems(15);
+        }
     }
 
     void OnTriggerStay(Collider other)

@@ -4874,7 +4874,7 @@ GameObject:
   - component: {fileID: 874290464}
   m_Layer: 0
   m_Name: RevolverPickup
-  m_TagString: Usable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4907,7 +4907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844b5943128bd7d40a970fd244494311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedUp: 0
   itemName: Gun
 --- !u!54 &89712569333493690
 Rigidbody:
