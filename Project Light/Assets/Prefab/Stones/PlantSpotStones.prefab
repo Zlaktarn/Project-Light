@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 7516460763872327553, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_Name
-      value: RoundStone
+      value: PlantSpotStones
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -86,6 +91,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -171,6 +181,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,6 +269,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -339,6 +359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,6 +447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -507,6 +537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -590,6 +625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -675,6 +715,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -758,6 +803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -843,6 +893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -926,6 +981,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1011,6 +1071,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1094,6 +1159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1179,6 +1249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,6 +1337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1347,6 +1427,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1430,6 +1515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1515,6 +1605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1598,6 +1693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1683,6 +1783,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1766,6 +1871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -1851,6 +1961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1934,6 +2049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -2019,6 +2139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2102,6 +2227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -2187,6 +2317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2270,6 +2405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -2355,6 +2495,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2438,6 +2583,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
@@ -2523,6 +2673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoundStone (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2606,6 +2761,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoundStone (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102823663882421085, guid: 829d40a53ef64e9468627347275ae82d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779198255505048978, guid: 829d40a53ef64e9468627347275ae82d,
         type: 3}
